@@ -1,7 +1,7 @@
 /*
- * digpot.h
- *  Created on: Feb 22, 2015
- *      Author: Sebastian
+ *	digpot.h
+ *	Created on: Feb 22, 2015
+ *	Author: Sebastian
  *		This code is to control the CAT5259YI Digital Potentiometer using a 
  *		TI MSP430 Launchpad.
  *		This header file contains all necessary prototypes to adjust the potentiometer's 
