@@ -1,0 +1,40 @@
+#include <msp430.h> 
+//#include "digpot.h"
+#include <math.h>
+
+#define ADDR 0x50
+#define WRITE_OP_CODE 0xA0
+
+/*
+ * main.c
+ * 		By Sebastian Roe
+ * 		Code to control the CAT5259YI Digital Potentiometer using the MSP430.
+ */
+int main(void) {
+    WDTCTL = WDTPW | WDTHOLD;	// Stop watchdog timer
+    //UCMODE0 = 11;				//I2C Master Mode Set
+    //UCSYNC = 1;
+    //UCA10 = 0;				//7-Bit Addressing
+
+    UCB0CTL0 = 0x0F;
+    UCB0CTL1 = 0x
+
+
+    //UCTXSTT = 1;				//Start Condition
+
+    int i;
+	while(1)
+	{
+		for(i=0; i<255; ++i)
+		{
+			// send ADDR
+			// send op code
+			// send i
+			// wait for a little bit
+		}
+	}
+
+
+	//UCTXSTP = 1;				//Stop Condition
+	return 0;
+}

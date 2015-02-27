@@ -1,0 +1,14 @@
+#include <msp430.h> 
+#include "digpot.h"
+#include <math.h>
+
+/*
+ * main.c
+ * 		By Sebastian Roe
+ * 		Code to control the CAT5259YI Digital Potentiometer using the MSP430.
+ */
+int main(void) {
+    WDTCTL = WDTPW | WDTHOLD;	// Stop watchdog timer
+	
+	return 0;
+}
