@@ -5,7 +5,7 @@
  *		This code is to control the CAT5259YI Digital Potentiometer using a 
  *		TI MSP430 Launchpad.
  *		This header file contains all necessary prototypes to adjust the potentiometer's 
- *		value between 50k Ohms and 100k Ohms, as well as the necessary constant definitions.
+ *		value up to 100k Ohms, as well as the necessary constant definitions.
  */
 
 #ifndef DIGPOT_H_
@@ -13,20 +13,21 @@
 #include <stdint.h>
 
 //Slave Address
-#define staticAddr 0x05
-
-//Selects pin A1 as high, must be pulled high, and all other pins (A0, A2, A3) pulled low.
-#define AddrSelect 0x02
+#define ADDR 0x05
+//This address defines A0-A3 as low
 
 //OP Commands
 #define ReadWCRCmd 0x90
 #define WriteWCRCmd 0xa0
+
 #define ReadDRCmd 0xb0
 #define WriteDRCmd 0xc0
+
 #define XFR_DR_to_WCR 0xd0
 #define XFR_WCR_to_DR 0xe0
 #define GangXFR_DR_to_WCR 0x01
 #define GangXFR_WCR_to_DR 0x02
+
 #define Inc_Dec_Enable 0x02
 
 //Potentiometer and Data Register Address
