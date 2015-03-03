@@ -1,0 +1,39 @@
+#include <msp430.h> 
+#include <math.h>
+/*
+ * main.c
+ */
+
+
+
+int main(void) {
+
+    WDTCTL = WDTPW | WDTHOLD;	// Stop watchdog timer
+
+
+
+
+
+    //Initializes CLK control register 0 with cskey - 96h
+    CSCTL0 = 0x9600;
+
+    //Initializes CLK control register 2 with external crystal set as source for MCLK and SMCLK
+    CSCTL1 = 0x55;
+
+    //Initialzes MCLK source divider to /1, and SMCLK source divider to /2
+    CSCTL3 = 0x10;
+
+    //Initializes HF CLK source to 1, sourced from external crystal, turns on SMCLK, sets current draw for external crystal to intermediate value
+    CSCTL4 = 0x4C09;
+
+    //Initializes all fault counters to off
+    CSCTL5 = 0x00;
+
+    //Initializes conditional module requests for SMCLK and MCLK to on
+    CSCL6 = 0x06;
+
+
+
+	
+	return 0;
+}

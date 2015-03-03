@@ -1,0 +1,14 @@
+#include <msp430.h> 
+#include <math.h>
+
+/* main.c
+ * Main program to read, interpret, and log data from capacitive sensor.
+ */
+
+
+
+int main(void) {
+    WDTCTL = WDTPW | WDTHOLD;	// Stop watchdog timer
+	
+	return 0;
+}
