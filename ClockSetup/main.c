@@ -12,15 +12,15 @@ int main(void) {
     WDTCTL = WDTPW | WDTHOLD;
 
     //Sets pins J.6 and J.7 to external HF crystal mode
-    PJSEL1.6 = 0x00;
-    PJSEL0.6 = 0x01;
+    PJSEL1 = 0x00;
+    PJSEL0 = 0x40;
 
     //Set pin 1.5 to Digital I/O initialized high
-    P1DIR.5 = 0x01;
-    P1SEL1.5 = 0x00;
-    P1SEL0.5 = 0x00;
+    P1DIR = 0x10;
+    P1SEL1 = 0x00;
+    P1SEL0 = 0x00;
 
-    P1OUT = 0x10;
+    P1OUT = 0x20;
 
     //Initializes CLK control register 0 with cskey = 96h
     CSCTL0 = 0x9600;
@@ -38,7 +38,7 @@ int main(void) {
     CSCTL5 = 0x00;
 
     //Initializes conditional module requests for SMCLK and MCLK to on
-    CSCL6 = 0x06;
+    CSCTL6 = 0x06;
 
     //Initializes Timer_A with SMCLK source, pre-scaler /2, continuous mode, cleared counter, interrupts enabled
     TA1CTL = 0x262;
@@ -48,14 +48,17 @@ int main(void) {
 
     //Enables global iterrupts
     __enable_interrupt();
+
     while(1);
 
 }
 
-interrupt (TA1IV) IntServiceRoutine(void) {
+#pragma vector=TIMER1_A1_VECTOR
+__interrupt void TIMERA1_ISR (void){
 	switch (TA1IV) {
 		case 0x0E:
-			P1OUT ^= 0x10;
+			P1OUT ^= 0x20;
 			break;
 	}
 }
+
