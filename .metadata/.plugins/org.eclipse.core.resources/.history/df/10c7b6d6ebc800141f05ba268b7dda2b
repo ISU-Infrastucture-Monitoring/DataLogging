@@ -2,8 +2,6 @@
 #include <math.h>
 /*
  * main.c
- * 		Main function to use external clock for MSP430FR series launchpad
- *
  */
 
 

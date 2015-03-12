@@ -9,7 +9,7 @@
 
 /*
  * main.c
- * 		By Sebastian Roe && Jeramie Vens
+ * 		By Sebastian Roe & Jeramie Vens
  * 		Code to control the CAT5259YI Digital Potentiometer using the MSP430.
  */
 void main(void) {
