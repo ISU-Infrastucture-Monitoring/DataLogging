@@ -46,8 +46,6 @@ int main(void) {
     //Initializes Timer_A counter to 0
     TA1R = 0x00;
 
-    //Enables global iterrupts
-    __enable_interrupt();
     while(1);
 
 }

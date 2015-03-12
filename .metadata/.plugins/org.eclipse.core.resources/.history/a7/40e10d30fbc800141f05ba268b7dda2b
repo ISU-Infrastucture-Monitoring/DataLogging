@@ -6,6 +6,8 @@
  *
  */
 
+
+
 int main(void) {
 
 	// Stop watchdog timer
@@ -15,12 +17,13 @@ int main(void) {
     PJSEL1.6 = 0x00;
     PJSEL0.6 = 0x01;
 
+
     //Set pin 1.5 to Digital I/O initialized high
     P1DIR.5 = 0x01;
     P1SEL1.5 = 0x00;
     P1SEL0.5 = 0x00;
 
-    P1OUT = 0x10;
+
 
     //Initializes CLK control register 0 with cskey = 96h
     CSCTL0 = 0x9600;
@@ -40,22 +43,19 @@ int main(void) {
     //Initializes conditional module requests for SMCLK and MCLK to on
     CSCL6 = 0x06;
 
+
     //Initializes Timer_A with SMCLK source, pre-scaler /2, continuous mode, cleared counter, interrupts enabled
     TA1CTL = 0x262;
 
     //Initializes Timer_A counter to 0
     TA1R = 0x00;
 
-    //Enables global iterrupts
-    __enable_interrupt();
     while(1);
 
 }
 
+
 interrupt (TA1IV) IntServiceRoutine(void) {
-	switch (TA1IV) {
-		case 0x0E:
-			P1OUT ^= 0x10;
-			break;
-	}
+
+
 }
