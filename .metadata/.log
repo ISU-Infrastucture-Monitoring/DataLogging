@@ -1619,3 +1619,511 @@ No USB FET was found
 !ENTRY com.ti.ccstudio.debug 1 0 2015-03-12 17:49:32.085
 !MESSAGE DS_ERROR: Error initializing emulator:
 No USB FET was found
+!SESSION 2015-03-12 17:50:58.810 -----------------------------------------------
+eclipse.buildId=4.4.1.M20140925-0400
+java.version=1.7.0_60
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86, WS=win32, NL=en_US
+Framework arguments:  -product com.ti.ccstudio.branding.product
+Command-line arguments:  -os win32 -ws win32 -arch x86 -product com.ti.ccstudio.branding.product
+
+!ENTRY com.ti.common.core 4 0 2015-03-12 17:51:27.998
+!MESSAGE path=ccs_base/DebugServer
+
+!ENTRY com.ti.common.core 4 0 2015-03-12 17:51:28.004
+!MESSAGE debugServerDir=C:/ti/ccsv6/ccs_base/DebugServer
+
+!ENTRY org.eclipse.cdt.core 1 0 2015-03-12 17:52:03.576
+!MESSAGE Indexed 'ClockSetup' (1 sources, 12 headers) in 1.5 sec: 1,430 declarations; 1,654 references; 0 unresolved inclusions; 1 syntax errors; 0 unresolved names (0%)
+
+!ENTRY com.ti.ccstudio.debug 1 0 2015-03-12 17:52:03.701
+!MESSAGE DS_ERROR: MSP430: Error initializing emulator: No USB FET was found
+
+
+!ENTRY com.ti.ccstudio.debug 1 0 2015-03-12 17:52:03.863
+!MESSAGE DS_ERROR: Error initializing emulator:
+No USB FET was found
+
+!ENTRY com.ti.ccstudio.debug 1 0 2015-03-12 17:53:38.180
+!MESSAGE DS_ERROR: MSP430: Error initializing emulator: No USB FET was found
+
+
+!ENTRY com.ti.ccstudio.debug 1 0 2015-03-12 17:53:38.325
+!MESSAGE DS_ERROR: Error initializing emulator:
+No USB FET was found
+
+!ENTRY com.ti.ccstudio.debug 1 0 2015-03-12 18:00:32.592
+!MESSAGE DS_ERROR: MSP430: Error initializing emulator: No USB FET was found
+
+
+!ENTRY com.ti.ccstudio.debug 1 0 2015-03-12 18:00:32.804
+!MESSAGE DS_ERROR: Error initializing emulator:
+No USB FET was found
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2015-03-12 18:00:43.328
+!MESSAGE Request for monitor: 'RequestMonitor (com.ti.ccstudio.leru.model.LervmBuddy$1@1d86f89): Status ERROR: com.ti.ccstudio.debug code=20001 com.ti.debug.engine.IApplication$InitializationException: MSP430: Error initializing emulator: No USB FET was found
+ com.ti.ccstudio.debug.launch.LaunchValidationException: com.ti.debug.engine.IApplication$InitializationException: MSP430: Error initializing emulator: No USB FET was found
+' resulted in an error.
+!SUBENTRY 1 com.ti.ccstudio.debug 4 20001 2015-03-12 18:00:43.328
+!MESSAGE com.ti.debug.engine.IApplication$InitializationException: MSP430: Error initializing emulator: No USB FET was found
+
+!STACK 0
+com.ti.ccstudio.debug.launch.LaunchValidationException: com.ti.debug.engine.IApplication$InitializationException: MSP430: Error initializing emulator: No USB FET was found
+
+	at com.ti.ccstudio.debug.service.ApplicationService$2.onEvent(ApplicationService.java:203)
+	at com.ti.ccstudio.debug.service.ApplicationService$2.onEvent(ApplicationService.java:1)
+	at com.ti.debug.engine.impl.Application$3$1.run(Application.java:294)
+Caused by: com.ti.debug.engine.IApplication$InitializationException: MSP430: Error initializing emulator: No USB FET was found
+
+	at com.ti.debug.engine.impl.Application.getInitializationException(Application.java:371)
+	at com.ti.debug.engine.impl.Application.postConfigure(Application.java:362)
+	at com.ti.debug.engine.impl.Application.access$500(Application.java:56)
+	at com.ti.debug.engine.impl.Application$3$1.run(Application.java:284)
+
+!ENTRY com.ti.ccstudio.debug 1 0 2015-03-12 18:01:16.387
+!MESSAGE DS_ERROR: MSP430: Error initializing emulator: No USB FET was found
+
+
+!ENTRY com.ti.ccstudio.debug 1 0 2015-03-12 18:01:16.554
+!MESSAGE DS_ERROR: Error initializing emulator:
+No USB FET was found
+
+!ENTRY org.eclipse.equinox.p2.operations 2 0 2015-03-12 18:15:49.584
+!MESSAGE Operation details
+!SUBENTRY 1 org.eclipse.equinox.p2.operations 2 10001 2015-03-12 18:15:49.584
+!MESSAGE Your original request has been modified.
+!SUBENTRY 2 org.eclipse.equinox.p2.operations 2 10004 2015-03-12 18:15:49.584
+!MESSAGE "REQUIRED CCS Update Installation Tool" will be ignored because a newer version is already installed. 
+!SUBENTRY 2 org.eclipse.equinox.p2.operations 2 10004 2015-03-12 18:15:49.584
+!MESSAGE "MSP430 Emulators" will be ignored because a newer version is already installed. 
+
+!ENTRY org.eclipse.equinox.p2.operations 2 0 2015-03-12 18:15:49.607
+!MESSAGE Operation details
+!SUBENTRY 1 org.eclipse.equinox.p2.operations 2 10001 2015-03-12 18:15:49.607
+!MESSAGE Your original request has been modified.
+!SUBENTRY 2 org.eclipse.equinox.p2.operations 2 10004 2015-03-12 18:15:49.607
+!MESSAGE "REQUIRED CCS Update Installation Tool" will be ignored because a newer version is already installed. 
+!SUBENTRY 2 org.eclipse.equinox.p2.operations 2 10004 2015-03-12 18:15:49.607
+!MESSAGE "MSP430 Emulators" will be ignored because a newer version is already installed. 
+!SESSION 2015-03-12 18:18:24.101 -----------------------------------------------
+eclipse.buildId=4.4.1.M20140925-0400
+java.version=1.7.0_60
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86, WS=win32, NL=en_US
+Framework arguments:  -product com.ti.ccstudio.branding.product
+Command-line arguments:  -os win32 -ws win32 -arch x86 -product com.ti.ccstudio.branding.product
+
+!ENTRY com.ti.common.core 4 0 2015-03-12 18:18:29.122
+!MESSAGE path=ccs_base/DebugServer
+
+!ENTRY com.ti.common.core 4 0 2015-03-12 18:18:29.141
+!MESSAGE debugServerDir=C:/ti/ccsv6/ccs_base/DebugServer
+
+!ENTRY com.ti.ccstudio.debug 1 0 2015-03-12 18:19:09.913
+!MESSAGE DS_ERROR: MSP430: Error initializing emulator: No USB FET was found
+
+
+!ENTRY org.eclipse.cdt.core 1 0 2015-03-12 18:19:10.049
+!MESSAGE Indexed 'ClockSetup' (1 sources, 12 headers) in 0.676 sec: 1,430 declarations; 1,654 references; 0 unresolved inclusions; 1 syntax errors; 0 unresolved names (0%)
+
+!ENTRY com.ti.ccstudio.debug 1 0 2015-03-12 18:19:10.309
+!MESSAGE DS_ERROR: Error initializing emulator:
+No USB FET was found
+
+!ENTRY com.ti.ccstudio.debug 1 0 2015-03-12 18:19:11.668
+!MESSAGE DS_ERROR: MSP430: Error initializing emulator: No USB FET was found
+
+
+!ENTRY com.ti.ccstudio.debug 1 0 2015-03-12 18:19:11.690
+!MESSAGE DS_ERROR: Error initializing emulator:
+No USB FET was found
+!SESSION 2015-03-12 18:21:49.572 -----------------------------------------------
+eclipse.buildId=4.4.1.M20140925-0400
+java.version=1.7.0_60
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86, WS=win32, NL=en_US
+Framework arguments:  -product com.ti.ccstudio.branding.product
+Command-line arguments:  -os win32 -ws win32 -arch x86 -product com.ti.ccstudio.branding.product
+
+!ENTRY com.ti.common.core 4 0 2015-03-12 18:21:53.143
+!MESSAGE path=ccs_base/DebugServer
+
+!ENTRY com.ti.common.core 4 0 2015-03-12 18:21:53.149
+!MESSAGE debugServerDir=C:/ti/ccsv6/ccs_base/DebugServer
+
+!ENTRY org.eclipse.cdt.core 1 0 2015-03-12 18:22:17.141
+!MESSAGE Indexed 'ClockSetup' (1 sources, 12 headers) in 1.38 sec: 1,430 declarations; 1,654 references; 0 unresolved inclusions; 1 syntax errors; 0 unresolved names (0%)
+
+!ENTRY com.ti.ccstudio.debug 1 0 2015-03-12 18:22:17.199
+!MESSAGE DS_ERROR: MSP430: Error initializing emulator: No USB FET was found
+
+
+!ENTRY com.ti.ccstudio.debug 1 0 2015-03-12 18:22:17.336
+!MESSAGE DS_ERROR: Error initializing emulator:
+No USB FET was found
+
+!ENTRY com.ti.ccstudio.debug 1 0 2015-03-12 18:22:20.024
+!MESSAGE DS_ERROR: MSP430: Error initializing emulator: No USB FET was found
+
+
+!ENTRY com.ti.ccstudio.debug 1 0 2015-03-12 18:22:20.033
+!MESSAGE DS_ERROR: Error initializing emulator:
+No USB FET was found
+
+!ENTRY com.ti.ccstudio.debug 1 0 2015-03-12 18:22:20.907
+!MESSAGE DS_ERROR: MSP430: Error initializing emulator: No USB FET was found
+
+
+!ENTRY com.ti.ccstudio.debug 1 0 2015-03-12 18:22:20.916
+!MESSAGE DS_ERROR: Error initializing emulator:
+No USB FET was found
+
+!ENTRY com.ti.ccstudio.debug 1 0 2015-03-12 18:22:21.582
+!MESSAGE DS_ERROR: MSP430: Error initializing emulator: No USB FET was found
+
+
+!ENTRY com.ti.ccstudio.debug 1 0 2015-03-12 18:22:21.593
+!MESSAGE DS_ERROR: Error initializing emulator:
+No USB FET was found
+
+!ENTRY com.ti.ccstudio.system.setup.ui 1 0 2015-03-12 18:28:55.181
+!MESSAGE targetCfgPath1=C:/Users/SEBAST~1/user/CCSTargetConfigurations
+
+!ENTRY com.ti.ccstudio.system.setup.ui 1 0 2015-03-12 18:28:55.188
+!MESSAGE targetCfgPath2=C:/Users/SEBAST~1/ti/CCSTargetConfigurations
+!SESSION 2015-03-24 12:36:10.226 -----------------------------------------------
+eclipse.buildId=4.4.1.M20140925-0400
+java.version=1.7.0_60
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86, WS=win32, NL=en_US
+Framework arguments:  -product com.ti.ccstudio.branding.product
+Command-line arguments:  -os win32 -ws win32 -arch x86 -product com.ti.ccstudio.branding.product
+
+!ENTRY com.ti.common.core 4 0 2015-03-24 12:36:17.012
+!MESSAGE path=ccs_base/DebugServer
+
+!ENTRY com.ti.common.core 4 0 2015-03-24 12:36:17.059
+!MESSAGE debugServerDir=C:/ti/ccsv6/ccs_base/DebugServer
+
+!ENTRY com.ti.ccstudio.system.setup.ui 1 0 2015-03-24 12:36:49.540
+!MESSAGE targetCfgPath1=C:/Users/SEBAST~1/user/CCSTargetConfigurations
+
+!ENTRY com.ti.ccstudio.system.setup.ui 1 0 2015-03-24 12:36:49.540
+!MESSAGE targetCfgPath2=C:/Users/SEBAST~1/ti/CCSTargetConfigurations
+
+!ENTRY org.eclipse.cdt.core 1 0 2015-03-24 12:37:02.551
+!MESSAGE Indexed 'ClockSetup' (1 sources, 12 headers) in 0.64 sec: 1,430 declarations; 1,654 references; 0 unresolved inclusions; 1 syntax errors; 0 unresolved names (0%)
+
+!ENTRY com.ti.ccstudio.debug 1 0 2015-03-24 12:37:11.958
+!MESSAGE DS_ERROR: MSP430: Error initializing emulator: No USB FET was found
+
+
+!ENTRY com.ti.ccstudio.debug 1 0 2015-03-24 12:37:12.145
+!MESSAGE DS_ERROR: Error initializing emulator:
+No USB FET was found
+
+!ENTRY com.ti.ccstudio.debug 1 0 2015-03-24 12:37:14.516
+!MESSAGE DS_ERROR: MSP430: Error initializing emulator: No USB FET was found
+
+
+!ENTRY com.ti.ccstudio.debug 1 0 2015-03-24 12:37:14.532
+!MESSAGE DS_ERROR: Error initializing emulator:
+No USB FET was found
+!SESSION 2015-03-24 12:47:26.468 -----------------------------------------------
+eclipse.buildId=4.4.1.M20140925-0400
+java.version=1.7.0_60
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86, WS=win32, NL=en_US
+Framework arguments:  -product com.ti.ccstudio.branding.product
+Command-line arguments:  -os win32 -ws win32 -arch x86 -product com.ti.ccstudio.branding.product
+
+!ENTRY com.ti.common.core 4 0 2015-03-24 12:47:34.005
+!MESSAGE path=ccs_base/DebugServer
+
+!ENTRY com.ti.common.core 4 0 2015-03-24 12:47:34.005
+!MESSAGE debugServerDir=C:/ti/ccsv6/ccs_base/DebugServer
+
+!ENTRY com.ti.ccstudio.system.setup.ui 1 0 2015-03-24 12:47:42.134
+!MESSAGE targetCfgPath1=C:/Users/SEBAST~1/user/CCSTargetConfigurations
+
+!ENTRY com.ti.ccstudio.system.setup.ui 1 0 2015-03-24 12:47:42.134
+!MESSAGE targetCfgPath2=C:/Users/SEBAST~1/ti/CCSTargetConfigurations
+
+!ENTRY com.ti.ccstudio.debug 1 0 2015-03-24 12:47:52.749
+!MESSAGE DS_ERROR: MSP430: Error initializing emulator: No USB FET was found
+
+
+!ENTRY com.ti.ccstudio.debug 1 0 2015-03-24 12:47:53.061
+!MESSAGE DS_ERROR: Error initializing emulator:
+No USB FET was found
+
+!ENTRY org.eclipse.cdt.core 1 0 2015-03-24 12:47:53.295
+!MESSAGE Indexed 'ClockSetup' (1 sources, 12 headers) in 1.87 sec: 1,430 declarations; 1,654 references; 0 unresolved inclusions; 1 syntax errors; 0 unresolved names (0%)
+
+!ENTRY com.ti.ccstudio.debug 1 0 2015-03-24 12:48:00.271
+!MESSAGE DS_ERROR: MSP430: Error initializing emulator: No USB FET was found
+
+
+!ENTRY com.ti.ccstudio.debug 1 0 2015-03-24 12:48:00.271
+!MESSAGE DS_ERROR: Error initializing emulator:
+No USB FET was found
+
+!ENTRY com.ti.ccstudio.debug 1 0 2015-03-24 12:48:01.004
+!MESSAGE DS_ERROR: MSP430: Error initializing emulator: No USB FET was found
+
+
+!ENTRY com.ti.ccstudio.debug 1 0 2015-03-24 12:48:01.004
+!MESSAGE DS_ERROR: Error initializing emulator:
+No USB FET was found
+
+!ENTRY com.ti.ccstudio.debug 1 0 2015-03-24 12:48:01.597
+!MESSAGE DS_ERROR: MSP430: Error initializing emulator: No USB FET was found
+
+
+!ENTRY com.ti.ccstudio.debug 1 0 2015-03-24 12:48:01.612
+!MESSAGE DS_ERROR: Error initializing emulator:
+No USB FET was found
+
+!ENTRY com.ti.ccstudio.debug 1 0 2015-03-24 12:48:02.283
+!MESSAGE DS_ERROR: MSP430: Error initializing emulator: No USB FET was found
+
+
+!ENTRY com.ti.ccstudio.debug 1 0 2015-03-24 12:48:02.299
+!MESSAGE DS_ERROR: Error initializing emulator:
+No USB FET was found
+
+!ENTRY com.ti.ccstudio.debug 1 0 2015-03-24 12:48:02.923
+!MESSAGE DS_ERROR: MSP430: Error initializing emulator: No USB FET was found
+
+
+!ENTRY com.ti.ccstudio.debug 1 0 2015-03-24 12:48:02.923
+!MESSAGE DS_ERROR: Error initializing emulator:
+No USB FET was found
+
+!ENTRY com.ti.ccstudio.debug 1 0 2015-03-24 12:48:33.326
+!MESSAGE DS_ERROR: MSP430: Error initializing emulator: No USB FET was found
+
+
+!ENTRY com.ti.ccstudio.debug 1 0 2015-03-24 12:48:33.420
+!MESSAGE DS_ERROR: Error initializing emulator:
+No USB FET was found
+!SESSION 2015-03-24 13:42:46.816 -----------------------------------------------
+eclipse.buildId=4.4.1.M20140925-0400
+java.version=1.7.0_60
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86, WS=win32, NL=en_US
+Framework arguments:  -product com.ti.ccstudio.branding.product
+Command-line arguments:  -os win32 -ws win32 -arch x86 -product com.ti.ccstudio.branding.product
+
+!ENTRY com.ti.common.core 4 0 2015-03-24 13:43:26.809
+!MESSAGE path=ccs_base/DebugServer
+
+!ENTRY com.ti.common.core 4 0 2015-03-24 13:43:26.825
+!MESSAGE debugServerDir=C:/ti/ccsv6/ccs_base/DebugServer
+
+!ENTRY com.ti.ccstudio.system.setup.ui 1 0 2015-03-24 13:43:34.616
+!MESSAGE targetCfgPath1=C:/Users/SEBAST~1/user/CCSTargetConfigurations
+
+!ENTRY com.ti.ccstudio.system.setup.ui 1 0 2015-03-24 13:43:34.632
+!MESSAGE targetCfgPath2=C:/Users/SEBAST~1/ti/CCSTargetConfigurations
+
+!ENTRY org.eclipse.cdt.core 1 0 2015-03-24 13:44:52.116
+!MESSAGE Indexed 'ClockSetup' (1 sources, 12 headers) in 0.624 sec: 1,430 declarations; 1,654 references; 0 unresolved inclusions; 1 syntax errors; 0 unresolved names (0%)
+
+!ENTRY com.ti.ccstudio.debug 1 0 2015-03-24 13:44:55.873
+!MESSAGE DS_ERROR: MSP430: Error initializing emulator: No USB FET was found
+
+
+!ENTRY com.ti.ccstudio.debug 1 0 2015-03-24 13:44:55.997
+!MESSAGE DS_ERROR: Error initializing emulator:
+No USB FET was found
+
+!ENTRY org.eclipse.core.jobs 4 2 2015-03-24 13:45:03.576
+!MESSAGE An internal error occurred during: "Replace IU Job".
+!STACK 0
+java.lang.NullPointerException
+	at com.ti.ccstudio.app.center.internal.CCSAppCenter.log(CCSAppCenter.java:441)
+	at com.ti.ccstudio.app.center.internal.CCSAppCenter._replaceIusWithLatest(CCSAppCenter.java:409)
+	at com.ti.ccstudio.app.center.internal.CCSAppCenter.access$3(CCSAppCenter.java:353)
+	at com.ti.ccstudio.app.center.internal.CCSAppCenter$2.run(CCSAppCenter.java:227)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+
+!ENTRY org.eclipse.equinox.p2.engine 4 4 2015-03-24 13:45:03.685
+!MESSAGE An error occurred while committing the engine session for profile: epp.package.cpp.
+!SUBENTRY 1 org.eclipse.equinox.p2.engine 4 0 2015-03-24 13:45:03.685
+!MESSAGE An error occurred while undoing the org.eclipse.equinox.internal.p2.engine.phases.Collect phase.
+!STACK 0
+java.lang.NullPointerException
+	at org.eclipse.equinox.internal.p2.engine.EngineSession.getProfileDataDirectory(EngineSession.java:78)
+	at org.eclipse.equinox.internal.p2.engine.Phase.prePerform(Phase.java:113)
+	at org.eclipse.equinox.internal.p2.engine.EngineSession.rollBackPhase(EngineSession.java:230)
+	at org.eclipse.equinox.internal.p2.engine.EngineSession.rollback(EngineSession.java:179)
+	at org.eclipse.equinox.internal.p2.engine.Engine.perform(Engine.java:84)
+	at org.eclipse.equinox.internal.p2.engine.Engine.perform(Engine.java:44)
+	at org.eclipse.equinox.p2.operations.ProvisioningSession.performProvisioningPlan(ProvisioningSession.java:174)
+	at org.eclipse.equinox.p2.operations.ProfileModificationJob.runModal(ProfileModificationJob.java:79)
+	at com.ti.ccstudio.app.center.internal.browser.AppCenterBrowserFunctions$AtomicProvisioningJob.runModal(AppCenterBrowserFunctions.java:121)
+	at org.eclipse.equinox.p2.operations.ProvisioningJob.run(ProvisioningJob.java:177)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+
+!ENTRY org.eclipse.core.jobs 4 2 2015-03-24 13:45:03.701
+!MESSAGE An internal error occurred during: "Searching for new products".
+!STACK 0
+java.lang.NullPointerException
+	at org.eclipse.rtsc.project.ui.RTSCProjectUIPreferences.isAutodiscoveryEnabled(RTSCProjectUIPreferences.java:25)
+	at org.eclipse.rtsc.project.ui.extdiscovery.ExtensionSiteDiscoveryDelegate$1.run(ExtensionSiteDiscoveryDelegate.java:48)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+!SESSION 2015-03-24 13:45:16.545 -----------------------------------------------
+eclipse.buildId=4.4.1.M20140925-0400
+java.version=1.7.0_60
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86, WS=win32, NL=en_US
+Framework arguments:  -product com.ti.ccstudio.branding.product
+Command-line arguments:  -os win32 -ws win32 -arch x86 -product com.ti.ccstudio.branding.product
+
+!ENTRY com.ti.common.core 4 0 2015-03-24 13:45:21.224
+!MESSAGE path=ccs_base/DebugServer
+
+!ENTRY com.ti.common.core 4 0 2015-03-24 13:45:21.224
+!MESSAGE debugServerDir=C:/ti/ccsv6/ccs_base/DebugServer
+
+!ENTRY com.ti.ccstudio.system.setup.ui 1 0 2015-03-24 13:45:27.021
+!MESSAGE targetCfgPath1=C:/Users/SEBAST~1/user/CCSTargetConfigurations
+
+!ENTRY com.ti.ccstudio.system.setup.ui 1 0 2015-03-24 13:45:27.021
+!MESSAGE targetCfgPath2=C:/Users/SEBAST~1/ti/CCSTargetConfigurations
+
+!ENTRY org.eclipse.equinox.p2.engine 4 4 2015-03-24 13:53:05.316
+!MESSAGE An error occurred while collecting items to be installed
+!SUBENTRY 1 org.eclipse.equinox.p2.engine 4 0 2015-03-24 13:53:05.316
+!MESSAGE session context was:(profile=epp.package.cpp, phase=org.eclipse.equinox.internal.p2.engine.phases.Collect, operand=, action=).
+!SUBENTRY 1 org.eclipse.equinox.p2.transport.ecf 4 1002 2015-03-24 13:53:05.316
+!MESSAGE Unable to read repository at http://support.spectrumdigital.com/ccs51/Updates/binary/com.sd.ccstudio.emulation.win32_root_5.2.0.13.
+!STACK 0
+java.net.SocketTimeoutException: Read timed out
+	at java.net.SocketInputStream.socketRead0(Native Method)
+	at java.net.SocketInputStream.read(Unknown Source)
+	at java.net.SocketInputStream.read(Unknown Source)
+	at org.apache.http.impl.io.AbstractSessionInputBuffer.read(AbstractSessionInputBuffer.java:204)
+	at org.apache.http.impl.io.ContentLengthInputStream.read(ContentLengthInputStream.java:182)
+	at org.apache.http.conn.EofSensorInputStream.read(EofSensorInputStream.java:138)
+	at java.io.FilterInputStream.read(Unknown Source)
+	at java.io.FilterInputStream.read(Unknown Source)
+	at org.eclipse.ecf.provider.filetransfer.retrieve.AbstractRetrieveFileTransfer$1.performFileTransfer(AbstractRetrieveFileTransfer.java:178)
+	at org.eclipse.ecf.filetransfer.FileTransferJob.run(FileTransferJob.java:73)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+
+!ENTRY com.ti.dvt.profileanalysismanagerplugin 4 0 2015-03-24 14:05:20.380
+!MESSAGE FrameworkEvent ERROR
+!STACK 0
+org.osgi.framework.BundleException: Exception in com.ti.dvt.profileanalysismanager.ProfileServerPlugin.stop() of bundle com.ti.dvt.profileanalysismanagerplugin.
+	at org.eclipse.osgi.internal.framework.BundleContextImpl.stop(BundleContextImpl.java:847)
+	at org.eclipse.osgi.internal.framework.EquinoxBundle.stopWorker0(EquinoxBundle.java:950)
+	at org.eclipse.osgi.internal.framework.EquinoxBundle$EquinoxModule.stopWorker(EquinoxBundle.java:324)
+	at org.eclipse.osgi.container.Module.doStop(Module.java:626)
+	at org.eclipse.osgi.container.Module.stop(Module.java:488)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.decStartLevel(ModuleContainer.java:1623)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.doContainerStartLevel(ModuleContainer.java:1542)
+	at org.eclipse.osgi.container.SystemModule.stopWorker(SystemModule.java:248)
+	at org.eclipse.osgi.internal.framework.EquinoxBundle$SystemBundle$EquinoxSystemModule.stopWorker(EquinoxBundle.java:145)
+	at org.eclipse.osgi.container.Module.doStop(Module.java:626)
+	at org.eclipse.osgi.container.Module.stop(Module.java:488)
+	at org.eclipse.osgi.container.SystemModule.stop(SystemModule.java:186)
+	at org.eclipse.osgi.internal.framework.EquinoxBundle$SystemBundle$EquinoxSystemModule$1.run(EquinoxBundle.java:160)
+	at java.lang.Thread.run(Unknown Source)
+Caused by: java.lang.UnsatisfiedLinkError: C:\ti\ccsv6\eclipse\plugins\com.ti.dvt.tidisassembly_4.0.0.201501151820\os\win32\msvcp71.dll: Can't find dependent libraries
+	at java.lang.ClassLoader$NativeLibrary.load(Native Method)
+	at java.lang.ClassLoader.loadLibrary1(Unknown Source)
+	at java.lang.ClassLoader.loadLibrary0(Unknown Source)
+	at java.lang.ClassLoader.loadLibrary(Unknown Source)
+	at java.lang.Runtime.loadLibrary0(Unknown Source)
+	at java.lang.System.loadLibrary(Unknown Source)
+	at com.ti.dvt.tidisassembly.TIDisassemblyJNI.<clinit>(TIDisassemblyJNI.java:98)
+	at com.ti.dvt.tidisassembly.TIDisassembly.disassemblyClose(TIDisassembly.java:116)
+	at com.ti.dvt.datamodel.core.SymbolicOperator.reset(SymbolicOperator.java:1781)
+	at com.ti.dvt.datamodel.core.SymbolicTranslator.reset(SymbolicTranslator.java:385)
+	at com.ti.dvt.datamodel.core.DataModel.resetAllProcessors(DataModel.java:675)
+	at com.ti.dvt.datamodel.solution.Solution.reset(Solution.java:1077)
+	at com.ti.dvt.profileanalysisprovider.AbstractProfileAnalysisProvider.closeSolutions(AbstractProfileAnalysisProvider.java:147)
+	at com.ti.dvt.profileanalysisprovider.AbstractProfileAnalysisProvider.closeSolution(AbstractProfileAnalysisProvider.java:240)
+	at com.ti.dvt.profileanalysisprovider.AbstractProfileAnalysisProvider.debugSessionDetached(AbstractProfileAnalysisProvider.java:265)
+	at com.ti.dvt.profileanalysismanager.ProfileServerPlugin.stop(ProfileServerPlugin.java:829)
+	at org.eclipse.osgi.internal.framework.BundleContextImpl$4.run(BundleContextImpl.java:827)
+	at org.eclipse.osgi.internal.framework.BundleContextImpl$4.run(BundleContextImpl.java:1)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at org.eclipse.osgi.internal.framework.BundleContextImpl.stop(BundleContextImpl.java:820)
+	... 13 more
+Root exception:
+java.lang.UnsatisfiedLinkError: C:\ti\ccsv6\eclipse\plugins\com.ti.dvt.tidisassembly_4.0.0.201501151820\os\win32\msvcp71.dll: Can't find dependent libraries
+	at java.lang.ClassLoader$NativeLibrary.load(Native Method)
+	at java.lang.ClassLoader.loadLibrary1(Unknown Source)
+	at java.lang.ClassLoader.loadLibrary0(Unknown Source)
+	at java.lang.ClassLoader.loadLibrary(Unknown Source)
+	at java.lang.Runtime.loadLibrary0(Unknown Source)
+	at java.lang.System.loadLibrary(Unknown Source)
+	at com.ti.dvt.tidisassembly.TIDisassemblyJNI.<clinit>(TIDisassemblyJNI.java:98)
+	at com.ti.dvt.tidisassembly.TIDisassembly.disassemblyClose(TIDisassembly.java:116)
+	at com.ti.dvt.datamodel.core.SymbolicOperator.reset(SymbolicOperator.java:1781)
+	at com.ti.dvt.datamodel.core.SymbolicTranslator.reset(SymbolicTranslator.java:385)
+	at com.ti.dvt.datamodel.core.DataModel.resetAllProcessors(DataModel.java:675)
+	at com.ti.dvt.datamodel.solution.Solution.reset(Solution.java:1077)
+	at com.ti.dvt.profileanalysisprovider.AbstractProfileAnalysisProvider.closeSolutions(AbstractProfileAnalysisProvider.java:147)
+	at com.ti.dvt.profileanalysisprovider.AbstractProfileAnalysisProvider.closeSolution(AbstractProfileAnalysisProvider.java:240)
+	at com.ti.dvt.profileanalysisprovider.AbstractProfileAnalysisProvider.debugSessionDetached(AbstractProfileAnalysisProvider.java:265)
+	at com.ti.dvt.profileanalysismanager.ProfileServerPlugin.stop(ProfileServerPlugin.java:829)
+	at org.eclipse.osgi.internal.framework.BundleContextImpl$4.run(BundleContextImpl.java:827)
+	at org.eclipse.osgi.internal.framework.BundleContextImpl$4.run(BundleContextImpl.java:1)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at org.eclipse.osgi.internal.framework.BundleContextImpl.stop(BundleContextImpl.java:820)
+	at org.eclipse.osgi.internal.framework.EquinoxBundle.stopWorker0(EquinoxBundle.java:950)
+	at org.eclipse.osgi.internal.framework.EquinoxBundle$EquinoxModule.stopWorker(EquinoxBundle.java:324)
+	at org.eclipse.osgi.container.Module.doStop(Module.java:626)
+	at org.eclipse.osgi.container.Module.stop(Module.java:488)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.decStartLevel(ModuleContainer.java:1623)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.doContainerStartLevel(ModuleContainer.java:1542)
+	at org.eclipse.osgi.container.SystemModule.stopWorker(SystemModule.java:248)
+	at org.eclipse.osgi.internal.framework.EquinoxBundle$SystemBundle$EquinoxSystemModule.stopWorker(EquinoxBundle.java:145)
+	at org.eclipse.osgi.container.Module.doStop(Module.java:626)
+	at org.eclipse.osgi.container.Module.stop(Module.java:488)
+	at org.eclipse.osgi.container.SystemModule.stop(SystemModule.java:186)
+	at org.eclipse.osgi.internal.framework.EquinoxBundle$SystemBundle$EquinoxSystemModule$1.run(EquinoxBundle.java:160)
+	at java.lang.Thread.run(Unknown Source)
+!SESSION 2015-03-24 15:53:02.211 -----------------------------------------------
+eclipse.buildId=4.4.1.M20140925-0400
+java.version=1.7.0_60
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86, WS=win32, NL=en_US
+Framework arguments:  -product com.ti.ccstudio.branding.product
+Command-line arguments:  -os win32 -ws win32 -arch x86 -product com.ti.ccstudio.branding.product
+
+!ENTRY com.ti.common.core 4 0 2015-03-24 15:53:07.578
+!MESSAGE path=ccs_base/DebugServer
+
+!ENTRY com.ti.common.core 4 0 2015-03-24 15:53:07.578
+!MESSAGE debugServerDir=C:/ti/ccsv6/ccs_base/DebugServer
+
+!ENTRY com.ti.ccstudio.system.setup.ui 1 0 2015-03-24 15:53:13.617
+!MESSAGE targetCfgPath1=C:/Users/SEBAST~1/user/CCSTargetConfigurations
+
+!ENTRY com.ti.ccstudio.system.setup.ui 1 0 2015-03-24 15:53:13.617
+!MESSAGE targetCfgPath2=C:/Users/SEBAST~1/ti/CCSTargetConfigurations
+
+!ENTRY org.eclipse.cdt.core 1 0 2015-03-24 15:59:32.047
+!MESSAGE Indexed 'ClockSetup' (1 sources, 12 headers) in 0.514 sec: 1,430 declarations; 1,654 references; 0 unresolved inclusions; 1 syntax errors; 0 unresolved names (0%)
+
+!ENTRY com.ti.ccstudio.debug 1 0 2015-03-24 16:05:13.116
+!MESSAGE DS_ERROR: MSP430: Error connecting to the target: Could not find device (or device not supported)
+
+
+!ENTRY com.ti.ccstudio.debug 1 0 2015-03-24 16:05:13.334
+!MESSAGE DS_ERROR: Error connecting to the target:
+Could not find device (or device not supported)
+
+!ENTRY org.eclipse.cdt.core 1 0 2015-03-24 16:06:47.805
+!MESSAGE Indexed 'Setup430GClock' (1 sources, 5 headers) in 0.14 sec: 172 declarations; 611 references; 0 unresolved inclusions; 0 syntax errors; 0 unresolved names (0%)
+
+!ENTRY org.eclipse.cdt.core 1 0 2015-03-24 16:06:48.211
+!MESSAGE Indexed 'Setup430GClock' (1 sources, 5 headers) in 0.125 sec: 172 declarations; 611 references; 0 unresolved inclusions; 0 syntax errors; 0 unresolved names (0%)
+
+!ENTRY org.eclipse.cdt.core 1 0 2015-03-24 16:06:49.209
+!MESSAGE Indexed 'Setup430GClock' (1 sources, 5 headers) in 0.078 sec: 172 declarations; 611 references; 0 unresolved inclusions; 0 syntax errors; 0 unresolved names (0%)

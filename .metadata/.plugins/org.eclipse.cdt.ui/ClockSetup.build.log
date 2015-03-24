@@ -2,6 +2,15 @@
 **** Build of configuration Debug for project ClockSetup ****
 
 "C:\\ti\\ccsv6\\utils\\bin\\gmake" -k all 
-gmake: Nothing to be done for `all'.
+'Building file: ../ClockSetup430G.c'
+'Invoking: MSP430 Compiler'
+"C:/ti/ccsv6/tools/compiler/ti-cgt-msp430_4.4.3/bin/cl430" -vmspx --abi=eabi --data_model=restricted --use_hw_mpy=F5 --include_path="C:/ti/ccsv6/ccs_base/msp430/include" --include_path="C:/ti/ccsv6/tools/compiler/ti-cgt-msp430_4.4.3/include" --advice:power=all --advice:hw_config=all -g --define=__MSP430FR5969__ --diag_warning=225 --display_error_number --diag_wrap=off --silicon_errata=CPU21 --silicon_errata=CPU22 --silicon_errata=CPU40 --printf_support=minimal --preproc_with_compile --preproc_dependency="ClockSetup430G.pp"  "../ClockSetup430G.c"
+"../ClockSetup430G.c", line 15: error #20: identifier "P1SEL" is undefined
+"../ClockSetup430G.c", line 16: error #20: identifier "P1SEL2" is undefined
+2 errors detected in the compilation of "../ClockSetup430G.c".
+
+>> Compilation failure
+gmake: *** [ClockSetup430G.obj] Error 1
+gmake: Target `all' not remade because of errors.
 
 **** Build Finished ****
