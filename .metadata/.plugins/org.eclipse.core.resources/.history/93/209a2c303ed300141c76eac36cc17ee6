@@ -1,0 +1,192 @@
+################################################################################
+# Automatically-generated file. Do not edit!
+################################################################################
+
+# Add inputs and outputs from these tool invocations to the build variables 
+C_SRCS += \
+C:/StellarisWare/driverlib/adc.c \
+C:/StellarisWare/driverlib/can.c \
+C:/StellarisWare/driverlib/comp.c \
+C:/StellarisWare/driverlib/cpu.c \
+C:/StellarisWare/driverlib/eeprom.c \
+C:/StellarisWare/driverlib/epi.c \
+C:/StellarisWare/driverlib/ethernet.c \
+C:/StellarisWare/driverlib/fan.c \
+C:/StellarisWare/driverlib/flash.c \
+C:/StellarisWare/driverlib/fpu.c \
+C:/StellarisWare/driverlib/gpio.c \
+C:/StellarisWare/driverlib/hibernate.c \
+C:/StellarisWare/driverlib/i2c.c \
+C:/StellarisWare/driverlib/i2s.c \
+C:/StellarisWare/driverlib/interrupt.c \
+C:/StellarisWare/driverlib/lpc.c \
+C:/StellarisWare/driverlib/mpu.c \
+C:/StellarisWare/driverlib/peci.c \
+C:/StellarisWare/driverlib/pwm.c \
+C:/StellarisWare/driverlib/qei.c \
+C:/StellarisWare/driverlib/ssi.c \
+C:/StellarisWare/driverlib/sysctl.c \
+C:/StellarisWare/driverlib/sysexc.c \
+C:/StellarisWare/driverlib/systick.c \
+C:/StellarisWare/driverlib/timer.c \
+C:/StellarisWare/driverlib/uart.c \
+C:/StellarisWare/driverlib/udma.c \
+C:/StellarisWare/driverlib/usb.c \
+C:/StellarisWare/driverlib/watchdog.c 
+
+OBJS += \
+./adc.obj \
+./can.obj \
+./comp.obj \
+./cpu.obj \
+./eeprom.obj \
+./epi.obj \
+./ethernet.obj \
+./fan.obj \
+./flash.obj \
+./fpu.obj \
+./gpio.obj \
+./hibernate.obj \
+./i2c.obj \
+./i2s.obj \
+./interrupt.obj \
+./lpc.obj \
+./mpu.obj \
+./peci.obj \
+./pwm.obj \
+./qei.obj \
+./ssi.obj \
+./sysctl.obj \
+./sysexc.obj \
+./systick.obj \
+./timer.obj \
+./uart.obj \
+./udma.obj \
+./usb.obj \
+./watchdog.obj 
+
+C_DEPS += \
+./adc.pp \
+./can.pp \
+./comp.pp \
+./cpu.pp \
+./eeprom.pp \
+./epi.pp \
+./ethernet.pp \
+./fan.pp \
+./flash.pp \
+./fpu.pp \
+./gpio.pp \
+./hibernate.pp \
+./i2c.pp \
+./i2s.pp \
+./interrupt.pp \
+./lpc.pp \
+./mpu.pp \
+./peci.pp \
+./pwm.pp \
+./qei.pp \
+./ssi.pp \
+./sysctl.pp \
+./sysexc.pp \
+./systick.pp \
+./timer.pp \
+./uart.pp \
+./udma.pp \
+./usb.pp \
+./watchdog.pp 
+
+C_DEPS__QUOTED += \
+"adc.pp" \
+"can.pp" \
+"comp.pp" \
+"cpu.pp" \
+"eeprom.pp" \
+"epi.pp" \
+"ethernet.pp" \
+"fan.pp" \
+"flash.pp" \
+"fpu.pp" \
+"gpio.pp" \
+"hibernate.pp" \
+"i2c.pp" \
+"i2s.pp" \
+"interrupt.pp" \
+"lpc.pp" \
+"mpu.pp" \
+"peci.pp" \
+"pwm.pp" \
+"qei.pp" \
+"ssi.pp" \
+"sysctl.pp" \
+"sysexc.pp" \
+"systick.pp" \
+"timer.pp" \
+"uart.pp" \
+"udma.pp" \
+"usb.pp" \
+"watchdog.pp" 
+
+OBJS__QUOTED += \
+"adc.obj" \
+"can.obj" \
+"comp.obj" \
+"cpu.obj" \
+"eeprom.obj" \
+"epi.obj" \
+"ethernet.obj" \
+"fan.obj" \
+"flash.obj" \
+"fpu.obj" \
+"gpio.obj" \
+"hibernate.obj" \
+"i2c.obj" \
+"i2s.obj" \
+"interrupt.obj" \
+"lpc.obj" \
+"mpu.obj" \
+"peci.obj" \
+"pwm.obj" \
+"qei.obj" \
+"ssi.obj" \
+"sysctl.obj" \
+"sysexc.obj" \
+"systick.obj" \
+"timer.obj" \
+"uart.obj" \
+"udma.obj" \
+"usb.obj" \
+"watchdog.obj" 
+
+C_SRCS__QUOTED += \
+"C:/StellarisWare/driverlib/adc.c" \
+"C:/StellarisWare/driverlib/can.c" \
+"C:/StellarisWare/driverlib/comp.c" \
+"C:/StellarisWare/driverlib/cpu.c" \
+"C:/StellarisWare/driverlib/eeprom.c" \
+"C:/StellarisWare/driverlib/epi.c" \
+"C:/StellarisWare/driverlib/ethernet.c" \
+"C:/StellarisWare/driverlib/fan.c" \
+"C:/StellarisWare/driverlib/flash.c" \
+"C:/StellarisWare/driverlib/fpu.c" \
+"C:/StellarisWare/driverlib/gpio.c" \
+"C:/StellarisWare/driverlib/hibernate.c" \
+"C:/StellarisWare/driverlib/i2c.c" \
+"C:/StellarisWare/driverlib/i2s.c" \
+"C:/StellarisWare/driverlib/interrupt.c" \
+"C:/StellarisWare/driverlib/lpc.c" \
+"C:/StellarisWare/driverlib/mpu.c" \
+"C:/StellarisWare/driverlib/peci.c" \
+"C:/StellarisWare/driverlib/pwm.c" \
+"C:/StellarisWare/driverlib/qei.c" \
+"C:/StellarisWare/driverlib/ssi.c" \
+"C:/StellarisWare/driverlib/sysctl.c" \
+"C:/StellarisWare/driverlib/sysexc.c" \
+"C:/StellarisWare/driverlib/systick.c" \
+"C:/StellarisWare/driverlib/timer.c" \
+"C:/StellarisWare/driverlib/uart.c" \
+"C:/StellarisWare/driverlib/udma.c" \
+"C:/StellarisWare/driverlib/usb.c" \
+"C:/StellarisWare/driverlib/watchdog.c" 
+
+

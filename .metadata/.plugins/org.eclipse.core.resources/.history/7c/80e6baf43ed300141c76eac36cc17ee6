@@ -1,0 +1,12 @@
+/*
+ * main.c
+ *
+ * Written by: Sebastian A Roe
+ *
+ * Code to initialize clocks and timers for TI Stellaris LM4F120
+ *
+ */
+int main(void) {
+	
+	return 0;
+}

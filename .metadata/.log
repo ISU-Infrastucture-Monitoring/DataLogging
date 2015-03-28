@@ -2127,3 +2127,438 @@ Could not find device (or device not supported)
 
 !ENTRY org.eclipse.cdt.core 1 0 2015-03-24 16:06:49.209
 !MESSAGE Indexed 'Setup430GClock' (1 sources, 5 headers) in 0.078 sec: 172 declarations; 611 references; 0 unresolved inclusions; 0 syntax errors; 0 unresolved names (0%)
+!SESSION 2015-03-24 18:50:21.328 -----------------------------------------------
+eclipse.buildId=4.4.1.M20140925-0400
+java.version=1.7.0_60
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86, WS=win32, NL=en_US
+Framework arguments:  -product com.ti.ccstudio.branding.product
+Command-line arguments:  -os win32 -ws win32 -arch x86 -product com.ti.ccstudio.branding.product
+
+!ENTRY com.ti.common.core 4 0 2015-03-24 18:50:25.181
+!MESSAGE path=ccs_base/DebugServer
+
+!ENTRY com.ti.common.core 4 0 2015-03-24 18:50:25.181
+!MESSAGE debugServerDir=C:/ti/ccsv6/ccs_base/DebugServer
+
+!ENTRY com.ti.ccstudio.system.setup.ui 1 0 2015-03-24 18:50:31.860
+!MESSAGE targetCfgPath1=C:/Users/SEBAST~1/user/CCSTargetConfigurations
+
+!ENTRY com.ti.ccstudio.system.setup.ui 1 0 2015-03-24 18:50:31.860
+!MESSAGE targetCfgPath2=C:/Users/SEBAST~1/ti/CCSTargetConfigurations
+
+!ENTRY org.eclipse.cdt.core 1 0 2015-03-24 18:52:25.761
+!MESSAGE Indexed 'Setup430GClock' (1 sources, 5 headers) in 0.765 sec: 174 declarations; 625 references; 0 unresolved inclusions; 1 syntax errors; 0 unresolved names (0%)
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2015-03-24 19:04:36.357
+!MESSAGE Request for monitor: 'RequestMonitor (org.eclipse.cdt.dsf.concurrent.RequestMonitor@1bdd4b2): Status ERROR: org.eclipse.cdt.dsf code=10005 Composite status null children=[Status ERROR: org.eclipse.cdt.dsf code=0 Executor shut down while executing Sequence Sequence "", result for executing step #11 = Status ERROR: org.eclipse.cdt.dsf code=10005 Request for monitor: 'RequestMonitor (com.ti.ccstudio.debug.launch.ServicesShutdownSequence$3@520c1f): Status OK: unknown code=0 OK null' resulted in a rejected execution exception. null, step #11 null Status ERROR: org.eclipse.cdt.dsf code=10005 Request for monitor: 'RequestMonitor (com.ti.ccstudio.debug.launch.CCSLaunch$3@1a879e): Status ERROR: org.eclipse.cdt.dsf code=0 Executor shut down while executing Sequence Sequence "", result for executing step #11 = Status ERROR: org.eclipse.cdt.dsf code=10005 Request for monitor: 'RequestMonitor (com.ti.ccstudio.debug.launch.ServicesShutdownSequence$3@520c1f): Status OK: unknown code=0 OK null' resulted in a rejected execution exception. null, step #11 null' resulted in a rejected execution exception. null]' resulted in an error.
+!SUBENTRY 1 org.eclipse.cdt.dsf 4 0 2015-03-24 19:04:36.357
+!MESSAGE Executor shut down while executing Sequence Sequence "", result for executing step #11 = Status ERROR: org.eclipse.cdt.dsf code=10005 Request for monitor: 'RequestMonitor (com.ti.ccstudio.debug.launch.ServicesShutdownSequence$3@520c1f): Status OK: unknown code=0 OK null' resulted in a rejected execution exception. null, step #11
+!SUBENTRY 1 org.eclipse.cdt.dsf 4 10005 2015-03-24 19:04:36.357
+!MESSAGE Request for monitor: 'RequestMonitor (com.ti.ccstudio.debug.launch.CCSLaunch$3@1a879e): Status ERROR: org.eclipse.cdt.dsf code=0 Executor shut down while executing Sequence Sequence "", result for executing step #11 = Status ERROR: org.eclipse.cdt.dsf code=10005 Request for monitor: 'RequestMonitor (com.ti.ccstudio.debug.launch.ServicesShutdownSequence$3@520c1f): Status OK: unknown code=0 OK null' resulted in a rejected execution exception. null, step #11 null' resulted in a rejected execution exception.
+!SESSION 2015-03-24 19:45:11.415 -----------------------------------------------
+eclipse.buildId=4.4.1.M20140925-0400
+java.version=1.7.0_60
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86, WS=win32, NL=en_US
+Framework arguments:  -product com.ti.ccstudio.branding.product
+Command-line arguments:  -os win32 -ws win32 -arch x86 -product com.ti.ccstudio.branding.product
+
+!ENTRY com.ti.common.core 4 0 2015-03-24 19:45:14.519
+!MESSAGE path=ccs_base/DebugServer
+
+!ENTRY com.ti.common.core 4 0 2015-03-24 19:45:14.519
+!MESSAGE debugServerDir=C:/ti/ccsv6/ccs_base/DebugServer
+
+!ENTRY com.ti.ccstudio.system.setup.ui 1 0 2015-03-24 19:45:20.871
+!MESSAGE targetCfgPath1=C:/Users/SEBAST~1/user/CCSTargetConfigurations
+
+!ENTRY com.ti.ccstudio.system.setup.ui 1 0 2015-03-24 19:45:20.886
+!MESSAGE targetCfgPath2=C:/Users/SEBAST~1/ti/CCSTargetConfigurations
+
+!ENTRY com.ti.ccstudio.project.core 2 0 2015-03-24 19:46:07.577
+!MESSAGE Unrecognized option setting '--silicon_errata=CPU30' for tool 'com.ti.ccstudio.buildDefinitions.MSP430_4.4.exe.compilerDebug.211881983'
+
+!ENTRY com.ti.ccstudio.project.core 2 0 2015-03-24 19:46:07.655
+!MESSAGE Unrecognized option setting '--silicon_errata=CPU30' for tool 'com.ti.ccstudio.buildDefinitions.MSP430_4.4.exe.compilerRelease.680874494'
+
+!ENTRY org.eclipse.cdt.core 1 0 2015-03-24 19:46:08.591
+!MESSAGE Indexed 'MSP430F5529_ClockSetup' (1 sources, 5 headers) in 0.608 sec: 823 declarations; 1,047 references; 0 unresolved inclusions; 0 syntax errors; 0 unresolved names (0%)
+
+!ENTRY org.eclipse.cdt.core 1 0 2015-03-24 19:46:08.981
+!MESSAGE Indexed 'MSP430F5529_ClockSetup' (1 sources, 5 headers) in 0.328 sec: 823 declarations; 1,047 references; 0 unresolved inclusions; 0 syntax errors; 0 unresolved names (0%)
+
+!ENTRY org.eclipse.cdt.core 1 0 2015-03-24 19:46:09.886
+!MESSAGE Indexed 'MSP430F5529_ClockSetup' (1 sources, 5 headers) in 0.25 sec: 843 declarations; 1,047 references; 0 unresolved inclusions; 0 syntax errors; 0 unresolved names (0%)
+
+!ENTRY com.ti.ccstudio.debug 1 0 2015-03-24 20:45:00.421
+!MESSAGE DS_ERROR: MSP430: Error initializing emulator: No USB FET was found
+
+
+!ENTRY com.ti.ccstudio.debug 1 0 2015-03-24 20:45:00.562
+!MESSAGE DS_ERROR: Error initializing emulator:
+No USB FET was found
+
+!ENTRY com.ti.ccstudio.debug 1 0 2015-03-24 20:45:21.344
+!MESSAGE DS_ERROR: MSP430: Error initializing emulator: A firmware update is required for the MSP430 Debug Interface (MSP-FET430UIF / MSP-FET / eZ-FET). Click the "Update" button to update the firmware and launch your debug session (this may require several update steps).  DO NOT UNPLUG THE INTERFACE DURING THE UPDATE.
+
+
+!ENTRY com.ti.ccstudio.debug 1 0 2015-03-24 20:45:21.485
+!MESSAGE DS_ERROR: Error initializing emulator:
+A firmware update is required for the MSP430 Debug Interface (MSP-FET430UIF / MSP-FET / eZ-FET). Click the "Update" button to update the firmware and launch your debug session (this may require several update steps).
+
+DO NOT UNPLUG THE INTERFACE DURING THE UPDATE.
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2015-03-24 21:02:03.164
+!MESSAGE Request for monitor: 'RequestMonitor (org.eclipse.cdt.dsf.concurrent.RequestMonitor@90e596): Status ERROR: org.eclipse.cdt.dsf code=10005 Composite status null children=[Status ERROR: org.eclipse.cdt.dsf code=0 Executor shut down while executing Sequence Sequence "", result for executing step #11 = Status ERROR: org.eclipse.cdt.dsf code=10005 Request for monitor: 'RequestMonitor (com.ti.ccstudio.debug.launch.ServicesShutdownSequence$3@1300581): Status OK: unknown code=0 OK null' resulted in a rejected execution exception. null, step #11 null Status ERROR: org.eclipse.cdt.dsf code=10005 Request for monitor: 'RequestMonitor (com.ti.ccstudio.debug.launch.CCSLaunch$3@334758): Status ERROR: org.eclipse.cdt.dsf code=0 Executor shut down while executing Sequence Sequence "", result for executing step #11 = Status ERROR: org.eclipse.cdt.dsf code=10005 Request for monitor: 'RequestMonitor (com.ti.ccstudio.debug.launch.ServicesShutdownSequence$3@1300581): Status OK: unknown code=0 OK null' resulted in a rejected execution exception. null, step #11 null' resulted in a rejected execution exception. null]' resulted in an error.
+!SUBENTRY 1 org.eclipse.cdt.dsf 4 0 2015-03-24 21:02:03.164
+!MESSAGE Executor shut down while executing Sequence Sequence "", result for executing step #11 = Status ERROR: org.eclipse.cdt.dsf code=10005 Request for monitor: 'RequestMonitor (com.ti.ccstudio.debug.launch.ServicesShutdownSequence$3@1300581): Status OK: unknown code=0 OK null' resulted in a rejected execution exception. null, step #11
+!SUBENTRY 1 org.eclipse.cdt.dsf 4 10005 2015-03-24 21:02:03.164
+!MESSAGE Request for monitor: 'RequestMonitor (com.ti.ccstudio.debug.launch.CCSLaunch$3@334758): Status ERROR: org.eclipse.cdt.dsf code=0 Executor shut down while executing Sequence Sequence "", result for executing step #11 = Status ERROR: org.eclipse.cdt.dsf code=10005 Request for monitor: 'RequestMonitor (com.ti.ccstudio.debug.launch.ServicesShutdownSequence$3@1300581): Status OK: unknown code=0 OK null' resulted in a rejected execution exception. null, step #11 null' resulted in a rejected execution exception.
+!SESSION 2015-03-25 15:10:10.944 -----------------------------------------------
+eclipse.buildId=4.4.1.M20140925-0400
+java.version=1.7.0_60
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86, WS=win32, NL=en_US
+Framework arguments:  -product com.ti.ccstudio.branding.product
+Command-line arguments:  -os win32 -ws win32 -arch x86 -product com.ti.ccstudio.branding.product
+
+!ENTRY com.ti.common.core 4 0 2015-03-25 15:10:18.650
+!MESSAGE path=ccs_base/DebugServer
+
+!ENTRY com.ti.common.core 4 0 2015-03-25 15:10:18.650
+!MESSAGE debugServerDir=C:/ti/ccsv6/ccs_base/DebugServer
+
+!ENTRY com.ti.ccstudio.system.setup.ui 1 0 2015-03-25 15:10:35.968
+!MESSAGE targetCfgPath1=C:/Users/SEBAST~1/user/CCSTargetConfigurations
+
+!ENTRY com.ti.ccstudio.system.setup.ui 1 0 2015-03-25 15:10:35.968
+!MESSAGE targetCfgPath2=C:/Users/SEBAST~1/ti/CCSTargetConfigurations
+
+!ENTRY org.eclipse.cdt.core 1 0 2015-03-25 15:27:07.440
+!MESSAGE Indexed 'MSP430F5529_ClockSetup' (1 sources, 4 headers) in 0.25 sec: 848 declarations; 860 references; 0 unresolved inclusions; 0 syntax errors; 0 unresolved names (0%)
+
+!ENTRY com.ti.dvt.profileanalysismanagerplugin 4 0 2015-03-25 16:03:47.566
+!MESSAGE FrameworkEvent ERROR
+!STACK 0
+org.osgi.framework.BundleException: Exception in com.ti.dvt.profileanalysismanager.ProfileServerPlugin.stop() of bundle com.ti.dvt.profileanalysismanagerplugin.
+	at org.eclipse.osgi.internal.framework.BundleContextImpl.stop(BundleContextImpl.java:847)
+	at org.eclipse.osgi.internal.framework.EquinoxBundle.stopWorker0(EquinoxBundle.java:950)
+	at org.eclipse.osgi.internal.framework.EquinoxBundle$EquinoxModule.stopWorker(EquinoxBundle.java:324)
+	at org.eclipse.osgi.container.Module.doStop(Module.java:626)
+	at org.eclipse.osgi.container.Module.stop(Module.java:488)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.decStartLevel(ModuleContainer.java:1623)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.doContainerStartLevel(ModuleContainer.java:1542)
+	at org.eclipse.osgi.container.SystemModule.stopWorker(SystemModule.java:248)
+	at org.eclipse.osgi.internal.framework.EquinoxBundle$SystemBundle$EquinoxSystemModule.stopWorker(EquinoxBundle.java:145)
+	at org.eclipse.osgi.container.Module.doStop(Module.java:626)
+	at org.eclipse.osgi.container.Module.stop(Module.java:488)
+	at org.eclipse.osgi.container.SystemModule.stop(SystemModule.java:186)
+	at org.eclipse.osgi.internal.framework.EquinoxBundle$SystemBundle$EquinoxSystemModule$1.run(EquinoxBundle.java:160)
+	at java.lang.Thread.run(Unknown Source)
+Caused by: java.lang.UnsatisfiedLinkError: C:\ti\ccsv6\eclipse\plugins\com.ti.dvt.tidisassembly_4.0.0.201501151820\os\win32\msvcp71.dll: Can't find dependent libraries
+	at java.lang.ClassLoader$NativeLibrary.load(Native Method)
+	at java.lang.ClassLoader.loadLibrary1(Unknown Source)
+	at java.lang.ClassLoader.loadLibrary0(Unknown Source)
+	at java.lang.ClassLoader.loadLibrary(Unknown Source)
+	at java.lang.Runtime.loadLibrary0(Unknown Source)
+	at java.lang.System.loadLibrary(Unknown Source)
+	at com.ti.dvt.tidisassembly.TIDisassemblyJNI.<clinit>(TIDisassemblyJNI.java:98)
+	at com.ti.dvt.tidisassembly.TIDisassembly.disassemblyClose(TIDisassembly.java:116)
+	at com.ti.dvt.datamodel.core.SymbolicOperator.reset(SymbolicOperator.java:1781)
+	at com.ti.dvt.datamodel.core.SymbolicTranslator.reset(SymbolicTranslator.java:385)
+	at com.ti.dvt.datamodel.core.DataModel.resetAllProcessors(DataModel.java:675)
+	at com.ti.dvt.datamodel.solution.Solution.reset(Solution.java:1077)
+	at com.ti.dvt.profileanalysisprovider.AbstractProfileAnalysisProvider.closeSolutions(AbstractProfileAnalysisProvider.java:147)
+	at com.ti.dvt.profileanalysisprovider.AbstractProfileAnalysisProvider.closeSolution(AbstractProfileAnalysisProvider.java:240)
+	at com.ti.dvt.profileanalysisprovider.AbstractProfileAnalysisProvider.debugSessionDetached(AbstractProfileAnalysisProvider.java:265)
+	at com.ti.dvt.profileanalysismanager.ProfileServerPlugin.stop(ProfileServerPlugin.java:829)
+	at org.eclipse.osgi.internal.framework.BundleContextImpl$4.run(BundleContextImpl.java:827)
+	at org.eclipse.osgi.internal.framework.BundleContextImpl$4.run(BundleContextImpl.java:1)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at org.eclipse.osgi.internal.framework.BundleContextImpl.stop(BundleContextImpl.java:820)
+	... 13 more
+Root exception:
+java.lang.UnsatisfiedLinkError: C:\ti\ccsv6\eclipse\plugins\com.ti.dvt.tidisassembly_4.0.0.201501151820\os\win32\msvcp71.dll: Can't find dependent libraries
+	at java.lang.ClassLoader$NativeLibrary.load(Native Method)
+	at java.lang.ClassLoader.loadLibrary1(Unknown Source)
+	at java.lang.ClassLoader.loadLibrary0(Unknown Source)
+	at java.lang.ClassLoader.loadLibrary(Unknown Source)
+	at java.lang.Runtime.loadLibrary0(Unknown Source)
+	at java.lang.System.loadLibrary(Unknown Source)
+	at com.ti.dvt.tidisassembly.TIDisassemblyJNI.<clinit>(TIDisassemblyJNI.java:98)
+	at com.ti.dvt.tidisassembly.TIDisassembly.disassemblyClose(TIDisassembly.java:116)
+	at com.ti.dvt.datamodel.core.SymbolicOperator.reset(SymbolicOperator.java:1781)
+	at com.ti.dvt.datamodel.core.SymbolicTranslator.reset(SymbolicTranslator.java:385)
+	at com.ti.dvt.datamodel.core.DataModel.resetAllProcessors(DataModel.java:675)
+	at com.ti.dvt.datamodel.solution.Solution.reset(Solution.java:1077)
+	at com.ti.dvt.profileanalysisprovider.AbstractProfileAnalysisProvider.closeSolutions(AbstractProfileAnalysisProvider.java:147)
+	at com.ti.dvt.profileanalysisprovider.AbstractProfileAnalysisProvider.closeSolution(AbstractProfileAnalysisProvider.java:240)
+	at com.ti.dvt.profileanalysisprovider.AbstractProfileAnalysisProvider.debugSessionDetached(AbstractProfileAnalysisProvider.java:265)
+	at com.ti.dvt.profileanalysismanager.ProfileServerPlugin.stop(ProfileServerPlugin.java:829)
+	at org.eclipse.osgi.internal.framework.BundleContextImpl$4.run(BundleContextImpl.java:827)
+	at org.eclipse.osgi.internal.framework.BundleContextImpl$4.run(BundleContextImpl.java:1)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at org.eclipse.osgi.internal.framework.BundleContextImpl.stop(BundleContextImpl.java:820)
+	at org.eclipse.osgi.internal.framework.EquinoxBundle.stopWorker0(EquinoxBundle.java:950)
+	at org.eclipse.osgi.internal.framework.EquinoxBundle$EquinoxModule.stopWorker(EquinoxBundle.java:324)
+	at org.eclipse.osgi.container.Module.doStop(Module.java:626)
+	at org.eclipse.osgi.container.Module.stop(Module.java:488)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.decStartLevel(ModuleContainer.java:1623)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.doContainerStartLevel(ModuleContainer.java:1542)
+	at org.eclipse.osgi.container.SystemModule.stopWorker(SystemModule.java:248)
+	at org.eclipse.osgi.internal.framework.EquinoxBundle$SystemBundle$EquinoxSystemModule.stopWorker(EquinoxBundle.java:145)
+	at org.eclipse.osgi.container.Module.doStop(Module.java:626)
+	at org.eclipse.osgi.container.Module.stop(Module.java:488)
+	at org.eclipse.osgi.container.SystemModule.stop(SystemModule.java:186)
+	at org.eclipse.osgi.internal.framework.EquinoxBundle$SystemBundle$EquinoxSystemModule$1.run(EquinoxBundle.java:160)
+	at java.lang.Thread.run(Unknown Source)
+!SESSION 2015-03-25 16:22:10.852 -----------------------------------------------
+eclipse.buildId=4.4.1.M20140925-0400
+java.version=1.7.0_60
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86, WS=win32, NL=en_US
+Framework arguments:  -product com.ti.ccstudio.branding.product
+Command-line arguments:  -os win32 -ws win32 -arch x86 -product com.ti.ccstudio.branding.product
+
+!ENTRY com.ti.common.core 4 0 2015-03-25 16:22:14.690
+!MESSAGE path=ccs_base/DebugServer
+
+!ENTRY com.ti.common.core 4 0 2015-03-25 16:22:14.706
+!MESSAGE debugServerDir=C:/ti/ccsv6/ccs_base/DebugServer
+
+!ENTRY com.ti.ccstudio.system.setup.ui 1 0 2015-03-25 16:22:25.119
+!MESSAGE targetCfgPath1=C:/Users/SEBAST~1/user/CCSTargetConfigurations
+
+!ENTRY com.ti.ccstudio.system.setup.ui 1 0 2015-03-25 16:22:25.150
+!MESSAGE targetCfgPath2=C:/Users/SEBAST~1/ti/CCSTargetConfigurations
+
+!ENTRY org.eclipse.equinox.p2.operations 2 0 2015-03-25 16:26:06.958
+!MESSAGE Operation details
+!SUBENTRY 1 org.eclipse.equinox.p2.operations 2 10001 2015-03-25 16:26:06.958
+!MESSAGE Your original request has been modified.
+!SUBENTRY 2 org.eclipse.equinox.p2.operations 1 10003 2015-03-25 16:26:06.958
+!MESSAGE "ARM Compiler Tools" is already installed, so an update will be performed instead.
+!SUBENTRY 2 org.eclipse.equinox.p2.operations 2 10004 2015-03-25 16:26:06.958
+!MESSAGE "REQUIRED CCS Update Installation Tool" will be ignored because a newer version is already installed. 
+!SUBENTRY 2 org.eclipse.equinox.p2.operations 2 10004 2015-03-25 16:26:06.958
+!MESSAGE "TI Target Content" will be ignored because a newer version is already installed. 
+
+!ENTRY org.eclipse.equinox.p2.operations 2 0 2015-03-25 16:26:06.958
+!MESSAGE Operation details
+!SUBENTRY 1 org.eclipse.equinox.p2.operations 2 10001 2015-03-25 16:26:06.958
+!MESSAGE Your original request has been modified.
+!SUBENTRY 2 org.eclipse.equinox.p2.operations 1 10003 2015-03-25 16:26:06.958
+!MESSAGE "ARM Compiler Tools" is already installed, so an update will be performed instead.
+!SUBENTRY 2 org.eclipse.equinox.p2.operations 2 10004 2015-03-25 16:26:06.958
+!MESSAGE "REQUIRED CCS Update Installation Tool" will be ignored because a newer version is already installed. 
+!SUBENTRY 2 org.eclipse.equinox.p2.operations 2 10004 2015-03-25 16:26:06.958
+!MESSAGE "TI Target Content" will be ignored because a newer version is already installed. 
+
+!ENTRY com.ti.dvt.profileanalysismanagerplugin 4 0 2015-03-25 16:32:33.213
+!MESSAGE FrameworkEvent ERROR
+!STACK 0
+org.osgi.framework.BundleException: Exception in com.ti.dvt.profileanalysismanager.ProfileServerPlugin.stop() of bundle com.ti.dvt.profileanalysismanagerplugin.
+	at org.eclipse.osgi.internal.framework.BundleContextImpl.stop(BundleContextImpl.java:847)
+	at org.eclipse.osgi.internal.framework.EquinoxBundle.stopWorker0(EquinoxBundle.java:950)
+	at org.eclipse.osgi.internal.framework.EquinoxBundle$EquinoxModule.stopWorker(EquinoxBundle.java:324)
+	at org.eclipse.osgi.container.Module.doStop(Module.java:626)
+	at org.eclipse.osgi.container.Module.stop(Module.java:488)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.decStartLevel(ModuleContainer.java:1623)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.doContainerStartLevel(ModuleContainer.java:1542)
+	at org.eclipse.osgi.container.SystemModule.stopWorker(SystemModule.java:248)
+	at org.eclipse.osgi.internal.framework.EquinoxBundle$SystemBundle$EquinoxSystemModule.stopWorker(EquinoxBundle.java:145)
+	at org.eclipse.osgi.container.Module.doStop(Module.java:626)
+	at org.eclipse.osgi.container.Module.stop(Module.java:488)
+	at org.eclipse.osgi.container.SystemModule.stop(SystemModule.java:186)
+	at org.eclipse.osgi.internal.framework.EquinoxBundle$SystemBundle$EquinoxSystemModule$1.run(EquinoxBundle.java:160)
+	at java.lang.Thread.run(Unknown Source)
+Caused by: java.lang.UnsatisfiedLinkError: C:\ti\ccsv6\eclipse\plugins\com.ti.dvt.tidisassembly_4.0.0.201501151820\os\win32\msvcp71.dll: Can't find dependent libraries
+	at java.lang.ClassLoader$NativeLibrary.load(Native Method)
+	at java.lang.ClassLoader.loadLibrary1(Unknown Source)
+	at java.lang.ClassLoader.loadLibrary0(Unknown Source)
+	at java.lang.ClassLoader.loadLibrary(Unknown Source)
+	at java.lang.Runtime.loadLibrary0(Unknown Source)
+	at java.lang.System.loadLibrary(Unknown Source)
+	at com.ti.dvt.tidisassembly.TIDisassemblyJNI.<clinit>(TIDisassemblyJNI.java:98)
+	at com.ti.dvt.tidisassembly.TIDisassembly.disassemblyClose(TIDisassembly.java:116)
+	at com.ti.dvt.datamodel.core.SymbolicOperator.reset(SymbolicOperator.java:1781)
+	at com.ti.dvt.datamodel.core.SymbolicTranslator.reset(SymbolicTranslator.java:385)
+	at com.ti.dvt.datamodel.core.DataModel.resetAllProcessors(DataModel.java:675)
+	at com.ti.dvt.datamodel.solution.Solution.reset(Solution.java:1077)
+	at com.ti.dvt.profileanalysisprovider.AbstractProfileAnalysisProvider.closeSolutions(AbstractProfileAnalysisProvider.java:147)
+	at com.ti.dvt.profileanalysisprovider.AbstractProfileAnalysisProvider.closeSolution(AbstractProfileAnalysisProvider.java:240)
+	at com.ti.dvt.profileanalysisprovider.AbstractProfileAnalysisProvider.debugSessionDetached(AbstractProfileAnalysisProvider.java:265)
+	at com.ti.dvt.profileanalysismanager.ProfileServerPlugin.stop(ProfileServerPlugin.java:829)
+	at org.eclipse.osgi.internal.framework.BundleContextImpl$4.run(BundleContextImpl.java:827)
+	at org.eclipse.osgi.internal.framework.BundleContextImpl$4.run(BundleContextImpl.java:1)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at org.eclipse.osgi.internal.framework.BundleContextImpl.stop(BundleContextImpl.java:820)
+	... 13 more
+Root exception:
+java.lang.UnsatisfiedLinkError: C:\ti\ccsv6\eclipse\plugins\com.ti.dvt.tidisassembly_4.0.0.201501151820\os\win32\msvcp71.dll: Can't find dependent libraries
+	at java.lang.ClassLoader$NativeLibrary.load(Native Method)
+	at java.lang.ClassLoader.loadLibrary1(Unknown Source)
+	at java.lang.ClassLoader.loadLibrary0(Unknown Source)
+	at java.lang.ClassLoader.loadLibrary(Unknown Source)
+	at java.lang.Runtime.loadLibrary0(Unknown Source)
+	at java.lang.System.loadLibrary(Unknown Source)
+	at com.ti.dvt.tidisassembly.TIDisassemblyJNI.<clinit>(TIDisassemblyJNI.java:98)
+	at com.ti.dvt.tidisassembly.TIDisassembly.disassemblyClose(TIDisassembly.java:116)
+	at com.ti.dvt.datamodel.core.SymbolicOperator.reset(SymbolicOperator.java:1781)
+	at com.ti.dvt.datamodel.core.SymbolicTranslator.reset(SymbolicTranslator.java:385)
+	at com.ti.dvt.datamodel.core.DataModel.resetAllProcessors(DataModel.java:675)
+	at com.ti.dvt.datamodel.solution.Solution.reset(Solution.java:1077)
+	at com.ti.dvt.profileanalysisprovider.AbstractProfileAnalysisProvider.closeSolutions(AbstractProfileAnalysisProvider.java:147)
+	at com.ti.dvt.profileanalysisprovider.AbstractProfileAnalysisProvider.closeSolution(AbstractProfileAnalysisProvider.java:240)
+	at com.ti.dvt.profileanalysisprovider.AbstractProfileAnalysisProvider.debugSessionDetached(AbstractProfileAnalysisProvider.java:265)
+	at com.ti.dvt.profileanalysismanager.ProfileServerPlugin.stop(ProfileServerPlugin.java:829)
+	at org.eclipse.osgi.internal.framework.BundleContextImpl$4.run(BundleContextImpl.java:827)
+	at org.eclipse.osgi.internal.framework.BundleContextImpl$4.run(BundleContextImpl.java:1)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at org.eclipse.osgi.internal.framework.BundleContextImpl.stop(BundleContextImpl.java:820)
+	at org.eclipse.osgi.internal.framework.EquinoxBundle.stopWorker0(EquinoxBundle.java:950)
+	at org.eclipse.osgi.internal.framework.EquinoxBundle$EquinoxModule.stopWorker(EquinoxBundle.java:324)
+	at org.eclipse.osgi.container.Module.doStop(Module.java:626)
+	at org.eclipse.osgi.container.Module.stop(Module.java:488)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.decStartLevel(ModuleContainer.java:1623)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.doContainerStartLevel(ModuleContainer.java:1542)
+	at org.eclipse.osgi.container.SystemModule.stopWorker(SystemModule.java:248)
+	at org.eclipse.osgi.internal.framework.EquinoxBundle$SystemBundle$EquinoxSystemModule.stopWorker(EquinoxBundle.java:145)
+	at org.eclipse.osgi.container.Module.doStop(Module.java:626)
+	at org.eclipse.osgi.container.Module.stop(Module.java:488)
+	at org.eclipse.osgi.container.SystemModule.stop(SystemModule.java:186)
+	at org.eclipse.osgi.internal.framework.EquinoxBundle$SystemBundle$EquinoxSystemModule$1.run(EquinoxBundle.java:160)
+	at java.lang.Thread.run(Unknown Source)
+!SESSION 2015-03-25 16:33:44.205 -----------------------------------------------
+eclipse.buildId=4.4.1.M20140925-0400
+java.version=1.7.0_60
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86, WS=win32, NL=en_US
+Framework arguments:  -product com.ti.ccstudio.branding.product
+Command-line arguments:  -os win32 -ws win32 -arch x86 -product com.ti.ccstudio.branding.product
+
+!ENTRY com.ti.common.core 4 0 2015-03-25 16:33:48.778
+!MESSAGE path=ccs_base/DebugServer
+
+!ENTRY com.ti.common.core 4 0 2015-03-25 16:33:48.778
+!MESSAGE debugServerDir=C:/ti/ccsv6/ccs_base/DebugServer
+
+!ENTRY com.ti.ccstudio.system.setup.ui 1 0 2015-03-25 16:34:05.155
+!MESSAGE targetCfgPath1=C:/Users/SEBAST~1/user/CCSTargetConfigurations
+
+!ENTRY com.ti.ccstudio.system.setup.ui 1 0 2015-03-25 16:34:05.171
+!MESSAGE targetCfgPath2=C:/Users/SEBAST~1/ti/CCSTargetConfigurations
+
+!ENTRY org.eclipse.cdt.core 1 0 2015-03-25 16:36:31.790
+!MESSAGE Indexed 'driverlib-cm4f' (29 sources, 58 headers) in 1.68 sec: 4,461 declarations; 10,702 references; 0 unresolved inclusions; 0 syntax errors; 0 unresolved names (0%)
+
+!ENTRY com.ti.dvt.profileanalysismanagerplugin 4 0 2015-03-25 16:36:58.460
+!MESSAGE FrameworkEvent ERROR
+!STACK 0
+org.osgi.framework.BundleException: Exception in com.ti.dvt.profileanalysismanager.ProfileServerPlugin.stop() of bundle com.ti.dvt.profileanalysismanagerplugin.
+	at org.eclipse.osgi.internal.framework.BundleContextImpl.stop(BundleContextImpl.java:847)
+	at org.eclipse.osgi.internal.framework.EquinoxBundle.stopWorker0(EquinoxBundle.java:950)
+	at org.eclipse.osgi.internal.framework.EquinoxBundle$EquinoxModule.stopWorker(EquinoxBundle.java:324)
+	at org.eclipse.osgi.container.Module.doStop(Module.java:626)
+	at org.eclipse.osgi.container.Module.stop(Module.java:488)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.decStartLevel(ModuleContainer.java:1623)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.doContainerStartLevel(ModuleContainer.java:1542)
+	at org.eclipse.osgi.container.SystemModule.stopWorker(SystemModule.java:248)
+	at org.eclipse.osgi.internal.framework.EquinoxBundle$SystemBundle$EquinoxSystemModule.stopWorker(EquinoxBundle.java:145)
+	at org.eclipse.osgi.container.Module.doStop(Module.java:626)
+	at org.eclipse.osgi.container.Module.stop(Module.java:488)
+	at org.eclipse.osgi.container.SystemModule.stop(SystemModule.java:186)
+	at org.eclipse.osgi.internal.framework.EquinoxBundle$SystemBundle$EquinoxSystemModule$1.run(EquinoxBundle.java:160)
+	at java.lang.Thread.run(Unknown Source)
+Caused by: java.lang.UnsatisfiedLinkError: C:\ti\ccsv6\eclipse\plugins\com.ti.dvt.tidisassembly_4.0.0.201501151820\os\win32\msvcp71.dll: Can't find dependent libraries
+	at java.lang.ClassLoader$NativeLibrary.load(Native Method)
+	at java.lang.ClassLoader.loadLibrary1(Unknown Source)
+	at java.lang.ClassLoader.loadLibrary0(Unknown Source)
+	at java.lang.ClassLoader.loadLibrary(Unknown Source)
+	at java.lang.Runtime.loadLibrary0(Unknown Source)
+	at java.lang.System.loadLibrary(Unknown Source)
+	at com.ti.dvt.tidisassembly.TIDisassemblyJNI.<clinit>(TIDisassemblyJNI.java:98)
+	at com.ti.dvt.tidisassembly.TIDisassembly.disassemblyClose(TIDisassembly.java:116)
+	at com.ti.dvt.datamodel.core.SymbolicOperator.reset(SymbolicOperator.java:1781)
+	at com.ti.dvt.datamodel.core.SymbolicTranslator.reset(SymbolicTranslator.java:385)
+	at com.ti.dvt.datamodel.core.DataModel.resetAllProcessors(DataModel.java:675)
+	at com.ti.dvt.datamodel.solution.Solution.reset(Solution.java:1077)
+	at com.ti.dvt.profileanalysisprovider.AbstractProfileAnalysisProvider.closeSolutions(AbstractProfileAnalysisProvider.java:147)
+	at com.ti.dvt.profileanalysisprovider.AbstractProfileAnalysisProvider.closeSolution(AbstractProfileAnalysisProvider.java:240)
+	at com.ti.dvt.profileanalysisprovider.AbstractProfileAnalysisProvider.debugSessionDetached(AbstractProfileAnalysisProvider.java:265)
+	at com.ti.dvt.profileanalysismanager.ProfileServerPlugin.stop(ProfileServerPlugin.java:829)
+	at org.eclipse.osgi.internal.framework.BundleContextImpl$4.run(BundleContextImpl.java:827)
+	at org.eclipse.osgi.internal.framework.BundleContextImpl$4.run(BundleContextImpl.java:1)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at org.eclipse.osgi.internal.framework.BundleContextImpl.stop(BundleContextImpl.java:820)
+	... 13 more
+Root exception:
+java.lang.UnsatisfiedLinkError: C:\ti\ccsv6\eclipse\plugins\com.ti.dvt.tidisassembly_4.0.0.201501151820\os\win32\msvcp71.dll: Can't find dependent libraries
+	at java.lang.ClassLoader$NativeLibrary.load(Native Method)
+	at java.lang.ClassLoader.loadLibrary1(Unknown Source)
+	at java.lang.ClassLoader.loadLibrary0(Unknown Source)
+	at java.lang.ClassLoader.loadLibrary(Unknown Source)
+	at java.lang.Runtime.loadLibrary0(Unknown Source)
+	at java.lang.System.loadLibrary(Unknown Source)
+	at com.ti.dvt.tidisassembly.TIDisassemblyJNI.<clinit>(TIDisassemblyJNI.java:98)
+	at com.ti.dvt.tidisassembly.TIDisassembly.disassemblyClose(TIDisassembly.java:116)
+	at com.ti.dvt.datamodel.core.SymbolicOperator.reset(SymbolicOperator.java:1781)
+	at com.ti.dvt.datamodel.core.SymbolicTranslator.reset(SymbolicTranslator.java:385)
+	at com.ti.dvt.datamodel.core.DataModel.resetAllProcessors(DataModel.java:675)
+	at com.ti.dvt.datamodel.solution.Solution.reset(Solution.java:1077)
+	at com.ti.dvt.profileanalysisprovider.AbstractProfileAnalysisProvider.closeSolutions(AbstractProfileAnalysisProvider.java:147)
+	at com.ti.dvt.profileanalysisprovider.AbstractProfileAnalysisProvider.closeSolution(AbstractProfileAnalysisProvider.java:240)
+	at com.ti.dvt.profileanalysisprovider.AbstractProfileAnalysisProvider.debugSessionDetached(AbstractProfileAnalysisProvider.java:265)
+	at com.ti.dvt.profileanalysismanager.ProfileServerPlugin.stop(ProfileServerPlugin.java:829)
+	at org.eclipse.osgi.internal.framework.BundleContextImpl$4.run(BundleContextImpl.java:827)
+	at org.eclipse.osgi.internal.framework.BundleContextImpl$4.run(BundleContextImpl.java:1)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at org.eclipse.osgi.internal.framework.BundleContextImpl.stop(BundleContextImpl.java:820)
+	at org.eclipse.osgi.internal.framework.EquinoxBundle.stopWorker0(EquinoxBundle.java:950)
+	at org.eclipse.osgi.internal.framework.EquinoxBundle$EquinoxModule.stopWorker(EquinoxBundle.java:324)
+	at org.eclipse.osgi.container.Module.doStop(Module.java:626)
+	at org.eclipse.osgi.container.Module.stop(Module.java:488)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.decStartLevel(ModuleContainer.java:1623)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.doContainerStartLevel(ModuleContainer.java:1542)
+	at org.eclipse.osgi.container.SystemModule.stopWorker(SystemModule.java:248)
+	at org.eclipse.osgi.internal.framework.EquinoxBundle$SystemBundle$EquinoxSystemModule.stopWorker(EquinoxBundle.java:145)
+	at org.eclipse.osgi.container.Module.doStop(Module.java:626)
+	at org.eclipse.osgi.container.Module.stop(Module.java:488)
+	at org.eclipse.osgi.container.SystemModule.stop(SystemModule.java:186)
+	at org.eclipse.osgi.internal.framework.EquinoxBundle$SystemBundle$EquinoxSystemModule$1.run(EquinoxBundle.java:160)
+	at java.lang.Thread.run(Unknown Source)
+!SESSION 2015-03-25 17:21:22.927 -----------------------------------------------
+eclipse.buildId=4.4.1.M20140925-0400
+java.version=1.7.0_60
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86, WS=win32, NL=en_US
+Framework arguments:  -product com.ti.ccstudio.branding.product
+Command-line arguments:  -os win32 -ws win32 -arch x86 -product com.ti.ccstudio.branding.product
+
+!ENTRY com.ti.common.core 4 0 2015-03-25 17:21:33.818
+!MESSAGE path=ccs_base/DebugServer
+
+!ENTRY com.ti.common.core 4 0 2015-03-25 17:21:33.818
+!MESSAGE debugServerDir=C:/ti/ccsv6/ccs_base/DebugServer
+
+!ENTRY com.ti.ccstudio.system.setup.ui 1 0 2015-03-25 17:21:40.312
+!MESSAGE targetCfgPath1=C:/Users/SEBAST~1/user/CCSTargetConfigurations
+
+!ENTRY com.ti.ccstudio.system.setup.ui 1 0 2015-03-25 17:21:40.312
+!MESSAGE targetCfgPath2=C:/Users/SEBAST~1/ti/CCSTargetConfigurations
+
+!ENTRY org.eclipse.cdt.core 1 0 2015-03-25 17:28:13.902
+!MESSAGE Indexed 'driverlib-cm4f' (29 sources, 58 headers) in 1.79 sec: 4,461 declarations; 10,702 references; 0 unresolved inclusions; 0 syntax errors; 0 unresolved names (0%)
+
+!ENTRY org.eclipse.cdt.core 1 0 2015-03-25 17:29:11.746
+!MESSAGE Indexed 'StellarisClockSetup' (2 sources, 1 headers) in 0.031 sec: 52 declarations; 146 references; 0 unresolved inclusions; 0 syntax errors; 0 unresolved names (0%)
+
+!ENTRY org.eclipse.cdt.core 1 0 2015-03-25 17:29:12.277
+!MESSAGE Indexed 'StellarisClockSetup' (2 sources, 1 headers) in 0.016 sec: 52 declarations; 146 references; 0 unresolved inclusions; 0 syntax errors; 0 unresolved names (0%)
+
+!ENTRY org.eclipse.cdt.core 1 0 2015-03-25 17:29:13.322
+!MESSAGE Indexed 'StellarisClockSetup' (2 sources, 1 headers) in 0.031 sec: 52 declarations; 147 references; 0 unresolved inclusions; 0 syntax errors; 0 unresolved names (0%)
+
+!ENTRY org.eclipse.cdt.core 1 0 2015-03-25 17:32:23.524
+!MESSAGE Indexed 'StellarisClockSetup' (2 sources, 1 headers) in 0.015 sec: 52 declarations; 147 references; 0 unresolved inclusions; 0 syntax errors; 0 unresolved names (0%)

@@ -1,20 +1,201 @@
 
-**** Build of configuration Debug for project Setup430GClock ****
+**** Clean-only build of configuration Debug for project driverlib-cm4f ****
+
+"C:\\ti\\ccsv6\\utils\\bin\\gmake" -k clean 
+DEL /F  "driverlib-cm4f.lib" 
+Could Not Find C:\StellarisWare\driverlib\ccs-cm4f\Debug\driverlib-cm4f.lib
+DEL /F "adc.pp" "can.pp" "comp.pp" "cpu.pp" "eeprom.pp" "epi.pp" "ethernet.pp" "fan.pp" "flash.pp" "fpu.pp" "gpio.pp" "hibernate.pp" "i2c.pp" "i2s.pp" "interrupt.pp" "lpc.pp" "mpu.pp" "peci.pp" "pwm.pp" "qei.pp" "ssi.pp" "sysctl.pp" "sysexc.pp" "systick.pp" "timer.pp" "uart.pp" "udma.pp" "usb.pp" "watchdog.pp" 
+Could Not Find C:\StellarisWare\driverlib\ccs-cm4f\Debug\adc.pp
+DEL /F "adc.obj" "can.obj" "comp.obj" "cpu.obj" "eeprom.obj" "epi.obj" "ethernet.obj" "fan.obj" "flash.obj" "fpu.obj" "gpio.obj" "hibernate.obj" "i2c.obj" "i2s.obj" "interrupt.obj" "lpc.obj" "mpu.obj" "peci.obj" "pwm.obj" "qei.obj" "ssi.obj" "sysctl.obj" "sysexc.obj" "systick.obj" "timer.obj" "uart.obj" "udma.obj" "usb.obj" "watchdog.obj" 
+Could Not Find C:\StellarisWare\driverlib\ccs-cm4f\Debug\adc.obj
+'Finished clean'
+' '
+
+**** Build Finished ****
+
+**** Build of configuration Debug for project driverlib-cm4f ****
 
 "C:\\ti\\ccsv6\\utils\\bin\\gmake" -k all 
+'Building file: C:/StellarisWare/driverlib/adc.c'
+'Invoking: ARM Compiler'
+"C:/ti/ccsv6/tools/compiler/ti-cgt-arm_5.2.2/bin/armcl" -mv7M4 --code_state=16 --float_support=FPv4SPD16 --abi=eabi -me -O2 -g --include_path="C:/ti/ccsv6/tools/compiler/ti-cgt-arm_5.2.2/include" --include_path="C:/StellarisWare" --gcc --define=ccs="ccs" --diag_warning=225 --display_error_number --gen_func_subsections=on --ual --preproc_with_compile --preproc_dependency="adc.pp"  "C:/StellarisWare/driverlib/adc.c"
+'Finished building: C:/StellarisWare/driverlib/adc.c'
+' '
+'Building file: C:/StellarisWare/driverlib/can.c'
+'Invoking: ARM Compiler'
+"C:/ti/ccsv6/tools/compiler/ti-cgt-arm_5.2.2/bin/armcl" -mv7M4 --code_state=16 --float_support=FPv4SPD16 --abi=eabi -me -O2 -g --include_path="C:/ti/ccsv6/tools/compiler/ti-cgt-arm_5.2.2/include" --include_path="C:/StellarisWare" --gcc --define=ccs="ccs" --diag_warning=225 --display_error_number --gen_func_subsections=on --ual --preproc_with_compile --preproc_dependency="can.pp"  "C:/StellarisWare/driverlib/can.c"
+'Finished building: C:/StellarisWare/driverlib/can.c'
+' '
+'Building file: C:/StellarisWare/driverlib/comp.c'
+'Invoking: ARM Compiler'
+"C:/ti/ccsv6/tools/compiler/ti-cgt-arm_5.2.2/bin/armcl" -mv7M4 --code_state=16 --float_support=FPv4SPD16 --abi=eabi -me -O2 -g --include_path="C:/ti/ccsv6/tools/compiler/ti-cgt-arm_5.2.2/include" --include_path="C:/StellarisWare" --gcc --define=ccs="ccs" --diag_warning=225 --display_error_number --gen_func_subsections=on --ual --preproc_with_compile --preproc_dependency="comp.pp"  "C:/StellarisWare/driverlib/comp.c"
+'Finished building: C:/StellarisWare/driverlib/comp.c'
+' '
+'Building file: C:/StellarisWare/driverlib/cpu.c'
+'Invoking: ARM Compiler'
+"C:/ti/ccsv6/tools/compiler/ti-cgt-arm_5.2.2/bin/armcl" -mv7M4 --code_state=16 --float_support=FPv4SPD16 --abi=eabi -me -O2 -g --include_path="C:/ti/ccsv6/tools/compiler/ti-cgt-arm_5.2.2/include" --include_path="C:/StellarisWare" --gcc --define=ccs="ccs" --diag_warning=225 --display_error_number --gen_func_subsections=on --ual --preproc_with_compile --preproc_dependency="cpu.pp"  "C:/StellarisWare/driverlib/cpu.c"
+'Finished building: C:/StellarisWare/driverlib/cpu.c'
+' '
+'Building file: C:/StellarisWare/driverlib/eeprom.c'
+'Invoking: ARM Compiler'
+"C:/ti/ccsv6/tools/compiler/ti-cgt-arm_5.2.2/bin/armcl" -mv7M4 --code_state=16 --float_support=FPv4SPD16 --abi=eabi -me -O2 -g --include_path="C:/ti/ccsv6/tools/compiler/ti-cgt-arm_5.2.2/include" --include_path="C:/StellarisWare" --gcc --define=ccs="ccs" --diag_warning=225 --display_error_number --gen_func_subsections=on --ual --preproc_with_compile --preproc_dependency="eeprom.pp"  "C:/StellarisWare/driverlib/eeprom.c"
+'Finished building: C:/StellarisWare/driverlib/eeprom.c'
+' '
+'Building file: C:/StellarisWare/driverlib/epi.c'
+'Invoking: ARM Compiler'
+"C:/ti/ccsv6/tools/compiler/ti-cgt-arm_5.2.2/bin/armcl" -mv7M4 --code_state=16 --float_support=FPv4SPD16 --abi=eabi -me -O2 -g --include_path="C:/ti/ccsv6/tools/compiler/ti-cgt-arm_5.2.2/include" --include_path="C:/StellarisWare" --gcc --define=ccs="ccs" --diag_warning=225 --display_error_number --gen_func_subsections=on --ual --preproc_with_compile --preproc_dependency="epi.pp"  "C:/StellarisWare/driverlib/epi.c"
+'Finished building: C:/StellarisWare/driverlib/epi.c'
+' '
+'Building file: C:/StellarisWare/driverlib/ethernet.c'
+'Invoking: ARM Compiler'
+"C:/ti/ccsv6/tools/compiler/ti-cgt-arm_5.2.2/bin/armcl" -mv7M4 --code_state=16 --float_support=FPv4SPD16 --abi=eabi -me -O2 -g --include_path="C:/ti/ccsv6/tools/compiler/ti-cgt-arm_5.2.2/include" --include_path="C:/StellarisWare" --gcc --define=ccs="ccs" --diag_warning=225 --display_error_number --gen_func_subsections=on --ual --preproc_with_compile --preproc_dependency="ethernet.pp"  "C:/StellarisWare/driverlib/ethernet.c"
+'Finished building: C:/StellarisWare/driverlib/ethernet.c'
+' '
+'Building file: C:/StellarisWare/driverlib/fan.c'
+'Invoking: ARM Compiler'
+"C:/ti/ccsv6/tools/compiler/ti-cgt-arm_5.2.2/bin/armcl" -mv7M4 --code_state=16 --float_support=FPv4SPD16 --abi=eabi -me -O2 -g --include_path="C:/ti/ccsv6/tools/compiler/ti-cgt-arm_5.2.2/include" --include_path="C:/StellarisWare" --gcc --define=ccs="ccs" --diag_warning=225 --display_error_number --gen_func_subsections=on --ual --preproc_with_compile --preproc_dependency="fan.pp"  "C:/StellarisWare/driverlib/fan.c"
+'Finished building: C:/StellarisWare/driverlib/fan.c'
+' '
+'Building file: C:/StellarisWare/driverlib/flash.c'
+'Invoking: ARM Compiler'
+"C:/ti/ccsv6/tools/compiler/ti-cgt-arm_5.2.2/bin/armcl" -mv7M4 --code_state=16 --float_support=FPv4SPD16 --abi=eabi -me -O2 -g --include_path="C:/ti/ccsv6/tools/compiler/ti-cgt-arm_5.2.2/include" --include_path="C:/StellarisWare" --gcc --define=ccs="ccs" --diag_warning=225 --display_error_number --gen_func_subsections=on --ual --preproc_with_compile --preproc_dependency="flash.pp"  "C:/StellarisWare/driverlib/flash.c"
+'Finished building: C:/StellarisWare/driverlib/flash.c'
+' '
+'Building file: C:/StellarisWare/driverlib/fpu.c'
+'Invoking: ARM Compiler'
+"C:/ti/ccsv6/tools/compiler/ti-cgt-arm_5.2.2/bin/armcl" -mv7M4 --code_state=16 --float_support=FPv4SPD16 --abi=eabi -me -O2 -g --include_path="C:/ti/ccsv6/tools/compiler/ti-cgt-arm_5.2.2/include" --include_path="C:/StellarisWare" --gcc --define=ccs="ccs" --diag_warning=225 --display_error_number --gen_func_subsections=on --ual --preproc_with_compile --preproc_dependency="fpu.pp"  "C:/StellarisWare/driverlib/fpu.c"
+'Finished building: C:/StellarisWare/driverlib/fpu.c'
+' '
+'Building file: C:/StellarisWare/driverlib/gpio.c'
+'Invoking: ARM Compiler'
+"C:/ti/ccsv6/tools/compiler/ti-cgt-arm_5.2.2/bin/armcl" -mv7M4 --code_state=16 --float_support=FPv4SPD16 --abi=eabi -me -O2 -g --include_path="C:/ti/ccsv6/tools/compiler/ti-cgt-arm_5.2.2/include" --include_path="C:/StellarisWare" --gcc --define=ccs="ccs" --diag_warning=225 --display_error_number --gen_func_subsections=on --ual --preproc_with_compile --preproc_dependency="gpio.pp"  "C:/StellarisWare/driverlib/gpio.c"
+'Finished building: C:/StellarisWare/driverlib/gpio.c'
+' '
+'Building file: C:/StellarisWare/driverlib/hibernate.c'
+'Invoking: ARM Compiler'
+"C:/ti/ccsv6/tools/compiler/ti-cgt-arm_5.2.2/bin/armcl" -mv7M4 --code_state=16 --float_support=FPv4SPD16 --abi=eabi -me -O2 -g --include_path="C:/ti/ccsv6/tools/compiler/ti-cgt-arm_5.2.2/include" --include_path="C:/StellarisWare" --gcc --define=ccs="ccs" --diag_warning=225 --display_error_number --gen_func_subsections=on --ual --preproc_with_compile --preproc_dependency="hibernate.pp"  "C:/StellarisWare/driverlib/hibernate.c"
+'Finished building: C:/StellarisWare/driverlib/hibernate.c'
+' '
+'Building file: C:/StellarisWare/driverlib/i2c.c'
+'Invoking: ARM Compiler'
+"C:/ti/ccsv6/tools/compiler/ti-cgt-arm_5.2.2/bin/armcl" -mv7M4 --code_state=16 --float_support=FPv4SPD16 --abi=eabi -me -O2 -g --include_path="C:/ti/ccsv6/tools/compiler/ti-cgt-arm_5.2.2/include" --include_path="C:/StellarisWare" --gcc --define=ccs="ccs" --diag_warning=225 --display_error_number --gen_func_subsections=on --ual --preproc_with_compile --preproc_dependency="i2c.pp"  "C:/StellarisWare/driverlib/i2c.c"
+'Finished building: C:/StellarisWare/driverlib/i2c.c'
+' '
+'Building file: C:/StellarisWare/driverlib/i2s.c'
+'Invoking: ARM Compiler'
+"C:/ti/ccsv6/tools/compiler/ti-cgt-arm_5.2.2/bin/armcl" -mv7M4 --code_state=16 --float_support=FPv4SPD16 --abi=eabi -me -O2 -g --include_path="C:/ti/ccsv6/tools/compiler/ti-cgt-arm_5.2.2/include" --include_path="C:/StellarisWare" --gcc --define=ccs="ccs" --diag_warning=225 --display_error_number --gen_func_subsections=on --ual --preproc_with_compile --preproc_dependency="i2s.pp"  "C:/StellarisWare/driverlib/i2s.c"
+'Finished building: C:/StellarisWare/driverlib/i2s.c'
+' '
+'Building file: C:/StellarisWare/driverlib/interrupt.c'
+'Invoking: ARM Compiler'
+"C:/ti/ccsv6/tools/compiler/ti-cgt-arm_5.2.2/bin/armcl" -mv7M4 --code_state=16 --float_support=FPv4SPD16 --abi=eabi -me -O2 -g --include_path="C:/ti/ccsv6/tools/compiler/ti-cgt-arm_5.2.2/include" --include_path="C:/StellarisWare" --gcc --define=ccs="ccs" --diag_warning=225 --display_error_number --gen_func_subsections=on --ual --preproc_with_compile --preproc_dependency="interrupt.pp"  "C:/StellarisWare/driverlib/interrupt.c"
+'Finished building: C:/StellarisWare/driverlib/interrupt.c'
+' '
+'Building file: C:/StellarisWare/driverlib/lpc.c'
+'Invoking: ARM Compiler'
+"C:/ti/ccsv6/tools/compiler/ti-cgt-arm_5.2.2/bin/armcl" -mv7M4 --code_state=16 --float_support=FPv4SPD16 --abi=eabi -me -O2 -g --include_path="C:/ti/ccsv6/tools/compiler/ti-cgt-arm_5.2.2/include" --include_path="C:/StellarisWare" --gcc --define=ccs="ccs" --diag_warning=225 --display_error_number --gen_func_subsections=on --ual --preproc_with_compile --preproc_dependency="lpc.pp"  "C:/StellarisWare/driverlib/lpc.c"
+'Finished building: C:/StellarisWare/driverlib/lpc.c'
+' '
+'Building file: C:/StellarisWare/driverlib/mpu.c'
+'Invoking: ARM Compiler'
+"C:/ti/ccsv6/tools/compiler/ti-cgt-arm_5.2.2/bin/armcl" -mv7M4 --code_state=16 --float_support=FPv4SPD16 --abi=eabi -me -O2 -g --include_path="C:/ti/ccsv6/tools/compiler/ti-cgt-arm_5.2.2/include" --include_path="C:/StellarisWare" --gcc --define=ccs="ccs" --diag_warning=225 --display_error_number --gen_func_subsections=on --ual --preproc_with_compile --preproc_dependency="mpu.pp"  "C:/StellarisWare/driverlib/mpu.c"
+'Finished building: C:/StellarisWare/driverlib/mpu.c'
+' '
+'Building file: C:/StellarisWare/driverlib/peci.c'
+'Invoking: ARM Compiler'
+"C:/ti/ccsv6/tools/compiler/ti-cgt-arm_5.2.2/bin/armcl" -mv7M4 --code_state=16 --float_support=FPv4SPD16 --abi=eabi -me -O2 -g --include_path="C:/ti/ccsv6/tools/compiler/ti-cgt-arm_5.2.2/include" --include_path="C:/StellarisWare" --gcc --define=ccs="ccs" --diag_warning=225 --display_error_number --gen_func_subsections=on --ual --preproc_with_compile --preproc_dependency="peci.pp"  "C:/StellarisWare/driverlib/peci.c"
+'Finished building: C:/StellarisWare/driverlib/peci.c'
+' '
+'Building file: C:/StellarisWare/driverlib/pwm.c'
+'Invoking: ARM Compiler'
+"C:/ti/ccsv6/tools/compiler/ti-cgt-arm_5.2.2/bin/armcl" -mv7M4 --code_state=16 --float_support=FPv4SPD16 --abi=eabi -me -O2 -g --include_path="C:/ti/ccsv6/tools/compiler/ti-cgt-arm_5.2.2/include" --include_path="C:/StellarisWare" --gcc --define=ccs="ccs" --diag_warning=225 --display_error_number --gen_func_subsections=on --ual --preproc_with_compile --preproc_dependency="pwm.pp"  "C:/StellarisWare/driverlib/pwm.c"
+'Finished building: C:/StellarisWare/driverlib/pwm.c'
+' '
+'Building file: C:/StellarisWare/driverlib/qei.c'
+'Invoking: ARM Compiler'
+"C:/ti/ccsv6/tools/compiler/ti-cgt-arm_5.2.2/bin/armcl" -mv7M4 --code_state=16 --float_support=FPv4SPD16 --abi=eabi -me -O2 -g --include_path="C:/ti/ccsv6/tools/compiler/ti-cgt-arm_5.2.2/include" --include_path="C:/StellarisWare" --gcc --define=ccs="ccs" --diag_warning=225 --display_error_number --gen_func_subsections=on --ual --preproc_with_compile --preproc_dependency="qei.pp"  "C:/StellarisWare/driverlib/qei.c"
+'Finished building: C:/StellarisWare/driverlib/qei.c'
+' '
+'Building file: C:/StellarisWare/driverlib/ssi.c'
+'Invoking: ARM Compiler'
+"C:/ti/ccsv6/tools/compiler/ti-cgt-arm_5.2.2/bin/armcl" -mv7M4 --code_state=16 --float_support=FPv4SPD16 --abi=eabi -me -O2 -g --include_path="C:/ti/ccsv6/tools/compiler/ti-cgt-arm_5.2.2/include" --include_path="C:/StellarisWare" --gcc --define=ccs="ccs" --diag_warning=225 --display_error_number --gen_func_subsections=on --ual --preproc_with_compile --preproc_dependency="ssi.pp"  "C:/StellarisWare/driverlib/ssi.c"
+'Finished building: C:/StellarisWare/driverlib/ssi.c'
+' '
+'Building file: C:/StellarisWare/driverlib/sysctl.c'
+'Invoking: ARM Compiler'
+"C:/ti/ccsv6/tools/compiler/ti-cgt-arm_5.2.2/bin/armcl" -mv7M4 --code_state=16 --float_support=FPv4SPD16 --abi=eabi -me -O2 -g --include_path="C:/ti/ccsv6/tools/compiler/ti-cgt-arm_5.2.2/include" --include_path="C:/StellarisWare" --gcc --define=ccs="ccs" --diag_warning=225 --display_error_number --gen_func_subsections=on --ual --preproc_with_compile --preproc_dependency="sysctl.pp"  "C:/StellarisWare/driverlib/sysctl.c"
+'Finished building: C:/StellarisWare/driverlib/sysctl.c'
+' '
+'Building file: C:/StellarisWare/driverlib/sysexc.c'
+'Invoking: ARM Compiler'
+"C:/ti/ccsv6/tools/compiler/ti-cgt-arm_5.2.2/bin/armcl" -mv7M4 --code_state=16 --float_support=FPv4SPD16 --abi=eabi -me -O2 -g --include_path="C:/ti/ccsv6/tools/compiler/ti-cgt-arm_5.2.2/include" --include_path="C:/StellarisWare" --gcc --define=ccs="ccs" --diag_warning=225 --display_error_number --gen_func_subsections=on --ual --preproc_with_compile --preproc_dependency="sysexc.pp"  "C:/StellarisWare/driverlib/sysexc.c"
+'Finished building: C:/StellarisWare/driverlib/sysexc.c'
+' '
+'Building file: C:/StellarisWare/driverlib/systick.c'
+'Invoking: ARM Compiler'
+"C:/ti/ccsv6/tools/compiler/ti-cgt-arm_5.2.2/bin/armcl" -mv7M4 --code_state=16 --float_support=FPv4SPD16 --abi=eabi -me -O2 -g --include_path="C:/ti/ccsv6/tools/compiler/ti-cgt-arm_5.2.2/include" --include_path="C:/StellarisWare" --gcc --define=ccs="ccs" --diag_warning=225 --display_error_number --gen_func_subsections=on --ual --preproc_with_compile --preproc_dependency="systick.pp"  "C:/StellarisWare/driverlib/systick.c"
+'Finished building: C:/StellarisWare/driverlib/systick.c'
+' '
+'Building file: C:/StellarisWare/driverlib/timer.c'
+'Invoking: ARM Compiler'
+"C:/ti/ccsv6/tools/compiler/ti-cgt-arm_5.2.2/bin/armcl" -mv7M4 --code_state=16 --float_support=FPv4SPD16 --abi=eabi -me -O2 -g --include_path="C:/ti/ccsv6/tools/compiler/ti-cgt-arm_5.2.2/include" --include_path="C:/StellarisWare" --gcc --define=ccs="ccs" --diag_warning=225 --display_error_number --gen_func_subsections=on --ual --preproc_with_compile --preproc_dependency="timer.pp"  "C:/StellarisWare/driverlib/timer.c"
+'Finished building: C:/StellarisWare/driverlib/timer.c'
+' '
+'Building file: C:/StellarisWare/driverlib/uart.c'
+'Invoking: ARM Compiler'
+"C:/ti/ccsv6/tools/compiler/ti-cgt-arm_5.2.2/bin/armcl" -mv7M4 --code_state=16 --float_support=FPv4SPD16 --abi=eabi -me -O2 -g --include_path="C:/ti/ccsv6/tools/compiler/ti-cgt-arm_5.2.2/include" --include_path="C:/StellarisWare" --gcc --define=ccs="ccs" --diag_warning=225 --display_error_number --gen_func_subsections=on --ual --preproc_with_compile --preproc_dependency="uart.pp"  "C:/StellarisWare/driverlib/uart.c"
+'Finished building: C:/StellarisWare/driverlib/uart.c'
+' '
+'Building file: C:/StellarisWare/driverlib/udma.c'
+'Invoking: ARM Compiler'
+"C:/ti/ccsv6/tools/compiler/ti-cgt-arm_5.2.2/bin/armcl" -mv7M4 --code_state=16 --float_support=FPv4SPD16 --abi=eabi -me -O2 -g --include_path="C:/ti/ccsv6/tools/compiler/ti-cgt-arm_5.2.2/include" --include_path="C:/StellarisWare" --gcc --define=ccs="ccs" --diag_warning=225 --display_error_number --gen_func_subsections=on --ual --preproc_with_compile --preproc_dependency="udma.pp"  "C:/StellarisWare/driverlib/udma.c"
+'Finished building: C:/StellarisWare/driverlib/udma.c'
+' '
+'Building file: C:/StellarisWare/driverlib/usb.c'
+'Invoking: ARM Compiler'
+"C:/ti/ccsv6/tools/compiler/ti-cgt-arm_5.2.2/bin/armcl" -mv7M4 --code_state=16 --float_support=FPv4SPD16 --abi=eabi -me -O2 -g --include_path="C:/ti/ccsv6/tools/compiler/ti-cgt-arm_5.2.2/include" --include_path="C:/StellarisWare" --gcc --define=ccs="ccs" --diag_warning=225 --display_error_number --gen_func_subsections=on --ual --preproc_with_compile --preproc_dependency="usb.pp"  "C:/StellarisWare/driverlib/usb.c"
+'Finished building: C:/StellarisWare/driverlib/usb.c'
+' '
+'Building file: C:/StellarisWare/driverlib/watchdog.c'
+'Invoking: ARM Compiler'
+"C:/ti/ccsv6/tools/compiler/ti-cgt-arm_5.2.2/bin/armcl" -mv7M4 --code_state=16 --float_support=FPv4SPD16 --abi=eabi -me -O2 -g --include_path="C:/ti/ccsv6/tools/compiler/ti-cgt-arm_5.2.2/include" --include_path="C:/StellarisWare" --gcc --define=ccs="ccs" --diag_warning=225 --display_error_number --gen_func_subsections=on --ual --preproc_with_compile --preproc_dependency="watchdog.pp"  "C:/StellarisWare/driverlib/watchdog.c"
+'Finished building: C:/StellarisWare/driverlib/watchdog.c'
+' '
+'Building target: driverlib-cm4f.lib'
+'Invoking: ARM Archiver'
+"C:/ti/ccsv6/tools/compiler/ti-cgt-arm_5.2.2/bin/armar" r "driverlib-cm4f.lib" "./adc.obj" "./can.obj" "./comp.obj" "./cpu.obj" "./eeprom.obj" "./epi.obj" "./ethernet.obj" "./fan.obj" "./flash.obj" "./fpu.obj" "./gpio.obj" "./hibernate.obj" "./i2c.obj" "./i2s.obj" "./interrupt.obj" "./lpc.obj" "./mpu.obj" "./peci.obj" "./pwm.obj" "./qei.obj" "./ssi.obj" "./sysctl.obj" "./sysexc.obj" "./systick.obj" "./timer.obj" "./uart.obj" "./udma.obj" "./usb.obj" "./watchdog.obj"  
+  ==>  new archive 'driverlib-cm4f.lib'
+  ==>  building archive 'driverlib-cm4f.lib'
+'Finished building target: driverlib-cm4f.lib'
+' '
+
+**** Build Finished ****
+
+**** Build of configuration Debug for project StellarisClockSetup ****
+
+"C:\\ti\\ccsv6\\utils\\bin\\gmake" -k all 
+'Building file: ../lm4f121h5qr_startup_ccs.c'
+'Invoking: ARM Compiler'
+"C:/ti/ccsv6/tools/compiler/ti-cgt-arm_5.2.2/bin/armcl" -mv7M4 --code_state=16 --float_support=FPv4SPD16 --abi=eabi -me --include_path="C:/ti/ccsv6/tools/compiler/ti-cgt-arm_5.2.2/include" --include_path="C:/StellarisWare" -g --gcc --define="ccs" --define=PART_LM4F121H5QR --display_error_number --diag_warning=225 --diag_wrap=off --preproc_with_compile --preproc_dependency="lm4f121h5qr_startup_ccs.pp"  "../lm4f121h5qr_startup_ccs.c"
+'Finished building: ../lm4f121h5qr_startup_ccs.c'
+' '
 'Building file: ../main.c'
-'Invoking: MSP430 Compiler'
-"C:/ti/ccsv6/tools/compiler/ti-cgt-msp430_4.4.3/bin/cl430" -vmsp --abi=eabi --use_hw_mpy=none --include_path="C:/ti/ccsv6/ccs_base/msp430/include" --include_path="C:/ti/ccsv6/tools/compiler/ti-cgt-msp430_4.4.3/include" --advice:power=all -g --define=__MSP430G2553__ --diag_warning=225 --display_error_number --diag_wrap=off --printf_support=minimal --preproc_with_compile --preproc_dependency="main.pp"  "../main.c"
+'Invoking: ARM Compiler'
+"C:/ti/ccsv6/tools/compiler/ti-cgt-arm_5.2.2/bin/armcl" -mv7M4 --code_state=16 --float_support=FPv4SPD16 --abi=eabi -me --include_path="C:/ti/ccsv6/tools/compiler/ti-cgt-arm_5.2.2/include" --include_path="C:/StellarisWare" -g --gcc --define="ccs" --define=PART_LM4F121H5QR --display_error_number --diag_warning=225 --diag_wrap=off --preproc_with_compile --preproc_dependency="main.pp"  "../main.c"
 'Finished building: ../main.c'
 ' '
-'Building target: Setup430GClock.out'
-'Invoking: MSP430 Linker'
-"C:/ti/ccsv6/tools/compiler/ti-cgt-msp430_4.4.3/bin/cl430" -vmsp --abi=eabi --use_hw_mpy=none --advice:power=all -g --define=__MSP430G2553__ --diag_warning=225 --display_error_number --diag_wrap=off --printf_support=minimal -z -m"Setup430GClock.map" --heap_size=80 --stack_size=80 -i"C:/ti/ccsv6/ccs_base/msp430/include" -i"C:/ti/ccsv6/tools/compiler/ti-cgt-msp430_4.4.3/lib" -i"C:/ti/ccsv6/tools/compiler/ti-cgt-msp430_4.4.3/include" --reread_libs --warn_sections --display_error_number --diag_wrap=off --xml_link_info="Setup430GClock_linkInfo.xml" --use_hw_mpy=none --rom_model -o "Setup430GClock.out" "./main.obj" "../lnk_msp430g2553.cmd"  -l"libc.a" 
+'Building target: StellarisClockSetup.out'
+'Invoking: ARM Linker'
+"C:/ti/ccsv6/tools/compiler/ti-cgt-arm_5.2.2/bin/armcl" -mv7M4 --code_state=16 --float_support=FPv4SPD16 --abi=eabi -me -g --gcc --define="ccs" --define=PART_LM4F121H5QR --display_error_number --diag_warning=225 --diag_wrap=off -z -m"StellarisClockSetup.map" --heap_size=0 --stack_size=512 -i"C:/ti/ccsv6/tools/compiler/ti-cgt-arm_5.2.2/lib" -i"C:/ti/ccsv6/tools/compiler/ti-cgt-arm_5.2.2/include" --reread_libs --warn_sections --display_error_number --diag_wrap=off --xml_link_info="StellarisClockSetup_linkInfo.xml" --rom_model -o "StellarisClockSetup.out" "./lm4f121h5qr_startup_ccs.obj" "./main.obj" "../lm4f121h5qr.cmd"  -l"libc.a" -l"C:\StellarisWare\driverlib\ccs-cm4f\Debug\driverlib-cm4f.lib" 
 <Linking>
-remark #10371-D: (ULP 1.1) Detected no uses of low power mode state changing instructions
-remark #10372-D: (ULP 4.1) Detected uninitialized Port 2 in this project. Recommend initializing all unused ports to eliminate wasted current consumption on unused pins.
-remark #10372-D: (ULP 4.1) Detected uninitialized Port 3 in this project. Recommend initializing all unused ports to eliminate wasted current consumption on unused pins.
-'Finished building target: Setup430GClock.out'
+'Finished building target: StellarisClockSetup.out'
 ' '
+
+**** Build Finished ****
+
+**** Build of configuration Debug for project StellarisClockSetup ****
+
+"C:\\ti\\ccsv6\\utils\\bin\\gmake" -k all 
+gmake: Nothing to be done for `all'.
 
 **** Build Finished ****

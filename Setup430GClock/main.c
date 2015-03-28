@@ -25,17 +25,20 @@ int main(void) {
 	TACTL = 0x222;
 	//Sets initial counter to 0
 	TAR = 0x00;
-	TAIV = 0x00;
 
 	__enable_interrupt();
-
+	while(TAR < 0x200);
+	P1OUT = 0x00;
 	while(1);
 }
 
-#pragma vector = TIMER0_A0_VECTOR
-__interrupt void TIMERA0_ISR (void) {
+#pragma vector = TIMER0_A1_VECTOR
+__interrupt void TIMERA1_ISR (void) {
 	switch(TAIV) {
 		case 0x0A:
+			P1OUT ^= 0x20;
+			break;
+		default:
 			P1OUT ^= 0x20;
 			break;
 	}
