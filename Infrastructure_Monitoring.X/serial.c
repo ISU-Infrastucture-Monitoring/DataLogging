@@ -30,6 +30,9 @@ void init_serial()
     RCSTAbits.SPEN = 1;     //Enable Serial port
 
     TXSTAbits.TXEN = 1;     //Enable transmission
+    
+    TRISCbits.RC6 = 1;      //Set Pin RC6 to TX
+    TRISCbits.RC7 = 1;      //Set Pin RC7 to RX
 
 }
 

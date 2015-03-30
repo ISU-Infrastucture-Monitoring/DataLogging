@@ -24,27 +24,16 @@
 
 
 void init_DigPot(void) {
-   // TRISCbits.RC3 = 0;      //Sets RC3 pin to output mode for SCL
-   // TRISCbits.RC4 = 1;      //Sets RC4 pin to output mode for SDA
-      TRISC = 0x00;
-      PORTC = 0x00;
-   // LATCbits.LATC3 = 1;
-   // LATCbits.LATC4 = 1;
-    
+
+    TRISCbits.RC3 = 0;
+    TRISCbits.RC4 = 0;
+    PORTCbits.RC3 = 0;
+    PORTCbits.RC4 = 0;
+
     OpenI2C(MASTER, SLEW_OFF);
-    
-    //Initialize I2C communication
-//    SSPCON1bits.WCOL = 0;   //Clears Write Collision detect bit
-//    SSPCON1bits.SSPM = 8;   //Sets I2C to Master mode
-//    SSPCON1bits.SSPOV = 0;  //Clears Overflow Indicator bits
-//    
+
     SSPADD = 0x18;            //Sets Baud rate to 100KHz
-//    
-//    SSPSTATbits.SMP = 1;    //Set Slew Rate control to disabled
-//    SSPSTATbits.CKE = 0;    //Disable SMBus specific input
-//    
-//    SSPCON1bits.SSPEN = 1;  //Enables Serial port functionality on RC3 & RC4
-    
+
     //Initialize Digital Potentiometer
     Write_to_Pot(128);
     
@@ -60,9 +49,7 @@ void Write_to_Pot(unsigned char VAL)
     data[i++] = DIGPOT_ADDR;
     data[i++] = WRITE_OP_CODE;
     data[i++] = VAL;
-    
-    //rv = putsI2C(data);
-    
+        
     IdleI2C();
     StartI2C();     //Generates Start condition
     for(i=0;i<3;i++)
@@ -79,24 +66,5 @@ void Write_to_Pot(unsigned char VAL)
     }
     IdleI2C();
     StopI2C();      //Generates Stop condition
-   // CloseI2C();
-    
-    
-//    
-//    SSPCON2bits.SEN = 1;    //Start condition
-//    while(SSPCON2bits.SEN);
-//    SSPBUF = DIGPOT_ADDR;   //Load slave ADDR into SSPBUF & begin transmit
-//    while(SSPSTATbits.RW); //Wait until finished
-//    PIR1bits.SSPIF = 0;     //Clear interrupt flag
-//    
-//    SSPBUF = WRITE_OP_CODE; //Load Write code into SSPBUF & begin transmit
-//    while(SSPSTATbits.RW); //Wait until finished
-//    PIR1bits.SSPIF = 0;     //Clear interrupt flag
-//    
-//    SSPBUF = VAL;          //Load value into SSPBUF & begin transmit
-//    while(SSPSTATbits.RW); //Wait until finished
-//    PIR1bits.SSPIF = 0;     //Clear interrupt flag
-//    
-//    SSPCON2bits.PEN = 1;    //Stop condition
     
 }
