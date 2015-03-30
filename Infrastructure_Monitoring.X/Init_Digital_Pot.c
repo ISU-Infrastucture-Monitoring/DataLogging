@@ -18,6 +18,7 @@
 #endif
 
 #include "user.h"
+#include <i2c.h>            //I2C library
 #define DIGPOT_ADDR 0x50
 #define WRITE_OP_CODE 0xA0
 
@@ -61,7 +62,7 @@ void Write_to_Pot(unsigned char VAL)
     //rv = putsI2C(data);
     
     IdleI2C();
-    StartI2C();
+    StartI2C();     //Generates Start condition
     for(i=0;i<3;i++)
     {
         do{
@@ -74,8 +75,8 @@ void Write_to_Pot(unsigned char VAL)
         } while(status != 0);
     }
     IdleI2C();
-    
-    CloseI2C();
+    StopI2C();      //Generates Stop condition
+   // CloseI2C();
     
     
 //    
