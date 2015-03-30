@@ -5099,6 +5099,8 @@ extern volatile unsigned char Done;
 # 13 "user.h"
 void InitApp(void);
 void init_serial();
+void Write_to_Pot(unsigned char VAL);
+void Init_DigPot();
 
 # 33 "main.c"
 void main(void)

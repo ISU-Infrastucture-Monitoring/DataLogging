@@ -3793,6 +3793,8 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;system.h: 23: extern volatile unsigned char Done;
 [; ;user.h: 13: void InitApp(void);
 [; ;user.h: 14: void init_serial();
+[; ;user.h: 15: void Write_to_Pot(unsigned char VAL);
+[; ;user.h: 16: void Init_DigPot();
 "33 main.c
 [v _main `(v ~T0 @X0 1 ef ]
 "34

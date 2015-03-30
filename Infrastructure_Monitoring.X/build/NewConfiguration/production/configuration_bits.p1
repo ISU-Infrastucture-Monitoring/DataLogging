@@ -3780,7 +3780,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 "72
 [p x STVREN=ON ]
 "73
-[p x LVP=ON ]
+[p x LVP=OFF ]
 "74
 [p x XINST=OFF ]
 "77

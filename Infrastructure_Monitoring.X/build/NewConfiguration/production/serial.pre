@@ -5155,6 +5155,8 @@ extern int printf(const char *, ...);
 # 13 "user.h"
 void InitApp(void);
 void init_serial();
+void Write_to_Pot(unsigned char VAL);
+void Init_DigPot();
 
 # 22 "serial.c"
 void init_serial()

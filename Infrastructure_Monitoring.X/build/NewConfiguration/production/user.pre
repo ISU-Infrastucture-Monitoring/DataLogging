@@ -5155,6 +5155,8 @@ extern int printf(const char *, ...);
 # 13 "user.h"
 void InitApp(void);
 void init_serial();
+void Write_to_Pot(unsigned char VAL);
+void Init_DigPot();
 
 # 19 "system.h"
 void ConfigureOscillator(void);
@@ -5197,12 +5199,16 @@ INTCONbits.PEIE = 1;
 TRISAbits.RA0 = 0;
 
 init_serial();
+init_DigPot();
+unsigned char k = 0;
 
 uint32_t freq;
 while(1)
 {
-freq = get_freq();
-printf("%lu\n", freq);
+Write_to_Pot(k);
+k += 8;
+
+
 }
 }
 

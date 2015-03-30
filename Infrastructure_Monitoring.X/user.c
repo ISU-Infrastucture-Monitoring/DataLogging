@@ -63,12 +63,16 @@ void InitApp(void)
     TRISAbits.RA0 = 0;      //Set Pin RA0 to output mode
     
     init_serial();
-
+    init_DigPot();
+    unsigned char k = 0;
+    
     uint32_t freq;
     while(1)
     {
-        freq = get_freq();
-        printf("%lu\n", freq);
+        Write_to_Pot(k);
+        k += 8;
+        //freq = get_freq();
+        //printf("%lu\n", freq);
     }
 }
 

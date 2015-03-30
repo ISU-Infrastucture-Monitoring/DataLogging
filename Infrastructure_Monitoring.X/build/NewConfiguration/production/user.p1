@@ -150,10 +150,10 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _TRISAbits `VS109 ~T0 @X0 0 e@3986 ]
 "14 user.h
 [v _init_serial `(v ~T0 @X0 0 ef ]
-"33 user.c
-[v _get_freq `(ul ~T0 @X0 0 ef ]
-"207 /opt/microchip/xc8/v1.34/include/stdio.h
-[v _printf `(i ~T0 @X0 0 ev`*Cuc ]
+"66 user.c
+[v _init_DigPot `(i ~T0 @X0 0 ef ]
+"15 user.h
+[v _Write_to_Pot `(v ~T0 @X0 0 ef1`uc ]
 "4026 /opt/microchip/xc8/v1.34/include/pic18f4520.h
 [v _TMR3H `Vuc ~T0 @X0 0 e@4019 ]
 "4020
@@ -3977,6 +3977,8 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;stdio.h: 207: extern int printf(const char *, ...);
 [; ;user.h: 13: void InitApp(void);
 [; ;user.h: 14: void init_serial();
+[; ;user.h: 15: void Write_to_Pot(unsigned char VAL);
+[; ;user.h: 16: void Init_DigPot();
 [; ;system.h: 19: void ConfigureOscillator(void);
 [; ;system.h: 21: extern volatile unsigned short Timer1OfCount;
 [; ;system.h: 22: extern volatile unsigned short Timer3OfCount;
@@ -4050,106 +4052,110 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;user.c: 65: init_serial();
 "65
 [e ( _init_serial ..  ]
+[; ;user.c: 66: init_DigPot();
+"66
+[e ( _init_DigPot ..  ]
 "67
-[v _freq `ul ~T0 @X0 1 a ]
-[; ;user.c: 67: uint32_t freq;
-[; ;user.c: 68: while(1)
-"68
-[e :U 405 ]
-[; ;user.c: 69: {
+[v _k `uc ~T0 @X0 1 a ]
+[; ;user.c: 67: unsigned char k = 0;
+[e = _k -> -> 0 `i `uc ]
 "69
-{
-[; ;user.c: 70: freq = get_freq();
+[v _freq `ul ~T0 @X0 1 a ]
+[; ;user.c: 69: uint32_t freq;
+[; ;user.c: 70: while(1)
 "70
-[e = _freq ( _get_freq ..  ]
-[; ;user.c: 71: printf("%lu\n", freq);
+[e :U 405 ]
+[; ;user.c: 71: {
 "71
-[e ( _printf , (. :s 1C _freq ]
+{
+[; ;user.c: 72: Write_to_Pot(k);
 "72
+[e ( _Write_to_Pot (1 _k ]
+[; ;user.c: 73: k += 8;
+"73
+[e =+ _k -> -> 8 `i `uc ]
+"76
 }
 [e :U 404 ]
-"68
+"70
 [e $U 405  ]
 [e :U 406 ]
-[; ;user.c: 72: }
-[; ;user.c: 73: }
-"73
+[; ;user.c: 76: }
+[; ;user.c: 77: }
+"77
 [e :UE 403 ]
 }
-"75
+"79
 [v _get_freq `(ul ~T0 @X0 1 ef ]
-"76
+"80
 {
-[; ;user.c: 75: uint32_t get_freq()
-[; ;user.c: 76: {
+[; ;user.c: 79: uint32_t get_freq()
+[; ;user.c: 80: {
 [e :U _get_freq ]
 [f ]
-"77
-[v _i `i ~T0 @X0 1 a ]
-[; ;user.c: 77: int i = 0;
-[e = _i -> 0 `i ]
-[; ;user.c: 78: Timer1OfCount = 0;
-"78
-[e = _Timer1OfCount -> -> 0 `i `us ]
-[; ;user.c: 79: Timer3OfCount = 0;
-"79
-[e = _Timer3OfCount -> -> 0 `i `us ]
-[; ;user.c: 81: TMR3H = 0;
 "81
-[e = _TMR3H -> -> 0 `i `uc ]
-[; ;user.c: 82: TMR3L = 0;
+[v _i `i ~T0 @X0 1 a ]
+[; ;user.c: 81: int i = 0;
+[e = _i -> 0 `i ]
+[; ;user.c: 82: Timer1OfCount = 0;
 "82
-[e = _TMR3L -> -> 0 `i `uc ]
-[; ;user.c: 83: TMR1H = 0;
+[e = _Timer1OfCount -> -> 0 `i `us ]
+[; ;user.c: 83: Timer3OfCount = 0;
 "83
-[e = _TMR1H -> -> 0 `i `uc ]
-[; ;user.c: 84: TMR1L = 0;
-"84
-[e = _TMR1L -> -> 0 `i `uc ]
-[; ;user.c: 86: Done = 0;
+[e = _Timer3OfCount -> -> 0 `i `us ]
+[; ;user.c: 85: TMR3H = 0;
+"85
+[e = _TMR3H -> -> 0 `i `uc ]
+[; ;user.c: 86: TMR3L = 0;
 "86
-[e = _Done -> -> 0 `i `uc ]
-[; ;user.c: 88: T1CONbits.TMR1ON = 1;
+[e = _TMR3L -> -> 0 `i `uc ]
+[; ;user.c: 87: TMR1H = 0;
+"87
+[e = _TMR1H -> -> 0 `i `uc ]
+[; ;user.c: 88: TMR1L = 0;
 "88
+[e = _TMR1L -> -> 0 `i `uc ]
+[; ;user.c: 90: Done = 0;
+"90
+[e = _Done -> -> 0 `i `uc ]
+[; ;user.c: 92: T1CONbits.TMR1ON = 1;
+"92
 [e = . . _T1CONbits 1 0 -> -> 1 `i `uc ]
-[; ;user.c: 89: T3CONbits.TMR3ON = 1;
-"89
+[; ;user.c: 93: T3CONbits.TMR3ON = 1;
+"93
 [e = . . _T3CONbits 1 0 -> -> 1 `i `uc ]
-[; ;user.c: 91: while (!Done)
-"91
+[; ;user.c: 95: while (!Done)
+"95
 [e $U 408  ]
 [e :U 409 ]
-[; ;user.c: 92: {
-"92
+[; ;user.c: 96: {
+"96
 {
-[; ;user.c: 94: i++;
-"94
+[; ;user.c: 98: i++;
+"98
 [e ++ _i -> 1 `i ]
-"95
+"99
 }
 [e :U 408 ]
-"91
+"95
 [e $ ! != -> _Done `i -> -> -> 0 `i `Vuc `i 409  ]
 [e :U 410 ]
-"98
-[v _result `ul ~T0 @X0 1 a ]
-[; ;user.c: 95: }
-[; ;user.c: 98: uint32_t result = TMR3L;
-[e = _result -> _TMR3L `ul ]
-[; ;user.c: 99: result += TMR3H << 8;
-"99
-[e =+ _result -> -> << -> _TMR3H `i -> 8 `i `l `ul ]
-[; ;user.c: 100: result += ((uint32_t)Timer3OfCount) << 16;
-"100
-[e =+ _result << -> _Timer3OfCount `ul -> 16 `i ]
-[; ;user.c: 102: return result;
 "102
+[v _result `ul ~T0 @X0 1 a ]
+[; ;user.c: 99: }
+[; ;user.c: 102: uint32_t result = TMR3L;
+[e = _result -> _TMR3L `ul ]
+[; ;user.c: 103: result += TMR3H << 8;
+"103
+[e =+ _result -> -> << -> _TMR3H `i -> 8 `i `l `ul ]
+[; ;user.c: 104: result += ((uint32_t)Timer3OfCount) << 16;
+"104
+[e =+ _result << -> _Timer3OfCount `ul -> 16 `i ]
+[; ;user.c: 106: return result;
+"106
 [e ) _result ]
 [e $UE 407  ]
-[; ;user.c: 103: }
-"103
+[; ;user.c: 107: }
+"107
 [e :UE 407 ]
 }
-[p f _printf 8389648 ]
-[a 1C 37 108 117 10 0 ]
-
