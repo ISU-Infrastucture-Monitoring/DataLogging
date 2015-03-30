@@ -55,6 +55,11 @@ void high_isr(void)
             T3CONbits.TMR3ON = 0; //Turn off timer3
             T1CONbits.TMR1ON = 0; //Turn off timer1
             Done = 1;
+            
+            //Setup Pin RA0 as output and toggles high/low
+            //TRISAbits.RA0 = 0;
+            LATAbits.LA0 ^=1;
+            
         }
     } else if (PIR2bits.TMR3IF) {
         PIR2bits.TMR3IF = 0; /* Clear Interrupt Flag 2 */

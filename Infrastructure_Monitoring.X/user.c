@@ -60,6 +60,7 @@ void InitApp(void)
 
     INTCONbits.GIE = 1;     //Enable all unmasked interrupts
     INTCONbits.PEIE = 1;    //Enable all unmasked peripheral interrupts
+    TRISAbits.RA0 = 0;      //Set Pin RA0 to output mode
     
     init_serial();
 

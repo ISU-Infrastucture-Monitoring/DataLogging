@@ -1,1 +1,1 @@
- dist/NewConfiguration/production/doprnt.d  dist/NewConfiguration/production/doprnt.p1:  C:/Program\ Files\ (x86)/Microchip/xc8/v1.34/sources/common/doprnt.c
+ dist/NewConfiguration/production/doprnt.d  dist/NewConfiguration/production/doprnt.p1:  /opt/microchip/xc8/v1.34/sources/common/doprnt.c

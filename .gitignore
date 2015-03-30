@@ -27,3 +27,5 @@
 *.i*86
 *.x86_64
 *.hex
+/Infrastructure_Monitoring.X/build/NewConfiguration/
+/Infrastructure_Monitoring.X/dist/NewConfiguration/

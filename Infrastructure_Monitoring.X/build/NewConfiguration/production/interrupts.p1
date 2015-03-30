@@ -1,5 +1,5 @@
 Version 3.2 HI-TECH Software Intermediate Code
-"2926 C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic18f4520.h
+"2926 /opt/microchip/xc8/v1.34/include/pic18f4520.h
 [s S147 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
 [n S147 . TMR1IF TMR2IF CCP1IF SSPIF TXIF RCIF ADIF PSPIF ]
 "2936
@@ -15,7 +15,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _PIR1bits `VS146 ~T0 @X0 0 e@3998 ]
 "21 system.h
 [v _Timer1OfCount `Vus ~T0 @X0 0 e ]
-"3907 C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic18f4520.h
+"3907 /opt/microchip/xc8/v1.34/include/pic18f4520.h
 [s S205 :2 `uc 1 :1 `uc 1 ]
 [n S205 . . NOT_T3SYNC ]
 "3911
@@ -60,7 +60,39 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _T1CONbits `VS311 ~T0 @X0 0 e@4045 ]
 "23 system.h
 [v _Done `Vuc ~T0 @X0 0 e ]
-"3149 C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic18f4520.h
+"1106 /opt/microchip/xc8/v1.34/include/pic18f4520.h
+[s S60 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S60 . LATA0 LATA1 LATA2 LATA3 LATA4 LATA5 LATA6 LATA7 ]
+"1116
+[s S61 :1 `uc 1 ]
+[n S61 . LA0 ]
+"1119
+[s S62 :1 `uc 1 :1 `uc 1 ]
+[n S62 . . LA1 ]
+"1123
+[s S63 :2 `uc 1 :1 `uc 1 ]
+[n S63 . . LA2 ]
+"1127
+[s S64 :3 `uc 1 :1 `uc 1 ]
+[n S64 . . LA3 ]
+"1131
+[s S65 :4 `uc 1 :1 `uc 1 ]
+[n S65 . . LA4 ]
+"1135
+[s S66 :5 `uc 1 :1 `uc 1 ]
+[n S66 . . LA5 ]
+"1139
+[s S67 :6 `uc 1 :1 `uc 1 ]
+[n S67 . . LA6 ]
+"1143
+[s S68 :7 `uc 1 :1 `uc 1 ]
+[n S68 . . LA7 ]
+"1105
+[u S59 `S60 1 `S61 1 `S62 1 `S63 1 `S64 1 `S65 1 `S66 1 `S67 1 `S68 1 ]
+[n S59 . . . . . . . . . . ]
+"1148
+[v _LATAbits `VS59 ~T0 @X0 0 e@3977 ]
+"3149
 [s S158 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
 [n S158 . CCP2IF TMR3IF HLVDIF BCLIF EEIF . CMIF OSCFIF ]
 "3159
@@ -76,7 +108,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;htc.h: 26: extern const char __xc8_OPTIM_SPEED;
 [; ;xc8debug.h: 14: extern void __builtin_software_breakpoint(void);
 [; ;pic18f4520.h: 49: extern volatile unsigned char PORTA @ 0xF80;
-"51 C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic18f4520.h
+"51 /opt/microchip/xc8/v1.34/include/pic18f4520.h
 [; ;pic18f4520.h: 51: asm("PORTA equ 0F80h");
 [; <" PORTA equ 0F80h ;# ">
 [; ;pic18f4520.h: 54: typedef union {
@@ -3892,48 +3924,51 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;interrupts.c: 57: Done = 1;
 "57
 [e = _Done -> -> 1 `i `uc ]
-"58
+[; ;interrupts.c: 61: LATAbits.LA0 ^=1;
+"61
+[e =^ . . _LATAbits 1 0 -> -> 1 `i `uc ]
+"63
 }
 [e :U 404 ]
-"59
+"64
 }
-[; ;interrupts.c: 58: }
-[; ;interrupts.c: 59: } else if (PIR2bits.TMR3IF) {
+[; ;interrupts.c: 63: }
+[; ;interrupts.c: 64: } else if (PIR2bits.TMR3IF) {
 [e $U 405  ]
 [e :U 403 ]
 [e $ ! != -> . . _PIR2bits 0 1 `i -> -> -> 0 `i `Vuc `i 406  ]
 {
-[; ;interrupts.c: 60: PIR2bits.TMR3IF = 0;
-"60
+[; ;interrupts.c: 65: PIR2bits.TMR3IF = 0;
+"65
 [e = . . _PIR2bits 0 1 -> -> 0 `i `uc ]
-[; ;interrupts.c: 61: Timer3OfCount++;
-"61
+[; ;interrupts.c: 66: Timer3OfCount++;
+"66
 [e ++ _Timer3OfCount -> -> 1 `i `us ]
-"62
+"67
 }
-[; ;interrupts.c: 62: } else {
+[; ;interrupts.c: 67: } else {
 [e $U 407  ]
 [e :U 406 ]
 {
-"64
+"69
 }
 [e :U 407 ]
 [e :U 405 ]
-[; ;interrupts.c: 64: }
-[; ;interrupts.c: 68: }
-"68
+[; ;interrupts.c: 69: }
+[; ;interrupts.c: 73: }
+"73
 [e :UE 402 ]
 }
 [v F4179 `(v ~T0 @X0 1 tf ]
-"72
+"77
 [v _low_isr `ILF4179 ~T0 @X0 1 e ]
-"80
+"85
 {
-[; ;interrupts.c: 72: void low_priority interrupt low_isr(void)
-[; ;interrupts.c: 80: {
+[; ;interrupts.c: 77: void low_priority interrupt low_isr(void)
+[; ;interrupts.c: 85: {
 [e :U _low_isr ]
 [f ]
-[; ;interrupts.c: 102: }
-"102
+[; ;interrupts.c: 107: }
+"107
 [e :UE 408 ]
 }

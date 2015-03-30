@@ -38,10 +38,10 @@
         <targetDevice>PIC18F4520</targetDevice>
         <targetHeader></targetHeader>
         <targetPluginBoard></targetPluginBoard>
-        <platformTool>Simulator</platformTool>
+        <platformTool>PICkit3PlatformTool</platformTool>
         <languageToolchain>XC8</languageToolchain>
         <languageToolchainVersion>1.34</languageToolchainVersion>
-        <platform>3</platform>
+        <platform>2</platform>
       </toolsSet>
       <compileType>
         <linkerTool>
@@ -153,7 +153,7 @@
         <property key="memories.programmemory.partition2.start"
                   value="${memories.programmemory.partition2.start.value}"/>
         <property key="memories.programmemory.start" value="0x0"/>
-        <property key="poweroptions.powerenable" value="false"/>
+        <property key="poweroptions.powerenable" value="true"/>
         <property key="programmertogo.imagename" value=""/>
         <property key="programoptions.donoteraseauxmem" value="false"/>
         <property key="programoptions.eraseb4program" value="true"/>
@@ -255,10 +255,6 @@
                   value="report"/>
         <property key="warningmessagebreakoptions.W0013_CORE_STACK_UNDERFLOW_RESET"
                   value="report"/>
-        <property key="warningmessagebreakoptions.W0014_CORE_STACK_OVERFLOW"
-                  value="report"/>
-        <property key="warningmessagebreakoptions.W0015_CORE_STACK_UNDERFLOW"
-                  value="report"/>
         <property key="warningmessagebreakoptions.W0101_SIM_UPDATE_FAILED"
                   value="report"/>
         <property key="warningmessagebreakoptions.W0102_SIM_PERIPH_MISSING"
@@ -310,14 +306,6 @@
                   value="report"/>
         <property key="warningmessagebreakoptions.W0222_ADC_OVERFLOW" value="report"/>
         <property key="warningmessagebreakoptions.W0223_ADC_UNDERFLOW" value="report"/>
-        <property key="warningmessagebreakoptions.W0224_ADC_CTMU_NOT_SUPPORTED"
-                  value="report"/>
-        <property key="warningmessagebreakoptions.W0225_ADC_INVALID_CH0S"
-                  value="report"/>
-        <property key="warningmessagebreakoptions.W0226_ADC_VBAT_NOT_SUPPORTED"
-                  value="report"/>
-        <property key="warningmessagebreakoptions.W0227_ADC_INVALID_ADCS"
-                  value="report"/>
         <property key="warningmessagebreakoptions.W1201_DATAFLASH_MEM_OUTSIDE_RANGE"
                   value="report"/>
         <property key="warningmessagebreakoptions.W1202_DATAFLASH_ERASE_WHILE_LOCKED"

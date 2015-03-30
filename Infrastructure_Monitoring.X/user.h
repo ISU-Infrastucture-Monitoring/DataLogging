@@ -12,3 +12,5 @@
 
 void InitApp(void);         /* I/O and Peripheral Initialization */
 void init_serial();
+void Write_to_Pot(unsigned char VAL);
+void Init_DigPot();

@@ -1,1 +1,0 @@
- dist/NewConfiguration/debug/doprnt.d  dist/NewConfiguration/debug/doprnt.p1:  C:/Program\ Files\ (x86)/Microchip/xc8/v1.34/sources/common/doprnt.c
