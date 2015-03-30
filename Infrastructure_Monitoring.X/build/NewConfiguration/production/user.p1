@@ -154,6 +154,10 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _init_DigPot `(i ~T0 @X0 0 ef ]
 "15 user.h
 [v _Write_to_Pot `(v ~T0 @X0 0 ef1`uc ]
+"33 user.c
+[v _get_freq `(ul ~T0 @X0 0 ef ]
+"207 /opt/microchip/xc8/v1.34/include/stdio.h
+[v _printf `(i ~T0 @X0 0 ev`*Cuc ]
 "4026 /opt/microchip/xc8/v1.34/include/pic18f4520.h
 [v _TMR3H `Vuc ~T0 @X0 0 e@4019 ]
 "4020
@@ -4074,6 +4078,12 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;user.c: 73: k += 8;
 "73
 [e =+ _k -> -> 8 `i `uc ]
+[; ;user.c: 74: freq = get_freq();
+"74
+[e = _freq ( _get_freq ..  ]
+[; ;user.c: 75: printf("%lu\n", freq);
+"75
+[e ( _printf , (. :s 1C _freq ]
 "76
 }
 [e :U 404 ]
@@ -4159,3 +4169,6 @@ Version 3.2 HI-TECH Software Intermediate Code
 "107
 [e :UE 407 ]
 }
+[p f _printf 8389648 ]
+[a 1C 37 108 117 10 0 ]
+

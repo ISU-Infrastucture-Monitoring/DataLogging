@@ -24,10 +24,12 @@
 
 
 void init_DigPot(void) {
-    TRISCbits.RC3 = 0;      //Sets RC3 pin to output mode for SCL
-    TRISCbits.RC4 = 1;      //Sets RC4 pin to output mode for SDA
-    LATCbits.LATC3 = 1;
-    LATCbits.LATC4 = 1;
+   // TRISCbits.RC3 = 0;      //Sets RC3 pin to output mode for SCL
+   // TRISCbits.RC4 = 1;      //Sets RC4 pin to output mode for SDA
+      TRISC = 0x00;
+      PORTC = 0x00;
+   // LATCbits.LATC3 = 1;
+   // LATCbits.LATC4 = 1;
     
     OpenI2C(MASTER, SLEW_OFF);
     
@@ -67,6 +69,7 @@ void Write_to_Pot(unsigned char VAL)
     {
         do{
             status = WriteI2C(data[i]);
+            IdleI2C();
             if(status == -1)
             {
                 tmp = SSPBUF;

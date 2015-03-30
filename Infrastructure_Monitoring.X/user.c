@@ -71,8 +71,8 @@ void InitApp(void)
     {
         Write_to_Pot(k);
         k += 8;
-        //freq = get_freq();
-        //printf("%lu\n", freq);
+        freq = get_freq();
+        printf("%lu\n", freq);
     }
 }
 

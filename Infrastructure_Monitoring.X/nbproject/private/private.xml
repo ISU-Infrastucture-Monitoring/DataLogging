@@ -5,18 +5,11 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/home/sebastian/Documents/DataLogging/DataLogging/Infrastructure_Monitoring.X/system.c</file>
-            <file>file:/home/sebastian/Documents/DataLogging/DataLogging/Infrastructure_Monitoring.X/nbproject/Makefile-impl.mk</file>
-            <file>file:/home/sebastian/Documents/DataLogging/DataLogging/Infrastructure_Monitoring.X/configuration_bits.c</file>
             <file>file:/home/sebastian/Documents/DataLogging/DataLogging/Infrastructure_Monitoring.X/main.c</file>
-            <file>file:/opt/microchip/xc8/v1.34/sources/pic18/plib/i2c/i2c_open.c</file>
-            <file>file:/opt/microchip/xc8/v1.34/sources/pic18/plib/i2c/i2c_idle.c</file>
-            <file>file:/opt/microchip/xc8/v1.34/sources/pic18/plib/i2c/i2c_writ.c</file>
             <file>file:/home/sebastian/Documents/DataLogging/DataLogging/Infrastructure_Monitoring.X/user.h</file>
             <file>file:/home/sebastian/Documents/DataLogging/DataLogging/Infrastructure_Monitoring.X/serial.c</file>
             <file>file:/home/sebastian/Documents/DataLogging/DataLogging/Infrastructure_Monitoring.X/user.c</file>
             <file>file:/home/sebastian/Documents/DataLogging/DataLogging/Infrastructure_Monitoring.X/Init_Digital_Pot.c</file>
-            <file>file:/opt/microchip/xc8/v1.34/sources/pic18/plib/i2c/i2c_clos.c</file>
-            <file>file:/home/sebastian/Documents/DataLogging/DataLogging/Infrastructure_Monitoring.X/nbproject/Makefile-NewConfiguration.mk</file>
         </group>
     </open-files>
 </project-private>
