@@ -240,7 +240,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _TMR1 `Vus ~T0 @X0 0 e@4046 ]
 "4874
 [v _CCPR1 `Vus ~T0 @X0 0 e@4030 ]
-"69 /opt/microchip/xc8/v1.34/include/stdlib.h
+"67 /opt/microchip/xc8/v1.34/include/stdlib.h
+[v _atoi `(i ~T0 @X0 0 ef1`*Cuc ]
+"69
 [v _atol `(l ~T0 @X0 0 ef1`*Cuc ]
 [; ;htc.h: 26: extern const char __xc8_OPTIM_SPEED;
 [; ;xc8debug.h: 14: extern void __builtin_software_breakpoint(void);
@@ -4397,8 +4399,8 @@ Version 3.2 HI-TECH Software Intermediate Code
 [f ]
 "150
 [v _value `uc ~T0 @X0 1 a ]
-[; ;user.c: 150: unsigned char value = atol(str);
-[e = _value -> ( _atol (1 -> _str `*Cuc `uc ]
+[; ;user.c: 150: unsigned char value = atoi(str);
+[e = _value -> ( _atoi (1 -> _str `*Cuc `uc ]
 [; ;user.c: 151: if(value > 0)
 "151
 [e $ ! > -> _value `i -> 0 `i 424  ]
@@ -4433,7 +4435,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 "160
 [e = _sp -> -> -> 32000 `i `l `ul ]
 [e :U 427 ]
-[; ;user.c: 162: printf("Calibrate to %d\n\r", sp);
+[; ;user.c: 162: printf("Calibrate to %ul\n\r", sp);
 "162
 [e ( _printf , (. :s 4C _sp ]
 [; ;user.c: 163: if(autotune_pot(sp))
@@ -4589,8 +4591,8 @@ Version 3.2 HI-TECH Software Intermediate Code
 [p f _printf 8684692 ]
 [a 2C 37 108 117 46 37 48 51 100 44 32 37 108 117 10 13 0 ]
 [a 6C 82 101 115 101 116 10 13 0 ]
+[a 4C 67 97 108 105 98 114 97 116 101 32 116 111 32 37 117 108 10 13 0 ]
 [a 5C 67 97 108 105 98 114 97 116 105 111 110 32 102 114 101 113 117 101 110 99 121 32 111 117 116 32 111 102 32 114 97 110 103 101 10 13 0 ]
 [a 1C 67 97 108 105 98 114 97 116 105 111 110 32 102 114 101 113 32 111 117 116 32 111 102 32 114 97 110 103 101 10 13 0 ]
-[a 4C 67 97 108 105 98 114 97 116 101 32 116 111 32 37 100 10 13 0 ]
 [a 3C 82 101 99 101 105 118 101 100 32 37 100 10 13 0 ]
 [a 7C 73 110 118 97 108 105 100 32 115 116 114 105 110 103 58 32 34 37 115 34 10 13 0 ]

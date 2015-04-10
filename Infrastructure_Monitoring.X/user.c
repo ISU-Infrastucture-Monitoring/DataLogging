@@ -147,7 +147,7 @@ uint32_t get_freq()
 
 void on_line_received(char* str)
 {
-    unsigned char value = atol(str);
+    unsigned char value = atoi(str);
     if(value > 0)
     {
         printf("Received %d\n\r", value);
@@ -159,7 +159,7 @@ void on_line_received(char* str)
         if(sp == 0)
             sp = 32000;
         
-        printf("Calibrate to %d\n\r", sp);
+        printf("Calibrate to %ul\n\r", sp);
         if(autotune_pot(sp))
         {
             printf("Calibration frequency out of range\n\r");
