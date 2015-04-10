@@ -5091,17 +5091,28 @@ typedef unsigned char bool;
 
 # 19 "system.h"
 void ConfigureOscillator(void);
+inline void char_received(char ch);
+
+union DWORD_UNION
+{
+unsigned char byte[4];
+unsigned short word[2];
+unsigned long dword;
+};
 
 extern volatile unsigned short Timer1OfCount;
 extern volatile unsigned short Timer3OfCount;
-extern volatile unsigned char Done;
+extern volatile unsigned char done;
+extern volatile union DWORD_UNION Timer1OfCountStop;
+extern volatile unsigned long sys_clock;
 
 # 24 "system.c"
 void ConfigureOscillator(void)
 {
-OSCTUNEbits.PLLEN = 1;
 OSCCONbits.IRCF = 7;
 OSCCONbits.SCS = 3;
+OSCTUNEbits.PLLEN = 1;
 
-# 32
+while(!OSCCONbits.IOFS);
+
 }

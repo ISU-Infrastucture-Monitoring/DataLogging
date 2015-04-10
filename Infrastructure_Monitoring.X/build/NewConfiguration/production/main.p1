@@ -3788,13 +3788,23 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;stdint.h: 215: typedef uint16_t uintptr_t;
 [; ;stdbool.h: 12: typedef unsigned char bool;
 [; ;system.h: 19: void ConfigureOscillator(void);
-[; ;system.h: 21: extern volatile unsigned short Timer1OfCount;
-[; ;system.h: 22: extern volatile unsigned short Timer3OfCount;
-[; ;system.h: 23: extern volatile unsigned char Done;
+[; ;system.h: 20: inline void char_received(char ch);
+[; ;system.h: 22: union DWORD_UNION
+[; ;system.h: 23: {
+[; ;system.h: 24: unsigned char byte[4];
+[; ;system.h: 25: unsigned short word[2];
+[; ;system.h: 26: unsigned long dword;
+[; ;system.h: 27: };
+[; ;system.h: 29: extern volatile unsigned short Timer1OfCount;
+[; ;system.h: 30: extern volatile unsigned short Timer3OfCount;
+[; ;system.h: 31: extern volatile unsigned char done;
+[; ;system.h: 32: extern volatile union DWORD_UNION Timer1OfCountStop;
+[; ;system.h: 33: extern volatile unsigned long sys_clock;
 [; ;user.h: 13: void InitApp(void);
-[; ;user.h: 14: void init_serial();
-[; ;user.h: 15: void Write_to_Pot(unsigned char VAL);
-[; ;user.h: 16: void Init_DigPot();
+[; ;user.h: 14: void init_serial(void (*line_received)(char* str));
+[; ;user.h: 15: void on_line_received(char* str);
+[; ;user.h: 16: void Write_to_Pot(unsigned char VAL);
+[; ;user.h: 17: void init_DigPot();
 "33 main.c
 [v _main `(v ~T0 @X0 1 ef ]
 "34
@@ -3811,18 +3821,18 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e ( _InitApp ..  ]
 [; ;main.c: 43: while(1)
 "43
-[e :U 404 ]
+[e :U 405 ]
 [; ;main.c: 44: {
 "44
 {
 "46
 }
-[e :U 403 ]
+[e :U 404 ]
 "43
-[e $U 404  ]
-[e :U 405 ]
+[e $U 405  ]
+[e :U 406 ]
 [; ;main.c: 46: }
 [; ;main.c: 48: }
 "48
-[e :UE 402 ]
+[e :UE 403 ]
 }

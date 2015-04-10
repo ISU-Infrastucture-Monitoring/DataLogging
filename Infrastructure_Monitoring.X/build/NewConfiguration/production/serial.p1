@@ -1,4 +1,12 @@
 Version 3.2 HI-TECH Software Intermediate Code
+"15 fifo.h
+[s S403 `uc -> 256 `i `uc 1 `uc 1 `uc 1 ]
+[n S403 FIFO_STRUCT data write_index read_index size ]
+[v F4272 `(v ~T0 @X0 0 tf1`*uc ]
+"24 serial.c
+[s S405 `S403 1 `*F4272 1 `uc -> 256 `i ]
+[n S405 SERIAL_STRUCT fifo on_line_received string ]
+[v F4233 `(v ~T0 @X0 0 tf1`*uc ]
 "3895 /opt/microchip/xc8/v1.34/include/pic18f4520.h
 [v _SPBRGH `Vuc ~T0 @X0 0 e@4016 ]
 "3884
@@ -81,6 +89,17 @@ Version 3.2 HI-TECH Software Intermediate Code
 [n S166 . . . . . . . ]
 "3397
 [v _RCSTAbits `VS166 ~T0 @X0 0 e@4011 ]
+"2183
+[s S122 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S122 . TRISC0 TRISC1 TRISC2 TRISC3 TRISC4 TRISC5 TRISC6 TRISC7 ]
+"2193
+[s S123 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S123 . RC0 RC1 RC2 RC3 RC4 RC5 RC6 RC7 ]
+"2182
+[u S121 `S122 1 `S123 1 ]
+[n S121 . . . ]
+"2204
+[v _TRISCbits `VS121 ~T0 @X0 0 e@3988 ]
 "2926
 [s S147 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
 [n S147 . TMR1IF TMR2IF CCP1IF SSPIF TXIF RCIF ADIF PSPIF ]
@@ -95,8 +114,44 @@ Version 3.2 HI-TECH Software Intermediate Code
 [n S146 . . . . ]
 "2945
 [v _PIR1bits `VS146 ~T0 @X0 0 e@3998 ]
+"3005
+[s S151 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S151 . TMR1IP TMR2IP CCP1IP SSPIP TXIP RCIP ADIP PSPIP ]
+"3015
+[s S152 :5 `uc 1 :1 `uc 1 ]
+[n S152 . . RC1IP ]
+"3019
+[s S153 :4 `uc 1 :1 `uc 1 ]
+[n S153 . . TX1IP ]
+"3004
+[u S150 `S151 1 `S152 1 `S153 1 ]
+[n S150 . . . . ]
+"3024
+[v _IPR1bits `VS150 ~T0 @X0 0 e@3999 ]
+"2847
+[s S143 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S143 . TMR1IE TMR2IE CCP1IE SSPIE TXIE RCIE ADIE PSPIE ]
+"2857
+[s S144 :5 `uc 1 :1 `uc 1 ]
+[n S144 . . RC1IE ]
+"2861
+[s S145 :4 `uc 1 :1 `uc 1 ]
+[n S145 . . TX1IE ]
+"2846
+[u S142 `S143 1 `S144 1 `S145 1 ]
+[n S142 . . . . ]
+"2866
+[v _PIE1bits `VS142 ~T0 @X0 0 e@3997 ]
 "3862
 [v _TXREG `Vuc ~T0 @X0 0 e@4013 ]
+[v F4251 `(v ~T0 @X0 1 tf2`*S403`uc ]
+"24 fifo.h
+[v _fifo_push `TF4251 ~T0 @X0 0 e ]
+[v F4254 `(uc ~T0 @X0 1 tf1`*S403 ]
+"25
+[v _fifo_pop `TF4254 ~T0 @X0 0 e ]
+"15 user.h
+[v _on_line_received `(v ~T0 @X0 0 ef1`*uc ]
 [; ;htc.h: 26: extern const char __xc8_OPTIM_SPEED;
 [; ;xc8debug.h: 14: extern void __builtin_software_breakpoint(void);
 [; ;pic18f4520.h: 49: extern volatile unsigned char PORTA @ 0xF80;
@@ -3911,70 +3966,194 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;stdio.h: 206: extern int sprintf(char *, const char *, ...);
 [; ;stdio.h: 207: extern int printf(const char *, ...);
 [; ;user.h: 13: void InitApp(void);
-[; ;user.h: 14: void init_serial();
-[; ;user.h: 15: void Write_to_Pot(unsigned char VAL);
-[; ;user.h: 16: void Init_DigPot();
-"22 serial.c
-[v _init_serial `(v ~T0 @X0 1 ef ]
-"23
-{
-[; ;serial.c: 22: void init_serial()
-[; ;serial.c: 23: {
-[e :U _init_serial ]
-[f ]
-[; ;serial.c: 24: SPBRGH = 0;
-"24
-[e = _SPBRGH -> -> 0 `i `uc ]
-[; ;serial.c: 25: SPBRG = 68;
-"25
-[e = _SPBRG -> -> 68 `i `uc ]
-[; ;serial.c: 26: TXSTAbits.BRGH = 1;
-"26
-[e = . . _TXSTAbits 0 2 -> -> 1 `i `uc ]
-[; ;serial.c: 27: BAUDCONbits.BRG16 = 1;
-"27
-[e = . . _BAUDCONbits 0 3 -> -> 1 `i `uc ]
-[; ;serial.c: 29: TXSTAbits.SYNC = 0;
-"29
-[e = . . _TXSTAbits 0 4 -> -> 0 `i `uc ]
-[; ;serial.c: 30: RCSTAbits.SPEN = 1;
-"30
-[e = . . _RCSTAbits 0 7 -> -> 1 `i `uc ]
-[; ;serial.c: 32: TXSTAbits.TXEN = 1;
+[; ;user.h: 14: void init_serial(void (*line_received)(char* str));
+[; ;user.h: 15: void on_line_received(char* str);
+[; ;user.h: 16: void Write_to_Pot(unsigned char VAL);
+[; ;user.h: 17: void init_DigPot();
+[; ;fifo.h: 15: typedef struct FIFO_STRUCT{
+[; ;fifo.h: 16: char data[256];
+[; ;fifo.h: 17: unsigned char write_index;
+[; ;fifo.h: 18: unsigned char read_index;
+[; ;fifo.h: 19: unsigned char size;
+[; ;fifo.h: 20: }
+[; ;fifo.h: 21: fifo_t;
+[; ;fifo.h: 23: void fifo_init(fifo_t * this);
+[; ;fifo.h: 24: inline void fifo_push(fifo_t * this, char element);
+[; ;fifo.h: 25: inline char fifo_pop(fifo_t * this);
+[; ;system.h: 19: void ConfigureOscillator(void);
+[; ;system.h: 20: inline void char_received(char ch);
+[; ;system.h: 22: union DWORD_UNION
+[; ;system.h: 23: {
+[; ;system.h: 24: unsigned char byte[4];
+[; ;system.h: 25: unsigned short word[2];
+[; ;system.h: 26: unsigned long dword;
+[; ;system.h: 27: };
+[; ;system.h: 29: extern volatile unsigned short Timer1OfCount;
+[; ;system.h: 30: extern volatile unsigned short Timer3OfCount;
+[; ;system.h: 31: extern volatile unsigned char done;
+[; ;system.h: 32: extern volatile union DWORD_UNION Timer1OfCountStop;
+[; ;system.h: 33: extern volatile unsigned long sys_clock;
+"29 serial.c
+[v _serial `S405 ~T0 @X0 1 e ]
+[; ;serial.c: 24: struct SERIAL_STRUCT
+[; ;serial.c: 25: {
+[; ;serial.c: 26: fifo_t fifo;
+[; ;serial.c: 27: void (*on_line_received)(char* str);
+[; ;serial.c: 28: char string[256];
+[; ;serial.c: 29: }serial;
+"31
+[v _init_serial `(v ~T0 @X0 1 ef1`*F4233 ]
 "32
-[e = . . _TXSTAbits 0 5 -> -> 1 `i `uc ]
-[; ;serial.c: 34: }
-"34
-[e :UE 403 ]
-}
-"36
-[v _putch `(v ~T0 @X0 1 ef1`uc ]
-"37
 {
-[; ;serial.c: 36: void putch(char c)
-[; ;serial.c: 37: {
-[e :U _putch ]
-"36
-[v _c `uc ~T0 @X0 1 r1 ]
-"37
+[; ;serial.c: 31: void init_serial(void (*line_received)(char* str))
+[; ;serial.c: 32: {
+[e :U _init_serial ]
+[v F4277 `(v ~T0 @X0 0 tf1`*uc ]
+"31
+[v _line_received `*F4277 ~T0 @X0 1 r1 ]
+"32
 [f ]
-[; ;serial.c: 38: PIR1bits.TXIF = 0;
+[; ;serial.c: 33: SPBRGH = 0;
+"33
+[e = _SPBRGH -> -> 0 `i `uc ]
+[; ;serial.c: 34: SPBRG = 12;
+"34
+[e = _SPBRG -> -> 12 `i `uc ]
+[; ;serial.c: 35: TXSTAbits.BRGH = 0;
+"35
+[e = . . _TXSTAbits 0 2 -> -> 0 `i `uc ]
+[; ;serial.c: 36: BAUDCONbits.BRG16 = 0;
+"36
+[e = . . _BAUDCONbits 0 3 -> -> 0 `i `uc ]
+[; ;serial.c: 38: TXSTAbits.SYNC = 0;
 "38
-[e = . . _PIR1bits 0 4 -> -> 0 `i `uc ]
-[; ;serial.c: 39: TXREG = c;
+[e = . . _TXSTAbits 0 4 -> -> 0 `i `uc ]
+[; ;serial.c: 39: RCSTAbits.SPEN = 1;
 "39
-[e = _TXREG _c ]
-[; ;serial.c: 40: while(PIR1bits.TXIF == 0);
-"40
-[e $U 405  ]
-[e :U 406 ]
-[e :U 405 ]
-[e $ == -> . . _PIR1bits 0 4 `i -> 0 `i 406  ]
-[e :U 407 ]
-[; ;serial.c: 41: PIR1bits.TXIF = 0;
+[e = . . _RCSTAbits 0 7 -> -> 1 `i `uc ]
+[; ;serial.c: 41: TXSTAbits.TXEN = 1;
 "41
-[e = . . _PIR1bits 0 4 -> -> 0 `i `uc ]
-[; ;serial.c: 42: }
+[e = . . _TXSTAbits 0 5 -> -> 1 `i `uc ]
+[; ;serial.c: 42: RCSTAbits.CREN = 1;
 "42
-[e :UE 404 ]
+[e = . . _RCSTAbits 0 4 -> -> 1 `i `uc ]
+[; ;serial.c: 44: TRISCbits.RC6 = 1;
+"44
+[e = . . _TRISCbits 1 6 -> -> 1 `i `uc ]
+[; ;serial.c: 45: TRISCbits.RC7 = 1;
+"45
+[e = . . _TRISCbits 1 7 -> -> 1 `i `uc ]
+[; ;serial.c: 47: PIR1bits.TXIF = 0;
+"47
+[e = . . _PIR1bits 0 4 -> -> 0 `i `uc ]
+[; ;serial.c: 48: PIR1bits.RCIF = 0;
+"48
+[e = . . _PIR1bits 0 5 -> -> 0 `i `uc ]
+[; ;serial.c: 50: IPR1bits.RCIP = 0;
+"50
+[e = . . _IPR1bits 0 5 -> -> 0 `i `uc ]
+[; ;serial.c: 51: PIE1bits.RCIE = 1;
+"51
+[e = . . _PIE1bits 0 5 -> -> 1 `i `uc ]
+[; ;serial.c: 52: }
+"52
+[e :UE 406 ]
+}
+"54
+[v _putch `(v ~T0 @X0 1 ef1`uc ]
+"55
+{
+[; ;serial.c: 54: void putch(char c)
+[; ;serial.c: 55: {
+[e :U _putch ]
+"54
+[v _c `uc ~T0 @X0 1 r1 ]
+"55
+[f ]
+[; ;serial.c: 56: PIR1bits.TXIF = 0;
+"56
+[e = . . _PIR1bits 0 4 -> -> 0 `i `uc ]
+[; ;serial.c: 57: TXREG = c;
+"57
+[e = _TXREG _c ]
+[; ;serial.c: 58: while(PIR1bits.TXIF == 0);
+"58
+[e $U 408  ]
+[e :U 409 ]
+[e :U 408 ]
+[e $ == -> . . _PIR1bits 0 4 `i -> 0 `i 409  ]
+[e :U 410 ]
+[; ;serial.c: 59: PIR1bits.TXIF = 0;
+"59
+[e = . . _PIR1bits 0 4 -> -> 0 `i `uc ]
+[; ;serial.c: 60: }
+"60
+[e :UE 407 ]
+}
+[v F4259 `(v ~T0 @X0 1 tf1`uc ]
+"62
+[v _char_received `TF4259 ~T0 @X0 1 e ]
+"63
+{
+[; ;serial.c: 62: inline void char_received(char ch)
+[; ;serial.c: 63: {
+[e :U _char_received ]
+"62
+[v _ch `uc ~T0 @X0 1 r1 ]
+"63
+[f ]
+[; ;serial.c: 64: fifo_push(&serial.fifo, ch);
+"64
+[e ( _fifo_push (2 , &U . _serial 0 _ch ]
+[; ;serial.c: 65: if(ch == '\n' || ch == '\r')
+"65
+[e $ ! || == -> _ch `ui -> 10 `ui == -> _ch `ui -> 13 `ui 412  ]
+[; ;serial.c: 66: {
+"66
+{
+"67
+[v _i `uc ~T0 @X0 1 a ]
+"68
+[v _ptr `*uc ~T0 @X0 1 a ]
+[; ;serial.c: 67: char i;
+[; ;serial.c: 68: char* ptr = serial.string;
+[e = _ptr &U . _serial 2 ]
+[; ;serial.c: 69: for(i=fifo_pop(&serial.fifo); i; i=fifo_pop(&serial.fifo))
+"69
+{
+[e = _i ( _fifo_pop (1 &U . _serial 0 ]
+[e $U 416  ]
+"70
+[e :U 413 ]
+[; ;serial.c: 70: {
+{
+[; ;serial.c: 71: *ptr = i;
+"71
+[e = *U _ptr _i ]
+[; ;serial.c: 72: ptr++;
+"72
+[e ++ _ptr * -> -> 1 `i `x -> -> # *U _ptr `i `x ]
+"73
+}
+"69
+[e = _i ( _fifo_pop (1 &U . _serial 0 ]
+[e :U 416 ]
+[e $ != -> _i `i -> -> -> 0 `i `uc `i 413  ]
+[e :U 414 ]
+"73
+}
+[; ;serial.c: 73: }
+[; ;serial.c: 74: *ptr = 0;
+"74
+[e = *U _ptr -> -> 0 `i `uc ]
+[; ;serial.c: 75: on_line_received(serial.string);
+"75
+[e ( _on_line_received (1 &U . _serial 2 ]
+"76
+}
+[e :U 412 ]
+[; ;serial.c: 76: }
+[; ;serial.c: 77: }
+"77
+[e :UE 411 ]
 }

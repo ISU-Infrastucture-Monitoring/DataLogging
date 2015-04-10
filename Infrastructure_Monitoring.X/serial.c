@@ -18,22 +18,37 @@
 #endif
 
 #include "user.h"
+#include "fifo.h"
+#include "system.h"
 
-void init_serial()
+struct SERIAL_STRUCT
+{
+    fifo_t fifo;
+    void (*on_line_received)(char* str);
+    char string[256];
+}serial;
+
+void init_serial(void (*line_received)(char* str))
 {
     SPBRGH = 0;
-    SPBRG = 68;             //Sets Baud Rate to 115942
-    TXSTAbits.BRGH = 1;     //Sets Baud Rate to High Speed mode
-    BAUDCONbits.BRG16 = 1;  //Sets Baud Rate to 16Bit mode
+    SPBRG = 12;             //Sets Baud Rate to 115942
+    TXSTAbits.BRGH = 0;     //Sets Baud Rate to High Speed mode
+    BAUDCONbits.BRG16 = 0;  //Sets Baud Rate to 16Bit mode
 
     TXSTAbits.SYNC = 0;     //Set UART mode to Asynchronous
     RCSTAbits.SPEN = 1;     //Enable Serial port
 
     TXSTAbits.TXEN = 1;     //Enable transmission
+    RCSTAbits.CREN = 1;
     
     TRISCbits.RC6 = 1;      //Set Pin RC6 to TX
     TRISCbits.RC7 = 1;      //Set Pin RC7 to RX
 
+    PIR1bits.TXIF = 0;      //Clear transmit interrupt bit
+    PIR1bits.RCIF = 0;      //Clear receive interrupt bit
+    
+    IPR1bits.RCIP = 0;      //Set RX to low priority
+    PIE1bits.RCIE = 1;      //Enable receive interrupt bit
 }
 
 void putch(char c)
@@ -42,4 +57,21 @@ void putch(char c)
     TXREG = c;
     while(PIR1bits.TXIF == 0);
     PIR1bits.TXIF = 0;
+}
+
+inline void char_received(char ch)
+{
+    fifo_push(&serial.fifo, ch);
+    if(ch == '\n' || ch == '\r')
+    {
+        char i;
+        char* ptr = serial.string;
+        for(i=fifo_pop(&serial.fifo); i; i=fifo_pop(&serial.fifo))
+        {
+            *ptr = i;
+            ptr++;
+        }
+        *ptr = 0;
+        on_line_received(serial.string);
+    }
 }

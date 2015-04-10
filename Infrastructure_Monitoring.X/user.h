@@ -11,6 +11,8 @@
 /* TODO User level functions prototypes (i.e. InitApp) go here */
 
 void InitApp(void);         /* I/O and Peripheral Initialization */
-void init_serial();
+void init_serial(void (*line_received)(char* str));
+void on_line_received(char* str);
 void Write_to_Pot(unsigned char VAL);
-void Init_DigPot();
+void init_DigPot();
+    

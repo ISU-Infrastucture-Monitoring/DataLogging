@@ -13,86 +13,16 @@ Version 3.2 HI-TECH Software Intermediate Code
 [n S146 . . . . ]
 "2945
 [v _PIR1bits `VS146 ~T0 @X0 0 e@3998 ]
-"21 system.h
+"22 system.h
+[u S402 `uc -> 4 `i `us -> 2 `i `ul 1 ]
+[n S402 DWORD_UNION byte word dword ]
+"32
+[v _Timer1OfCountStop `VS402 ~T0 @X0 0 e ]
+"29
 [v _Timer1OfCount `Vus ~T0 @X0 0 e ]
-"3907 /opt/microchip/xc8/v1.34/include/pic18f4520.h
-[s S205 :2 `uc 1 :1 `uc 1 ]
-[n S205 . . NOT_T3SYNC ]
-"3911
-[s S206 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :2 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S206 . TMR3ON TMR3CS nT3SYNC T3CCP1 T3CKPS T3CCP2 RD16 ]
-"3920
-[s S207 :2 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S207 . . T3SYNC . T3CKPS0 T3CKPS1 ]
-"3927
-[s S208 :7 `uc 1 :1 `uc 1 ]
-[n S208 . . RD163 ]
-"3931
-[s S209 :3 `uc 1 :1 `uc 1 ]
-[n S209 . . SOSCEN3 ]
-"3935
-[s S210 :7 `uc 1 :1 `uc 1 ]
-[n S210 . . T3RD16 ]
-"3906
-[u S204 `S205 1 `S206 1 `S207 1 `S208 1 `S209 1 `S210 1 ]
-[n S204 . . . . . . . ]
-"3940
-[v _T3CONbits `VS204 ~T0 @X0 0 e@4017 ]
-"5824
-[s S312 :2 `uc 1 :1 `uc 1 ]
-[n S312 . . NOT_T1SYNC ]
-"5828
-[s S313 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :2 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S313 . TMR1ON TMR1CS nT1SYNC T1OSCEN T1CKPS T1RUN RD16 ]
-"5837
-[s S314 :2 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S314 . . T1SYNC . T1CKPS0 T1CKPS1 ]
-"5844
-[s S315 :3 `uc 1 :1 `uc 1 ]
-[n S315 . . SOSCEN ]
-"5848
-[s S316 :7 `uc 1 :1 `uc 1 ]
-[n S316 . . T1RD16 ]
-"5823
-[u S311 `S312 1 `S313 1 `S314 1 `S315 1 `S316 1 ]
-[n S311 . . . . . . ]
-"5853
-[v _T1CONbits `VS311 ~T0 @X0 0 e@4045 ]
-"23 system.h
-[v _Done `Vuc ~T0 @X0 0 e ]
-"1106 /opt/microchip/xc8/v1.34/include/pic18f4520.h
-[s S60 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S60 . LATA0 LATA1 LATA2 LATA3 LATA4 LATA5 LATA6 LATA7 ]
-"1116
-[s S61 :1 `uc 1 ]
-[n S61 . LA0 ]
-"1119
-[s S62 :1 `uc 1 :1 `uc 1 ]
-[n S62 . . LA1 ]
-"1123
-[s S63 :2 `uc 1 :1 `uc 1 ]
-[n S63 . . LA2 ]
-"1127
-[s S64 :3 `uc 1 :1 `uc 1 ]
-[n S64 . . LA3 ]
-"1131
-[s S65 :4 `uc 1 :1 `uc 1 ]
-[n S65 . . LA4 ]
-"1135
-[s S66 :5 `uc 1 :1 `uc 1 ]
-[n S66 . . LA5 ]
-"1139
-[s S67 :6 `uc 1 :1 `uc 1 ]
-[n S67 . . LA6 ]
-"1143
-[s S68 :7 `uc 1 :1 `uc 1 ]
-[n S68 . . LA7 ]
-"1105
-[u S59 `S60 1 `S61 1 `S62 1 `S63 1 `S64 1 `S65 1 `S66 1 `S67 1 `S68 1 ]
-[n S59 . . . . . . . . . . ]
-"1148
-[v _LATAbits `VS59 ~T0 @X0 0 e@3977 ]
-"3149
+"31
+[v _done `Vuc ~T0 @X0 0 e ]
+"3149 /opt/microchip/xc8/v1.34/include/pic18f4520.h
 [s S158 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
 [n S158 . CCP2IF TMR3IF HLVDIF BCLIF EEIF . CMIF OSCFIF ]
 "3159
@@ -103,8 +33,15 @@ Version 3.2 HI-TECH Software Intermediate Code
 [n S157 . . . ]
 "3164
 [v _PIR2bits `VS157 ~T0 @X0 0 e@4001 ]
-"22 system.h
+"30 system.h
 [v _Timer3OfCount `Vus ~T0 @X0 0 e ]
+[v F4173 `(v ~T0 @X0 1 tf1`uc ]
+"20
+[v _char_received `TF4173 ~T0 @X0 0 e ]
+"3873 /opt/microchip/xc8/v1.34/include/pic18f4520.h
+[v _RCREG `Vuc ~T0 @X0 0 e@4014 ]
+"33 system.h
+[v _sys_clock `Vul ~T0 @X0 0 e ]
 [; ;htc.h: 26: extern const char __xc8_OPTIM_SPEED;
 [; ;xc8debug.h: 14: extern void __builtin_software_breakpoint(void);
 [; ;pic18f4520.h: 49: extern volatile unsigned char PORTA @ 0xF80;
@@ -3889,86 +3826,130 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;stdint.h: 215: typedef uint16_t uintptr_t;
 [; ;stdbool.h: 12: typedef unsigned char bool;
 [; ;system.h: 19: void ConfigureOscillator(void);
-[; ;system.h: 21: extern volatile unsigned short Timer1OfCount;
-[; ;system.h: 22: extern volatile unsigned short Timer3OfCount;
-[; ;system.h: 23: extern volatile unsigned char Done;
-[v F4176 `(v ~T0 @X0 1 tf ]
+[; ;system.h: 20: inline void char_received(char ch);
+[; ;system.h: 22: union DWORD_UNION
+[; ;system.h: 23: {
+[; ;system.h: 24: unsigned char byte[4];
+[; ;system.h: 25: unsigned short word[2];
+[; ;system.h: 26: unsigned long dword;
+[; ;system.h: 27: };
+[; ;system.h: 29: extern volatile unsigned short Timer1OfCount;
+[; ;system.h: 30: extern volatile unsigned short Timer3OfCount;
+[; ;system.h: 31: extern volatile unsigned char done;
+[; ;system.h: 32: extern volatile union DWORD_UNION Timer1OfCountStop;
+[; ;system.h: 33: extern volatile unsigned long sys_clock;
+[v F4185 `(v ~T0 @X0 1 tf ]
 "31 interrupts.c
-[v _high_isr `IF4176 ~T0 @X0 1 e ]
+[v _high_isr `IF4185 ~T0 @X0 1 e ]
 "39
 {
 [; ;interrupts.c: 31: void interrupt high_isr(void)
 [; ;interrupts.c: 39: {
 [e :U _high_isr ]
 [f ]
-[; ;interrupts.c: 51: if (PIR1bits.TMR1IF) {
+"46
+[v _i `Vuc ~T0 @X0 1 a ]
+[; ;interrupts.c: 46: volatile unsigned char i;
+[; ;interrupts.c: 51: if(PIR1bits.CCP1IF){
 "51
-[e $ ! != -> . . _PIR1bits 0 0 `i -> -> -> 0 `i `Vuc `i 403  ]
+[e $ ! != -> . . _PIR1bits 0 2 `i -> -> -> 0 `i `Vuc `i 404  ]
 {
-[; ;interrupts.c: 52: PIR1bits.TMR1IF = 0;
+[; ;interrupts.c: 52: PIR1bits.CCP1IF = 0;
 "52
-[e = . . _PIR1bits 0 0 -> -> 0 `i `uc ]
-[; ;interrupts.c: 53: Timer1OfCount++;
+[e = . . _PIR1bits 0 2 -> -> 0 `i `uc ]
+[; ;interrupts.c: 53: Timer1OfCountStop.word[1] = Timer1OfCount;
 "53
-[e ++ _Timer1OfCount -> -> 1 `i `us ]
-[; ;interrupts.c: 54: if (Timer1OfCount == 8) {
+[e = *U + &U . _Timer1OfCountStop 1 * -> -> -> 1 `i `ui `ux -> -> # *U &U . _Timer1OfCountStop 1 `ui `ux _Timer1OfCount ]
+[; ;interrupts.c: 54: done ++;
 "54
-[e $ ! == -> _Timer1OfCount `ui -> -> 8 `i `ui 404  ]
-{
-[; ;interrupts.c: 55: T3CONbits.TMR3ON = 0;
+[e ++ _done -> -> 1 `i `uc ]
 "55
-[e = . . _T3CONbits 1 0 -> -> 0 `i `uc ]
-[; ;interrupts.c: 56: T1CONbits.TMR1ON = 0;
-"56
-[e = . . _T1CONbits 1 0 -> -> 0 `i `uc ]
-[; ;interrupts.c: 57: Done = 1;
-"57
-[e = _Done -> -> 1 `i `uc ]
-[; ;interrupts.c: 61: LATAbits.LA0 ^=1;
-"61
-[e =^ . . _LATAbits 1 0 -> -> 1 `i `uc ]
-"63
 }
-[e :U 404 ]
-"64
-}
-[; ;interrupts.c: 63: }
-[; ;interrupts.c: 64: } else if (PIR2bits.TMR3IF) {
+[; ;interrupts.c: 55: }
 [e $U 405  ]
-[e :U 403 ]
-[e $ ! != -> . . _PIR2bits 0 1 `i -> -> -> 0 `i `Vuc `i 406  ]
+"56
+[e :U 404 ]
+[; ;interrupts.c: 56: else if (PIR1bits.TMR1IF) {
+[e $ ! != -> . . _PIR1bits 0 0 `i -> -> -> 0 `i `Vuc `i 406  ]
 {
-[; ;interrupts.c: 65: PIR2bits.TMR3IF = 0;
-"65
-[e = . . _PIR2bits 0 1 -> -> 0 `i `uc ]
-[; ;interrupts.c: 66: Timer3OfCount++;
-"66
-[e ++ _Timer3OfCount -> -> 1 `i `us ]
-"67
-}
-[; ;interrupts.c: 67: } else {
-[e $U 407  ]
-[e :U 406 ]
-{
+[; ;interrupts.c: 57: PIR1bits.TMR1IF = 0;
+"57
+[e = . . _PIR1bits 0 0 -> -> 0 `i `uc ]
+[; ;interrupts.c: 58: Timer1OfCount++;
+"58
+[e ++ _Timer1OfCount -> -> 1 `i `us ]
 "69
 }
+[; ;interrupts.c: 69: } else if (PIR2bits.TMR3IF) {
+[e $U 407  ]
+[e :U 406 ]
+[e $ ! != -> . . _PIR2bits 0 1 `i -> -> -> 0 `i `Vuc `i 408  ]
+{
+[; ;interrupts.c: 70: PIR2bits.TMR3IF = 0;
+"70
+[e = . . _PIR2bits 0 1 -> -> 0 `i `uc ]
+[; ;interrupts.c: 71: Timer3OfCount++;
+"71
+[e ++ _Timer3OfCount -> -> 1 `i `us ]
+"72
+}
+[; ;interrupts.c: 72: } else {
+[e $U 409  ]
+[e :U 408 ]
+{
+[; ;interrupts.c: 73: i++;
+"73
+[e ++ _i -> -> 1 `i `uc ]
+"75
+}
+[e :U 409 ]
 [e :U 407 ]
 [e :U 405 ]
-[; ;interrupts.c: 69: }
-[; ;interrupts.c: 73: }
-"73
-[e :UE 402 ]
+[; ;interrupts.c: 75: }
+[; ;interrupts.c: 79: }
+"79
+[e :UE 403 ]
 }
-[v F4179 `(v ~T0 @X0 1 tf ]
-"77
-[v _low_isr `ILF4179 ~T0 @X0 1 e ]
-"85
+[v F4190 `(v ~T0 @X0 1 tf ]
+"83
+[v _low_isr `ILF4190 ~T0 @X0 1 e ]
+"91
 {
-[; ;interrupts.c: 77: void low_priority interrupt low_isr(void)
-[; ;interrupts.c: 85: {
+[; ;interrupts.c: 83: void low_priority interrupt low_isr(void)
+[; ;interrupts.c: 91: {
 [e :U _low_isr ]
 [f ]
-[; ;interrupts.c: 107: }
+[; ;interrupts.c: 102: if (PIR1bits.RCIF) {
+"102
+[e $ ! != -> . . _PIR1bits 0 5 `i -> -> -> 0 `i `Vuc `i 411  ]
+{
+[; ;interrupts.c: 103: PIR1bits.RCIF = 0;
+"103
+[e = . . _PIR1bits 0 5 -> -> 0 `i `uc ]
+[; ;interrupts.c: 104: char_received(RCREG);
+"104
+[e ( _char_received (1 _RCREG ]
+"105
+}
+[; ;interrupts.c: 105: }
+[e $U 412  ]
+"106
+[e :U 411 ]
+[; ;interrupts.c: 106: else if (PIR2bits.CCP2IF){
+[e $ ! != -> . . _PIR2bits 0 0 `i -> -> -> 0 `i `Vuc `i 413  ]
+{
+[; ;interrupts.c: 107: PIR2bits.CCP2IF = 0;
 "107
-[e :UE 408 ]
+[e = . . _PIR2bits 0 0 -> -> 0 `i `uc ]
+[; ;interrupts.c: 108: sys_clock ++;
+"108
+[e ++ _sys_clock -> -> -> 1 `i `l `ul ]
+"109
+}
+[e :U 413 ]
+"110
+[e :U 412 ]
+[; ;interrupts.c: 109: }
+[; ;interrupts.c: 110: }
+[e :UE 410 ]
 }

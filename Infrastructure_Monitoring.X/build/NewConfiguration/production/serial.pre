@@ -5154,23 +5154,70 @@ extern int printf(const char *, ...);
 
 # 13 "user.h"
 void InitApp(void);
-void init_serial();
+void init_serial(void (*line_received)(char* str));
+void on_line_received(char* str);
 void Write_to_Pot(unsigned char VAL);
-void Init_DigPot();
+void init_DigPot();
 
-# 22 "serial.c"
-void init_serial()
+# 15 "fifo.h"
+typedef struct FIFO_STRUCT{
+char data[256];
+unsigned char write_index;
+unsigned char read_index;
+unsigned char size;
+}
+fifo_t;
+
+void fifo_init(fifo_t * this);
+inline void fifo_push(fifo_t * this, char element);
+inline char fifo_pop(fifo_t * this);
+
+# 19 "system.h"
+void ConfigureOscillator(void);
+inline void char_received(char ch);
+
+union DWORD_UNION
+{
+unsigned char byte[4];
+unsigned short word[2];
+unsigned long dword;
+};
+
+extern volatile unsigned short Timer1OfCount;
+extern volatile unsigned short Timer3OfCount;
+extern volatile unsigned char done;
+extern volatile union DWORD_UNION Timer1OfCountStop;
+extern volatile unsigned long sys_clock;
+
+# 24 "serial.c"
+struct SERIAL_STRUCT
+{
+fifo_t fifo;
+void (*on_line_received)(char* str);
+char string[256];
+}serial;
+
+void init_serial(void (*line_received)(char* str))
 {
 SPBRGH = 0;
-SPBRG = 68;
-TXSTAbits.BRGH = 1;
-BAUDCONbits.BRG16 = 1;
+SPBRG = 12;
+TXSTAbits.BRGH = 0;
+BAUDCONbits.BRG16 = 0;
 
 TXSTAbits.SYNC = 0;
 RCSTAbits.SPEN = 1;
 
 TXSTAbits.TXEN = 1;
+RCSTAbits.CREN = 1;
 
+TRISCbits.RC6 = 1;
+TRISCbits.RC7 = 1;
+
+PIR1bits.TXIF = 0;
+PIR1bits.RCIF = 0;
+
+IPR1bits.RCIP = 0;
+PIE1bits.RCIE = 1;
 }
 
 void putch(char c)
@@ -5179,4 +5226,21 @@ PIR1bits.TXIF = 0;
 TXREG = c;
 while(PIR1bits.TXIF == 0);
 PIR1bits.TXIF = 0;
+}
+
+inline void char_received(char ch)
+{
+fifo_push(&serial.fifo, ch);
+if(ch == '\n' || ch == '\r')
+{
+char i;
+char* ptr = serial.string;
+for(i=fifo_pop(&serial.fifo); i; i=fifo_pop(&serial.fifo))
+{
+*ptr = i;
+ptr++;
+}
+*ptr = 0;
+on_line_received(serial.string);
+}
 }

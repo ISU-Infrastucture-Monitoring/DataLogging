@@ -5091,10 +5091,20 @@ typedef unsigned char bool;
 
 # 19 "system.h"
 void ConfigureOscillator(void);
+inline void char_received(char ch);
+
+union DWORD_UNION
+{
+unsigned char byte[4];
+unsigned short word[2];
+unsigned long dword;
+};
 
 extern volatile unsigned short Timer1OfCount;
 extern volatile unsigned short Timer3OfCount;
-extern volatile unsigned char Done;
+extern volatile unsigned char done;
+extern volatile union DWORD_UNION Timer1OfCountStop;
+extern volatile unsigned long sys_clock;
 
 # 31 "interrupts.c"
 void interrupt high_isr(void)
@@ -5102,24 +5112,27 @@ void interrupt high_isr(void)
 # 39
 {
 
-# 51
-if (PIR1bits.TMR1IF) {
+# 46
+volatile unsigned char i;
+
+
+
+
+if(PIR1bits.CCP1IF){
+PIR1bits.CCP1IF = 0;
+Timer1OfCountStop.word[1] = Timer1OfCount;
+done ++;
+}
+else if (PIR1bits.TMR1IF) {
 PIR1bits.TMR1IF = 0;
 Timer1OfCount++;
-if (Timer1OfCount == 8) {
-T3CONbits.TMR3ON = 0;
-T1CONbits.TMR1ON = 0;
-Done = 1;
 
-
-
-LATAbits.LA0 ^=1;
-
-}
+# 69
 } else if (PIR2bits.TMR3IF) {
 PIR2bits.TMR3IF = 0;
 Timer3OfCount++;
 } else {
+i++;
 
 }
 
@@ -5131,8 +5144,16 @@ Timer3OfCount++;
 
 void low_priority interrupt low_isr(void)
 
-# 85
+# 91
 {
 
-# 107
+# 102
+if (PIR1bits.RCIF) {
+PIR1bits.RCIF = 0;
+char_received(RCREG);
+}
+else if (PIR2bits.CCP2IF){
+PIR2bits.CCP2IF = 0;
+sys_clock ++;
+}
 }

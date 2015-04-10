@@ -1,16 +1,5 @@
 Version 3.2 HI-TECH Software Intermediate Code
-"2783 /opt/microchip/xc8/v1.34/include/pic18f4520.h
-[s S140 :5 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S140 . TUN . PLLEN INTSRC ]
-"2789
-[s S141 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S141 . TUN0 TUN1 TUN2 TUN3 TUN4 ]
-"2782
-[u S139 `S140 1 `S141 1 ]
-[n S139 . . . ]
-"2797
-[v _OSCTUNEbits `VS139 ~T0 @X0 0 e@3995 ]
-"6374
+"6374 /opt/microchip/xc8/v1.34/include/pic18f4520.h
 [s S339 :2 `uc 1 :1 `uc 1 :1 `uc 1 :3 `uc 1 :1 `uc 1 ]
 [n S339 . SCS IOFS OSTS IRCF IDLEN ]
 "6381
@@ -21,6 +10,17 @@ Version 3.2 HI-TECH Software Intermediate Code
 [n S338 . . . ]
 "6391
 [v _OSCCONbits `VS338 ~T0 @X0 0 e@4051 ]
+"2783
+[s S140 :5 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S140 . TUN . PLLEN INTSRC ]
+"2789
+[s S141 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S141 . TUN0 TUN1 TUN2 TUN3 TUN4 ]
+"2782
+[u S139 `S140 1 `S141 1 ]
+[n S139 . . . ]
+"2797
+[v _OSCTUNEbits `VS139 ~T0 @X0 0 e@3995 ]
 [; ;htc.h: 26: extern const char __xc8_OPTIM_SPEED;
 [; ;xc8debug.h: 14: extern void __builtin_software_breakpoint(void);
 [; ;pic18f4520.h: 49: extern volatile unsigned char PORTA @ 0xF80;
@@ -3805,9 +3805,18 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;stdint.h: 215: typedef uint16_t uintptr_t;
 [; ;stdbool.h: 12: typedef unsigned char bool;
 [; ;system.h: 19: void ConfigureOscillator(void);
-[; ;system.h: 21: extern volatile unsigned short Timer1OfCount;
-[; ;system.h: 22: extern volatile unsigned short Timer3OfCount;
-[; ;system.h: 23: extern volatile unsigned char Done;
+[; ;system.h: 20: inline void char_received(char ch);
+[; ;system.h: 22: union DWORD_UNION
+[; ;system.h: 23: {
+[; ;system.h: 24: unsigned char byte[4];
+[; ;system.h: 25: unsigned short word[2];
+[; ;system.h: 26: unsigned long dword;
+[; ;system.h: 27: };
+[; ;system.h: 29: extern volatile unsigned short Timer1OfCount;
+[; ;system.h: 30: extern volatile unsigned short Timer3OfCount;
+[; ;system.h: 31: extern volatile unsigned char done;
+[; ;system.h: 32: extern volatile union DWORD_UNION Timer1OfCountStop;
+[; ;system.h: 33: extern volatile unsigned long sys_clock;
 "24 system.c
 [v _ConfigureOscillator `(v ~T0 @X0 1 ef ]
 "25
@@ -3816,16 +3825,23 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;system.c: 25: {
 [e :U _ConfigureOscillator ]
 [f ]
-[; ;system.c: 26: OSCTUNEbits.PLLEN = 1;
+[; ;system.c: 26: OSCCONbits.IRCF = 7;
 "26
-[e = . . _OSCTUNEbits 0 2 -> -> 1 `i `uc ]
-[; ;system.c: 27: OSCCONbits.IRCF = 7;
-"27
 [e = . . _OSCCONbits 0 3 -> -> 7 `i `uc ]
-[; ;system.c: 28: OSCCONbits.SCS = 3;
-"28
+[; ;system.c: 27: OSCCONbits.SCS = 3;
+"27
 [e = . . _OSCCONbits 0 0 -> -> 3 `i `uc ]
+[; ;system.c: 28: OSCTUNEbits.PLLEN = 1;
+"28
+[e = . . _OSCTUNEbits 0 2 -> -> 1 `i `uc ]
+[; ;system.c: 30: while(!OSCCONbits.IOFS);
+"30
+[e $U 404  ]
+[e :U 405 ]
+[e :U 404 ]
+[e $ ! != -> . . _OSCCONbits 0 1 `i -> -> -> 0 `i `Vuc `i 405  ]
+[e :U 406 ]
 [; ;system.c: 32: }
 "32
-[e :UE 402 ]
+[e :UE 403 ]
 }

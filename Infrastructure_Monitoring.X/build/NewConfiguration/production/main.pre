@@ -5091,16 +5091,27 @@ typedef unsigned char bool;
 
 # 19 "system.h"
 void ConfigureOscillator(void);
+inline void char_received(char ch);
+
+union DWORD_UNION
+{
+unsigned char byte[4];
+unsigned short word[2];
+unsigned long dword;
+};
 
 extern volatile unsigned short Timer1OfCount;
 extern volatile unsigned short Timer3OfCount;
-extern volatile unsigned char Done;
+extern volatile unsigned char done;
+extern volatile union DWORD_UNION Timer1OfCountStop;
+extern volatile unsigned long sys_clock;
 
 # 13 "user.h"
 void InitApp(void);
-void init_serial();
+void init_serial(void (*line_received)(char* str));
+void on_line_received(char* str);
 void Write_to_Pot(unsigned char VAL);
-void Init_DigPot();
+void init_DigPot();
 
 # 33 "main.c"
 void main(void)

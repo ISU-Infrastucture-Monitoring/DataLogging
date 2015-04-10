@@ -5152,28 +5152,113 @@ extern int vsscanf(const char *, const char *, va_list) __attribute__((unsupport
 extern int sprintf(char *, const char *, ...);
 extern int printf(const char *, ...);
 
+# 27 "/opt/microchip/xc8/v1.34/include/stdlib.h"
+typedef struct {
+int rem;
+int quot;
+} div_t;
+typedef struct {
+unsigned rem;
+unsigned quot;
+} udiv_t;
+typedef struct {
+long quot;
+long rem;
+} ldiv_t;
+typedef struct {
+unsigned long quot;
+unsigned long rem;
+} uldiv_t;
+
+# 65
+extern double atof(const char *);
+extern double strtod(const char *, const char **);
+extern int atoi(const char *);
+extern unsigned xtoi(const char *);
+extern long atol(const char *);
+extern long strtol(const char *, char **, int);
+
+extern int rand(void);
+extern void srand(unsigned int);
+extern void * calloc(size_t, size_t);
+extern div_t div(int numer, int denom);
+extern udiv_t udiv(unsigned numer, unsigned denom);
+extern ldiv_t ldiv(long numer, long denom);
+extern uldiv_t uldiv(unsigned long numer,unsigned long denom);
+extern unsigned long _lrotl(unsigned long value, unsigned int shift);
+extern unsigned long _lrotr(unsigned long value, unsigned int shift);
+extern unsigned int _rotl(unsigned int value, unsigned int shift);
+extern unsigned int _rotr(unsigned int value, unsigned int shift);
+
+
+
+
+extern void * malloc(size_t);
+extern void free(void *);
+extern void * realloc(void *, size_t);
+
+# 98
+extern int atexit(void (*)(void));
+extern char * getenv(const char *);
+extern char ** environ;
+extern int system(char *);
+extern void qsort(void *, size_t, size_t, int (*)(const void *, const void *));
+extern void * bsearch(const void *, void *, size_t, size_t, int(*)(const void *, const void *));
+extern int abs(int);
+extern long labs(long);
+
+
+extern char * itoa(char * buf, int val, int base);
+extern char * utoa(char * buf, unsigned val, int base);
+
+
+
+
+extern char * ltoa(char * buf, long val, int base);
+extern char * ultoa(char * buf, unsigned long val, int base);
+
+extern char * ftoa(float f, int * status);
+
 # 13 "user.h"
 void InitApp(void);
-void init_serial();
+void init_serial(void (*line_received)(char* str));
+void on_line_received(char* str);
 void Write_to_Pot(unsigned char VAL);
-void Init_DigPot();
+void init_DigPot();
 
 # 19 "system.h"
 void ConfigureOscillator(void);
+inline void char_received(char ch);
+
+union DWORD_UNION
+{
+unsigned char byte[4];
+unsigned short word[2];
+unsigned long dword;
+};
 
 extern volatile unsigned short Timer1OfCount;
 extern volatile unsigned short Timer3OfCount;
-extern volatile unsigned char Done;
+extern volatile unsigned char done;
+extern volatile union DWORD_UNION Timer1OfCountStop;
+extern volatile unsigned long sys_clock;
 
-# 24 "user.c"
+# 25 "user.c"
 volatile unsigned short Timer1OfCount = 0;
 volatile unsigned short Timer3OfCount = 0;
 volatile unsigned char Done = 0;
 
 # 33
+unsigned char autotune_pot(uint32_t);
 uint32_t get_freq();
 
 
+volatile unsigned long sys_clock=0;
+
+struct TIME{
+unsigned long seconds;
+unsigned short ms;
+}time;
 
 void InitApp(void)
 {
@@ -5181,63 +5266,141 @@ void InitApp(void)
 T1CONbits.RD16 = 1;
 IPR1bits.TMR1IP = 1;
 PIR1bits.TMR1IF = 0;
+T1CONbits.TMR1ON = 1;
 PIE1bits.TMR1IE = 1;
 
-# 51
+# 68
+CCP1CONbits.CCP1M = 7;
+
+TRISCbits.RC2 = 1;
+
+IPR1bits.CCP1IP = 1;
+PIR1bits.CCP1IF = 0;
+PIE1bits.CCP1IE = 1;
+
+
+CCP2CONbits.CCP2M = 0xA;
+
 T3CONbits.RD16 = 0;
-T3CONbits.T3CKPS = 2;
+T3CONbits.T3CKPS = 3;
 T3CONbits.TMR3CS = 0;
 
+T3CONbits.T3CCP1 = 1;
+T3CONbits.T3CCP2 = 0;
 
-IPR2bits.TMR3IP = 1;
-PIR2bits.TMR3IF = 0;
-PIE2bits.TMR3IE = 1;
+CCPR2 = 62500;
 
+IPR2bits.CCP2IP = 0;
+PIR2bits.CCP2IF = 0;
+PIE2bits.CCP2IE = 1;
 
+T3CONbits.TMR3ON = 1;
+
+RCONbits.IPEN = 1;
 INTCONbits.GIE = 1;
 INTCONbits.PEIE = 1;
+
+
 TRISAbits.RA0 = 0;
 
-init_serial();
+init_serial(on_line_received);
 init_DigPot();
-unsigned char k = 0;
+unsigned int k = 0;
 
 uint32_t freq;
+Write_to_Pot(128);
+unsigned long last_sys_clock = sys_clock;
+if(autotune_pot(32000))
+{
+printf("Calibration freq out of range\n\r");
+Write_to_Pot(128);
+}
 while(1)
 {
-Write_to_Pot(k);
-k += 8;
+if(last_sys_clock != sys_clock)
+{
+last_sys_clock = sys_clock;
+if((sys_clock % 2) == 0)
+{
 freq = get_freq();
-printf("%lu\n", freq);
+printf("%lu.%03d, %lu\r", time.seconds, time.ms, freq);
 }
 }
+}
+}
+
+volatile uint8_t done;
+
+volatile union DWORD_UNION Timer1OfCountStop;
 
 uint32_t get_freq()
 {
-int i = 0;
+uint32_t start, stop;
+TMR1 = 0;
 Timer1OfCount = 0;
-Timer3OfCount = 0;
+done = 0;
+while(done == 0);
+start = CCPR1;
+while(done == 1);
+stop = CCPR1;
+unsigned long now = sys_clock;
+time.seconds = now >> 2;
+time.ms = (now&0x3)*250;
+return stop + (Timer1OfCountStop.dword) - start;
 
-TMR3H = 0;
-TMR3L = 0;
-TMR1H = 0;
-TMR1L = 0;
-
-Done = 0;
-
-T1CONbits.TMR1ON = 1;
-T3CONbits.TMR3ON = 1;
-
-while (!Done)
-{
-
-i++;
+# 174
 }
 
 
-uint32_t result = TMR3L;
-result += TMR3H << 8;
-result += ((uint32_t)Timer3OfCount) << 16;
+void on_line_received(char* str)
+{
+unsigned char value = atoi(str);
+if(value > 0)
+{
+printf("Received %d\n\r", value);
+Write_to_Pot(value);
+}
+else if(str[0] = 'c')
+{
+uint32_t sp = atoi(str+1);
+if(sp == 0)
+sp = 32000;
 
-return result;
+printf("Calibrate to %d\n\r", sp);
+if(autotune_pot(sp))
+{
+printf("Calibration frequency out of range\n\r");
+Write_to_Pot(128);
+}
+}
+else
+{
+printf("Invalid string: \"%s\"\n\r",str);
+}
+}
+
+unsigned char autotune_pot(uint32_t setpoint)
+{
+static unsigned char value = 128;
+Write_to_Pot(value);
+uint32_t f;
+while((f = get_freq()) > setpoint) {
+printf("1: %lu, %u\n\r", f, value);
+value--;
+if(value == 0)
+{
+return -1;
+}
+Write_to_Pot(value);
+}
+while((f = get_freq()) < setpoint) {
+printf("1: %lu, %u\n\r", f, value);
+value ++;
+if(value == 255)
+{
+return -1;
+}
+Write_to_Pot(value);
+}
+return 0;
 }

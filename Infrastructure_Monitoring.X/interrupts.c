@@ -43,28 +43,34 @@ void high_isr(void)
     Do not use a seperate if block for each interrupt flag to avoid run
     time errors. */
 
-
+    volatile unsigned char i;
 
     /* TODO Add High Priority interrupt routine code here. */
 
     /* Determine which flag generated the interrupt */
-    if (PIR1bits.TMR1IF) {
+    if(PIR1bits.CCP1IF){
+        PIR1bits.CCP1IF = 0;
+        Timer1OfCountStop.word[1] = Timer1OfCount;
+        done ++;
+    }
+    else if (PIR1bits.TMR1IF) {
         PIR1bits.TMR1IF = 0; /* Clear Interrupt Flag 1 */
         Timer1OfCount++;
-        if (Timer1OfCount == 8) {
-            T3CONbits.TMR3ON = 0; //Turn off timer3
-            T1CONbits.TMR1ON = 0; //Turn off timer1
-            Done = 1;
+        //if (Timer1OfCount == 8) {
+        //    T3CONbits.TMR3ON = 0; //Turn off timer3
+        //    T1CONbits.TMR1ON = 0; //Turn off timer1
+        //    Done = 1;
             
             //Setup Pin RA0 as output and toggles high/low
             //TRISAbits.RA0 = 0;
-            LATAbits.LA0 ^=1;
+        //    LATAbits.LA0 ^=1;
             
-        }
+        //}
     } else if (PIR2bits.TMR3IF) {
         PIR2bits.TMR3IF = 0; /* Clear Interrupt Flag 2 */
         Timer3OfCount++;
     } else {
+        i++;
         /* Unhandled interrupts */
     }
 
@@ -89,19 +95,16 @@ void low_isr(void)
     Do not use a seperate if block for each interrupt flag to avoid run
     time errors. */
 
-#if 0
 
     /* TODO Add Low Priority interrupt routine code here. */
 
     /* Determine which flag generated the interrupt */
-    if (<Interrupt Flag 1 >) {
-        <Interrupt Flag 1 = 0 >; /* Clear Interrupt Flag 1 */
-    } else if (<Interrupt Flag 2 >) {
-        <Interrupt Flag 2 = 0 >; /* Clear Interrupt Flag 2 */
-    } else {
-        /* Unhandled interrupts */
+    if (PIR1bits.RCIF) {
+        PIR1bits.RCIF = 0; /* Clear Interrupt Flag 1 */
+        char_received(RCREG);
+    } 
+    else if (PIR2bits.CCP2IF){
+        PIR2bits.CCP2IF = 0;
+        sys_clock ++;
     }
-
-#endif
-
 }
