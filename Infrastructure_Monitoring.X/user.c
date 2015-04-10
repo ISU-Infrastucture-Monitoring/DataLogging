@@ -147,7 +147,7 @@ uint32_t get_freq()
 
 void on_line_received(char* str)
 {
-    unsigned char value = atoi(str);
+    unsigned char value = atol(str);
     if(value > 0)
     {
         printf("Received %d\n\r", value);
@@ -155,7 +155,7 @@ void on_line_received(char* str)
     }
     else if(str[0] == 'c')
     {
-        uint32_t sp = atoi(str+1);
+        uint32_t sp = atol(str+1);
         if(sp == 0)
             sp = 32000;
         

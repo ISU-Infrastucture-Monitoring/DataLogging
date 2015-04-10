@@ -240,8 +240,8 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _TMR1 `Vus ~T0 @X0 0 e@4046 ]
 "4874
 [v _CCPR1 `Vus ~T0 @X0 0 e@4030 ]
-"67 /opt/microchip/xc8/v1.34/include/stdlib.h
-[v _atoi `(i ~T0 @X0 0 ef1`*Cuc ]
+"69 /opt/microchip/xc8/v1.34/include/stdlib.h
+[v _atol `(l ~T0 @X0 0 ef1`*Cuc ]
 [; ;htc.h: 26: extern const char __xc8_OPTIM_SPEED;
 [; ;xc8debug.h: 14: extern void __builtin_software_breakpoint(void);
 [; ;pic18f4520.h: 49: extern volatile unsigned char PORTA @ 0xF80;
@@ -4297,7 +4297,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;user.c: 120: freq = get_freq();
 "120
 [e = _freq ( _get_freq ..  ]
-[; ;user.c: 121: printf("%lu.%03d, %lu\r", time.seconds, time.ms, freq);
+[; ;user.c: 121: printf("%lu.%03d, %lu\n\r", time.seconds, time.ms, freq);
 "121
 [e ( _printf , , , (. :s 2C . _time 0 -> . _time 1 `i _freq ]
 "122
@@ -4380,207 +4380,217 @@ Version 3.2 HI-TECH Software Intermediate Code
 "144
 [e ) - + _stop . _Timer1OfCountStop 2 _start ]
 [e $UE 416  ]
-[; ;user.c: 174: }
-"174
+[; ;user.c: 145: }
+"145
 [e :UE 416 ]
 }
-"177
+"148
 [v _on_line_received `(v ~T0 @X0 1 ef1`*uc ]
-"178
+"149
 {
-[; ;user.c: 177: void on_line_received(char* str)
-[; ;user.c: 178: {
+[; ;user.c: 148: void on_line_received(char* str)
+[; ;user.c: 149: {
 [e :U _on_line_received ]
-"177
+"148
 [v _str `*uc ~T0 @X0 1 r1 ]
-"178
+"149
 [f ]
-"179
+"150
 [v _value `uc ~T0 @X0 1 a ]
-[; ;user.c: 179: unsigned char value = atoi(str);
-[e = _value -> ( _atoi (1 -> _str `*Cuc `uc ]
-[; ;user.c: 180: if(value > 0)
-"180
+[; ;user.c: 150: unsigned char value = atol(str);
+[e = _value -> ( _atol (1 -> _str `*Cuc `uc ]
+[; ;user.c: 151: if(value > 0)
+"151
 [e $ ! > -> _value `i -> 0 `i 424  ]
-[; ;user.c: 181: {
-"181
+[; ;user.c: 152: {
+"152
 {
-[; ;user.c: 182: printf("Received %d\n\r", value);
-"182
+[; ;user.c: 153: printf("Received %d\n\r", value);
+"153
 [e ( _printf , (. :s 3C -> _value `i ]
-[; ;user.c: 183: Write_to_Pot(value);
-"183
+[; ;user.c: 154: Write_to_Pot(value);
+"154
 [e ( _Write_to_Pot (1 _value ]
-"184
+"155
 }
-[; ;user.c: 184: }
+[; ;user.c: 155: }
 [e $U 425  ]
-"185
+"156
 [e :U 424 ]
-[; ;user.c: 185: else if(str[0] = 'c')
-[e $ ! != -> = *U + _str * -> -> 0 `i `x -> -> # *U _str `i `x -> -> 99 `ui `uc `i -> -> -> 0 `i `uc `i 426  ]
-[; ;user.c: 186: {
-"186
+[; ;user.c: 156: else if(str[0] == 'c')
+[e $ ! == -> *U + _str * -> -> 0 `i `x -> -> # *U _str `i `x `ui -> 99 `ui 426  ]
+[; ;user.c: 157: {
+"157
 {
-"187
+"158
 [v _sp `ul ~T0 @X0 1 a ]
-[; ;user.c: 187: uint32_t sp = atoi(str+1);
-[e = _sp -> -> ( _atoi (1 -> + _str * -> -> 1 `i `x -> -> # *U _str `i `x `*Cuc `l `ul ]
-[; ;user.c: 188: if(sp == 0)
-"188
+[; ;user.c: 158: uint32_t sp = atol(str+1);
+[e = _sp -> ( _atol (1 -> + _str * -> -> 1 `i `x -> -> # *U _str `i `x `*Cuc `ul ]
+[; ;user.c: 159: if(sp == 0)
+"159
 [e $ ! == _sp -> -> -> 0 `i `l `ul 427  ]
-[; ;user.c: 189: sp = 32000;
-"189
+[; ;user.c: 160: sp = 32000;
+"160
 [e = _sp -> -> -> 32000 `i `l `ul ]
 [e :U 427 ]
-[; ;user.c: 191: printf("Calibrate to %d\n\r", sp);
-"191
+[; ;user.c: 162: printf("Calibrate to %d\n\r", sp);
+"162
 [e ( _printf , (. :s 4C _sp ]
-[; ;user.c: 192: if(autotune_pot(sp))
-"192
+[; ;user.c: 163: if(autotune_pot(sp))
+"163
 [e $ ! != -> ( _autotune_pot (1 _sp `i -> -> -> 0 `i `uc `i 428  ]
-[; ;user.c: 193: {
-"193
+[; ;user.c: 164: {
+"164
 {
-[; ;user.c: 194: printf("Calibration frequency out of range\n\r");
-"194
+[; ;user.c: 165: printf("Calibration frequency out of range\n\r");
+"165
 [e ( _printf :s 5C ]
-[; ;user.c: 195: Write_to_Pot(128);
-"195
+[; ;user.c: 166: Write_to_Pot(128);
+"166
 [e ( _Write_to_Pot (1 -> -> 128 `i `uc ]
-"196
+"167
 }
 [e :U 428 ]
-"197
+"168
 }
-[; ;user.c: 196: }
-[; ;user.c: 197: }
+[; ;user.c: 167: }
+[; ;user.c: 168: }
 [e $U 429  ]
-"198
+"169
 [e :U 426 ]
-[; ;user.c: 198: else
-[; ;user.c: 199: {
-"199
+[; ;user.c: 169: else if(str[0] == 'r')
+[e $ ! == -> *U + _str * -> -> 0 `i `x -> -> # *U _str `i `x `ui -> 114 `ui 430  ]
+[; ;user.c: 170: {
+"170
 {
-[; ;user.c: 200: printf("Invalid string: \"%s\"\n\r",str);
-"200
-[e ( _printf , (. :s 6C -> _str `*Cuc ]
-"201
+[; ;user.c: 171: printf("Reset\n\r");
+"171
+[e ( _printf :s 6C ]
+"173
+[; <"  reset ;# ">
+"175
 }
+[; ;user.c: 175: }
+[e $U 431  ]
+"176
+[e :U 430 ]
+[; ;user.c: 176: else
+[; ;user.c: 177: {
+"177
+{
+[; ;user.c: 178: printf("Invalid string: \"%s\"\n\r",str);
+"178
+[e ( _printf , (. :s 7C -> _str `*Cuc ]
+"179
+}
+[e :U 431 ]
 [e :U 429 ]
 [e :U 425 ]
-[; ;user.c: 201: }
-[; ;user.c: 202: }
-"202
+[; ;user.c: 179: }
+[; ;user.c: 180: }
+"180
 [e :UE 423 ]
 }
-"204
+"182
 [v _autotune_pot `(uc ~T0 @X0 1 ef1`ul ]
-"205
+"183
 {
-[; ;user.c: 204: unsigned char autotune_pot(uint32_t setpoint)
-[; ;user.c: 205: {
+[; ;user.c: 182: unsigned char autotune_pot(uint32_t setpoint)
+[; ;user.c: 183: {
 [e :U _autotune_pot ]
-"204
+"182
 [v _setpoint `ul ~T0 @X0 1 r1 ]
-"205
+"183
 [f ]
-"206
+"184
 [v F4392 `uc ~T0 @X0 1 s value ]
 [i F4392
 -> -> 128 `i `uc
 ]
-[; ;user.c: 206: static unsigned char value = 128;
-[; ;user.c: 207: Write_to_Pot(value);
-"207
+[; ;user.c: 184: static unsigned char value = 128;
+[; ;user.c: 185: Write_to_Pot(value);
+"185
 [e ( _Write_to_Pot (1 F4392 ]
-"208
+"186
 [v _f `ul ~T0 @X0 1 a ]
-[; ;user.c: 208: uint32_t f;
-[; ;user.c: 209: while((f = get_freq()) > setpoint) {
-"209
-[e $U 431  ]
-[e :U 432 ]
-{
-[; ;user.c: 210: printf("1: %lu, %u\n\r", f, value);
-"210
-[e ( _printf , , (. :s 7C _f -> F4392 `i ]
-[; ;user.c: 211: value--;
-"211
-[e -- F4392 -> -> 1 `i `uc ]
-[; ;user.c: 212: if(value == 0)
-"212
-[e $ ! == -> F4392 `i -> 0 `i 434  ]
-[; ;user.c: 213: {
-"213
-{
-[; ;user.c: 214: return -1;
-"214
-[e ) -> -U -> 1 `i `uc ]
-[e $UE 430  ]
-"215
-}
+[; ;user.c: 186: uint32_t f;
+[; ;user.c: 187: while((f = get_freq()) > setpoint) {
+"187
+[e $U 433  ]
 [e :U 434 ]
-[; ;user.c: 215: }
-[; ;user.c: 216: Write_to_Pot(value);
-"216
-[e ( _Write_to_Pot (1 F4392 ]
-"217
-}
-[e :U 431 ]
-"209
-[e $ > = _f ( _get_freq ..  _setpoint 432  ]
-[e :U 433 ]
-[; ;user.c: 217: }
-[; ;user.c: 218: while((f = get_freq()) < setpoint) {
-"218
-[e $U 435  ]
-[e :U 436 ]
 {
-[; ;user.c: 219: printf("1: %lu, %u\n\r", f, value);
-"219
-[e ( _printf , , (. :s 8C _f -> F4392 `i ]
-[; ;user.c: 220: value ++;
-"220
-[e ++ F4392 -> -> 1 `i `uc ]
-[; ;user.c: 221: if(value == 255)
-"221
-[e $ ! == -> F4392 `i -> 255 `i 438  ]
-[; ;user.c: 222: {
-"222
+[; ;user.c: 189: value--;
+"189
+[e -- F4392 -> -> 1 `i `uc ]
+[; ;user.c: 190: if(value == 0)
+"190
+[e $ ! == -> F4392 `i -> 0 `i 436  ]
+[; ;user.c: 191: {
+"191
 {
-[; ;user.c: 223: return -1;
-"223
+[; ;user.c: 192: return -1;
+"192
 [e ) -> -U -> 1 `i `uc ]
-[e $UE 430  ]
-"224
+[e $UE 432  ]
+"193
 }
-[e :U 438 ]
-[; ;user.c: 224: }
-[; ;user.c: 225: Write_to_Pot(value);
-"225
+[e :U 436 ]
+[; ;user.c: 193: }
+[; ;user.c: 194: Write_to_Pot(value);
+"194
 [e ( _Write_to_Pot (1 F4392 ]
-"226
+"195
 }
+[e :U 433 ]
+"187
+[e $ > = _f ( _get_freq ..  _setpoint 434  ]
 [e :U 435 ]
-"218
-[e $ < = _f ( _get_freq ..  _setpoint 436  ]
+[; ;user.c: 195: }
+[; ;user.c: 196: while((f = get_freq()) < setpoint) {
+"196
+[e $U 437  ]
+[e :U 438 ]
+{
+[; ;user.c: 198: value ++;
+"198
+[e ++ F4392 -> -> 1 `i `uc ]
+[; ;user.c: 199: if(value == 255)
+"199
+[e $ ! == -> F4392 `i -> 255 `i 440  ]
+[; ;user.c: 200: {
+"200
+{
+[; ;user.c: 201: return -1;
+"201
+[e ) -> -U -> 1 `i `uc ]
+[e $UE 432  ]
+"202
+}
+[e :U 440 ]
+[; ;user.c: 202: }
+[; ;user.c: 203: Write_to_Pot(value);
+"203
+[e ( _Write_to_Pot (1 F4392 ]
+"204
+}
 [e :U 437 ]
-[; ;user.c: 226: }
-[; ;user.c: 227: return 0;
-"227
+"196
+[e $ < = _f ( _get_freq ..  _setpoint 438  ]
+[e :U 439 ]
+[; ;user.c: 204: }
+[; ;user.c: 205: return 0;
+"205
 [e ) -> -> 0 `i `uc ]
-[e $UE 430  ]
-[; ;user.c: 228: }
-"228
-[e :UE 430 ]
+[e $UE 432  ]
+[; ;user.c: 206: }
+"206
+[e :UE 432 ]
 }
 [p f _printf 8684692 ]
-[a 2C 37 108 117 46 37 48 51 100 44 32 37 108 117 13 0 ]
-[a 7C 49 58 32 37 108 117 44 32 37 117 10 13 0 ]
-[a 8C 49 58 32 37 108 117 44 32 37 117 10 13 0 ]
+[a 2C 37 108 117 46 37 48 51 100 44 32 37 108 117 10 13 0 ]
+[a 6C 82 101 115 101 116 10 13 0 ]
 [a 5C 67 97 108 105 98 114 97 116 105 111 110 32 102 114 101 113 117 101 110 99 121 32 111 117 116 32 111 102 32 114 97 110 103 101 10 13 0 ]
 [a 1C 67 97 108 105 98 114 97 116 105 111 110 32 102 114 101 113 32 111 117 116 32 111 102 32 114 97 110 103 101 10 13 0 ]
 [a 4C 67 97 108 105 98 114 97 116 101 32 116 111 32 37 100 10 13 0 ]
 [a 3C 82 101 99 101 105 118 101 100 32 37 100 10 13 0 ]
-[a 6C 73 110 118 97 108 105 100 32 115 116 114 105 110 103 58 32 34 37 115 34 10 13 0 ]
+[a 7C 73 110 118 97 108 105 100 32 115 116 114 105 110 103 58 32 34 37 115 34 10 13 0 ]
