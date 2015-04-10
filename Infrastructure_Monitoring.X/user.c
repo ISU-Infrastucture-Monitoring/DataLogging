@@ -118,7 +118,7 @@ void InitApp(void)
             if((sys_clock % 2) == 0)
             {
                 freq = get_freq();
-                printf("%lu.%03d, %lu\r", time.seconds, time.ms, freq);
+                printf("%lu.%03d, %lu\n\r", time.seconds, time.ms, freq);
             }
         }
     }
@@ -142,35 +142,6 @@ uint32_t get_freq()
     time.seconds = now >> 2;
     time.ms = (now&0x3)*250;
     return stop + (Timer1OfCountStop.dword) - start;
-    
-    
-    /*
-    int i = 0;
-    Timer1OfCount = 0;
-    Timer3OfCount = 0;
-
-    TMR3H = 0;
-    TMR3L = 0;
-    TMR1H = 0;
-    TMR1L = 0;
-    
-    Done = 0;
-
-    T1CONbits.TMR1ON = 1;   //Turn on timer1
-    //T3CONbits.TMR3ON = 1;   //Turn on timer3
-
-    while (!Done)
-    {
-        // wait to be done
-        i++;
-    }
-
-    // we are done
-    uint32_t result = TMR3L;
-    result += TMR3H << 8;
-    result += ((uint32_t)Timer3OfCount) << 16;
-
-    return result;*/
 }
 
 
@@ -182,7 +153,7 @@ void on_line_received(char* str)
         printf("Received %d\n\r", value);
         Write_to_Pot(value);
     }
-    else if(str[0] = 'c')
+    else if(str[0] == 'c')
     {
         uint32_t sp = atoi(str+1);
         if(sp == 0)
@@ -194,6 +165,13 @@ void on_line_received(char* str)
             printf("Calibration frequency out of range\n\r");
             Write_to_Pot(128);
         }
+    }
+    else if(str[0] == 'r')
+    {
+	printf("Reset\n\r");
+	#asm
+	reset
+	#endasm
     }
     else
     {
@@ -207,7 +185,7 @@ unsigned char autotune_pot(uint32_t setpoint)
     Write_to_Pot(value);
     uint32_t f;
     while((f = get_freq()) > setpoint) {
-        printf("1: %lu, %u\n\r", f, value);
+        //printf("1: %lu, %u\n\r", f, value);
         value--;
         if(value == 0)
         {
@@ -216,7 +194,7 @@ unsigned char autotune_pot(uint32_t setpoint)
         Write_to_Pot(value);
     }
     while((f = get_freq()) < setpoint) {
-        printf("1: %lu, %u\n\r", f, value);
+        //printf("1: %lu, %u\n\r", f, value);
         value ++;
         if(value == 255)
         {
