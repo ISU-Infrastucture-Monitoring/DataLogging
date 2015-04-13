@@ -50,7 +50,7 @@ void high_isr(void)
     /* Determine which flag generated the interrupt */
     if(PIR1bits.CCP1IF){
         PIR1bits.CCP1IF = 0;
-        Timer1OfCountStop.word[1] = Timer1OfCount;
+        Timer1OfCountStop = Timer1OfCount << 16;
         done ++;
     }
     else if (PIR1bits.TMR1IF) {

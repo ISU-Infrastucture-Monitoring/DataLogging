@@ -29,5 +29,6 @@ union DWORD_UNION
 extern volatile unsigned short Timer1OfCount;
 extern volatile unsigned short Timer3OfCount;
 extern volatile unsigned char done;
-extern volatile union DWORD_UNION Timer1OfCountStop;
+//extern volatile union DWORD_UNION Timer1OfCountStop;
+extern volatile unsigned long Timer1OfCountStop;
 extern volatile unsigned long sys_clock;

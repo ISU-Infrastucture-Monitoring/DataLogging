@@ -126,7 +126,8 @@ void InitApp(void)
 
 volatile uint8_t done;
 
-volatile union DWORD_UNION Timer1OfCountStop;
+//volatile union DWORD_UNION Timer1OfCountStop;
+volatile uint32_t Timer1OfCountStop;
 
 uint32_t get_freq()
 {
@@ -141,7 +142,7 @@ uint32_t get_freq()
     unsigned long now = sys_clock;
     time.seconds = now >> 2;
     time.ms = (now&0x3)*250;
-    return stop + (Timer1OfCountStop.dword) - start;
+    return Timer1OfCountStop + stop - start;
 }
 
 
