@@ -73,7 +73,6 @@ void InitApp(void)
     PIR1bits.CCP1IF = 0;
     PIE1bits.CCP1IE = 1;
     
-    
     CCP2CONbits.CCP2M = 0xA;    // Compare mode, software interrupt only
     
     T3CONbits.RD16 = 0;

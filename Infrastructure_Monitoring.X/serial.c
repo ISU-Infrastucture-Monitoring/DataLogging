@@ -31,9 +31,12 @@ struct SERIAL_STRUCT
 void init_serial(void (*line_received)(char* str))
 {
     SPBRGH = 0;
-    SPBRG = 12;             //Sets Baud Rate to 115942
-    TXSTAbits.BRGH = 0;     //Sets Baud Rate to High Speed mode
-    BAUDCONbits.BRG16 = 0;  //Sets Baud Rate to 16Bit mode
+    //SPBRG = 12;             //Sets Baud Rate to 9600
+    SPBRG = 138;     //Attempt to fix Baud Rate, set as close to 57600 as possible
+    
+    //Config Baud rate to 16bit Asynchronous
+    TXSTAbits.BRGH = 1;     //Sets Baud Rate to High Speed mode
+    BAUDCONbits.BRG16 = 1;  //Sets Baud Rate to 16Bit mode
 
     TXSTAbits.SYNC = 0;     //Set UART mode to Asynchronous
     RCSTAbits.SPEN = 1;     //Enable Serial port
