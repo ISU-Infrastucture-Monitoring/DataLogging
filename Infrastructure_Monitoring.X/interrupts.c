@@ -25,8 +25,6 @@
 
 /* High-priority service */
 
-
-
 #if defined(__XC) || defined(HI_TECH_C)
 void interrupt high_isr(void)
 #elif defined (__18CXX)
@@ -73,9 +71,6 @@ void high_isr(void)
         i++;
         /* Unhandled interrupts */
     }
-
-
-
 }
 
 /* Low-priority interrupt routine */
