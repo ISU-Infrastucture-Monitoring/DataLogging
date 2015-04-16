@@ -84,9 +84,9 @@ void InitApp(void)
     T3CONbits.T3CCP1 = 1;
     T3CONbits.T3CCP2 = 0;
     
-    CCPR2 = 10000;              // 100Hz
+    CCPR2 = 10000;              // 100Hz system tick
     
-    IPR2bits.CCP2IP = 0;
+    IPR2bits.CCP2IP = 0;        //Set up and enable capture interrupts for capture 2
     PIR2bits.CCP2IF = 0;
     PIE2bits.CCP2IE = 1;
     
@@ -97,8 +97,8 @@ void InitApp(void)
     INTCONbits.PEIE = 1;    //Enable all unmasked peripheral interrupts
     
     
-    TRISAbits.RA0 = 0;      //Set Pin RA0 to output mode
-    LATAbits.LA0 = 0;
+    TRISAbits.RA0 = 0;      //Set Pin RA0 to output mode (testing purposes)
+    LATAbits.LA0 = 0;       //Set Pin RA0 low
     
     init_serial(on_line_received);
     init_DigPot();
@@ -121,10 +121,10 @@ void InitApp(void)
     {
         int i;
         while(!begin);
-        LATAbits.LA0 = 1;
+        LATAbits.LA0 = 1;   //Set RA0 high to signal beginning of test
         begin = 0;
         sys_clock = 0;
-        for(i = 0; i < 500; i++)
+        for(i = 0; i < 500; i++)    //Run 500 sample test
         {
             if(1||last_sys_clock != sys_clock)
             {
@@ -132,11 +132,11 @@ void InitApp(void)
                 if(1 || (last_sys_clock % 10) == 0)
                 {
                     freq = get_freq();
-                    printf("%d, %d, %lu\n\r", i, value, freq);
+                    printf("%d, %d, %lu\n\r", i, value, freq);  //Print out sample values
                 }
             }
         }
-        LATAbits.LA0 = 0;
+        LATAbits.LA0 = 0;   //Set RA0 low to signal end of test
     }
 }
 
@@ -148,17 +148,17 @@ volatile uint32_t Timer1OfCountStop;
 uint32_t get_freq() //Returns frequency as a raw number, before calculations
 {
     uint32_t start, stop;
-    TMR1 = 0;
-    Timer1OfCount = 0;
+    TMR1 = 0;       //Clear Timer1 value
+    Timer1OfCount = 0;  //Clear number of overflows
     done = 0;
     while(done == 0);
-    start = CCPR1;
+    start = CCPR1;      //Start capture mode, set start to current value
     while(done == 1);
-    stop = CCPR1;
+    stop = CCPR1;       //Stop capture mode, set stop to current value
     unsigned long now = sys_clock;
     time.seconds = now;// / 100;
     time.ms = 0;//(now % 100)*10;
-    uint32_t result = ((Timer1OfCountStop-1)<<16);
+    uint32_t result = ((Timer1OfCountStop-1)<<16);  //Return resultant raw data
     result += stop;
     result -= start;
     return result;
