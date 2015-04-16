@@ -25,7 +25,7 @@ void ConfigureOscillator(void)
 {
     OSCCONbits.IRCF = 7;    //Set Internal oscillator to 8MHz
     //OSCCONbits.SCS = 3;     //Set System Clock to internal oscillator
-    OSCCONbits.SCS = 0;  //Attempt at a fix for system clock.
+    OSCCONbits.SCS = 0;  //Attempt at a fix for system clock. FIX SUCCESSFUL
     
     OSCTUNEbits.PLLEN = 1;  //Enables PLL multiplier of 4x clock
 #ifndef DEBUG

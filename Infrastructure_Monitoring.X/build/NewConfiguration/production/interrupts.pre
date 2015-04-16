@@ -5103,16 +5103,17 @@ unsigned long dword;
 extern volatile unsigned short Timer1OfCount;
 extern volatile unsigned short Timer3OfCount;
 extern volatile unsigned char done;
-extern volatile union DWORD_UNION Timer1OfCountStop;
+
+extern volatile unsigned long Timer1OfCountStop;
 extern volatile unsigned long sys_clock;
 
-# 31 "interrupts.c"
+# 29 "interrupts.c"
 void interrupt high_isr(void)
 
-# 39
+# 37
 {
 
-# 46
+# 44
 volatile unsigned char i;
 
 
@@ -5120,14 +5121,14 @@ volatile unsigned char i;
 
 if(PIR1bits.CCP1IF){
 PIR1bits.CCP1IF = 0;
-Timer1OfCountStop.word[1] = Timer1OfCount;
+Timer1OfCountStop = Timer1OfCount;
 done ++;
 }
 else if (PIR1bits.TMR1IF) {
 PIR1bits.TMR1IF = 0;
 Timer1OfCount++;
 
-# 69
+# 67
 } else if (PIR2bits.TMR3IF) {
 PIR2bits.TMR3IF = 0;
 Timer3OfCount++;
@@ -5135,19 +5136,16 @@ Timer3OfCount++;
 i++;
 
 }
-
-
-
 }
 
 
 
 void low_priority interrupt low_isr(void)
 
-# 91
+# 86
 {
 
-# 102
+# 97
 if (PIR1bits.RCIF) {
 PIR1bits.RCIF = 0;
 char_received(RCREG);

@@ -28,13 +28,13 @@ struct SERIAL_STRUCT
     char string[256];
 }serial;
 
-void init_serial(void (*line_received)(char* str))
+void init_serial(void (*line_received)(char* str))  //Initialize all serial communications, I2C & UART
 {
     SPBRGH = 0;
     //SPBRG = 12;             //Sets Baud Rate to 9600
-    SPBRG = 138;     //Attempt to fix Baud Rate, set as close to 57600 as possible
+    SPBRG = 138;     //Attempt to fix Baud Rate, set as close to 57600 as possible FIX SUCCESSFUL
     
-    //Config Baud rate to 16bit Asynchronous
+    //Configure Baud rate to 16bit Asynchronous
     TXSTAbits.BRGH = 1;     //Sets Baud Rate to High Speed mode
     BAUDCONbits.BRG16 = 1;  //Sets Baud Rate to 16Bit mode
 
@@ -54,7 +54,7 @@ void init_serial(void (*line_received)(char* str))
     PIE1bits.RCIE = 1;      //Enable receive interrupt bit
 }
 
-void putch(char c)
+void putch(char c)          //Used for output using printf()
 {
     PIR1bits.TXIF = 0;
     TXREG = c;

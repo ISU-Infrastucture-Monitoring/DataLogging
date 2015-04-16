@@ -55,12 +55,12 @@ void Write_to_Pot(unsigned char VAL)
     for(i=0;i<3;i++)
     {
         do{
-            status = WriteI2C(data[i]);
-            IdleI2C();
+            status = WriteI2C(data[i]);     //Send data via I2C
+            IdleI2C();                      //Pause for reception on pot
             if(status == -1)
             {
                 tmp = SSPBUF;
-                SSPCON1bits.WCOL = 0;
+                SSPCON1bits.WCOL = 0;       //If failed, try again
             }
         } while(status != 0);
     }

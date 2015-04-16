@@ -3815,8 +3815,8 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;system.h: 29: extern volatile unsigned short Timer1OfCount;
 [; ;system.h: 30: extern volatile unsigned short Timer3OfCount;
 [; ;system.h: 31: extern volatile unsigned char done;
-[; ;system.h: 32: extern volatile union DWORD_UNION Timer1OfCountStop;
-[; ;system.h: 33: extern volatile unsigned long sys_clock;
+[; ;system.h: 33: extern volatile unsigned long Timer1OfCountStop;
+[; ;system.h: 34: extern volatile unsigned long sys_clock;
 "24 system.c
 [v _ConfigureOscillator `(v ~T0 @X0 1 ef ]
 "25
@@ -3828,20 +3828,20 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;system.c: 26: OSCCONbits.IRCF = 7;
 "26
 [e = . . _OSCCONbits 0 3 -> -> 7 `i `uc ]
-[; ;system.c: 27: OSCCONbits.SCS = 3;
-"27
-[e = . . _OSCCONbits 0 0 -> -> 3 `i `uc ]
-[; ;system.c: 28: OSCTUNEbits.PLLEN = 1;
+[; ;system.c: 28: OSCCONbits.SCS = 0;
 "28
-[e = . . _OSCTUNEbits 0 2 -> -> 1 `i `uc ]
-[; ;system.c: 30: while(!OSCCONbits.IOFS);
+[e = . . _OSCCONbits 0 0 -> -> 0 `i `uc ]
+[; ;system.c: 30: OSCTUNEbits.PLLEN = 1;
 "30
+[e = . . _OSCTUNEbits 0 2 -> -> 1 `i `uc ]
+[; ;system.c: 32: while(!OSCCONbits.IOFS);
+"32
 [e $U 404  ]
 [e :U 405 ]
 [e :U 404 ]
 [e $ ! != -> . . _OSCCONbits 0 1 `i -> -> -> 0 `i `Vuc `i 405  ]
 [e :U 406 ]
-[; ;system.c: 32: }
-"32
+[; ;system.c: 34: }
+"34
 [e :UE 403 ]
 }

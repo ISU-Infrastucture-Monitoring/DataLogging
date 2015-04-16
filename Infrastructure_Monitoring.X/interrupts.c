@@ -48,7 +48,7 @@ void high_isr(void)
     /* Determine which flag generated the interrupt */
     if(PIR1bits.CCP1IF){
         PIR1bits.CCP1IF = 0;
-        Timer1OfCountStop = Timer1OfCount << 16;
+        Timer1OfCountStop = Timer1OfCount;
         done ++;
     }
     else if (PIR1bits.TMR1IF) {
@@ -95,11 +95,11 @@ void low_isr(void)
 
     /* Determine which flag generated the interrupt */
     if (PIR1bits.RCIF) {
-        PIR1bits.RCIF = 0; /* Clear Interrupt Flag 1 */
+        PIR1bits.RCIF = 0;      //Clear Interrupt Flag
         char_received(RCREG);
     } 
     else if (PIR2bits.CCP2IF){
-        PIR2bits.CCP2IF = 0;
+        PIR2bits.CCP2IF = 0;    //Clear Interrupt Flag
         sys_clock ++;
     }
 }

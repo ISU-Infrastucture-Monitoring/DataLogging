@@ -3991,8 +3991,8 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;system.h: 29: extern volatile unsigned short Timer1OfCount;
 [; ;system.h: 30: extern volatile unsigned short Timer3OfCount;
 [; ;system.h: 31: extern volatile unsigned char done;
-[; ;system.h: 32: extern volatile union DWORD_UNION Timer1OfCountStop;
-[; ;system.h: 33: extern volatile unsigned long sys_clock;
+[; ;system.h: 33: extern volatile unsigned long Timer1OfCountStop;
+[; ;system.h: 34: extern volatile unsigned long sys_clock;
 "29 serial.c
 [v _serial `S405 ~T0 @X0 1 e ]
 [; ;serial.c: 24: struct SERIAL_STRUCT
@@ -4016,144 +4016,144 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;serial.c: 33: SPBRGH = 0;
 "33
 [e = _SPBRGH -> -> 0 `i `uc ]
-[; ;serial.c: 34: SPBRG = 12;
-"34
-[e = _SPBRG -> -> 12 `i `uc ]
-[; ;serial.c: 35: TXSTAbits.BRGH = 0;
+[; ;serial.c: 35: SPBRG = 138;
 "35
-[e = . . _TXSTAbits 0 2 -> -> 0 `i `uc ]
-[; ;serial.c: 36: BAUDCONbits.BRG16 = 0;
-"36
-[e = . . _BAUDCONbits 0 3 -> -> 0 `i `uc ]
-[; ;serial.c: 38: TXSTAbits.SYNC = 0;
+[e = _SPBRG -> -> 138 `i `uc ]
+[; ;serial.c: 38: TXSTAbits.BRGH = 1;
 "38
-[e = . . _TXSTAbits 0 4 -> -> 0 `i `uc ]
-[; ;serial.c: 39: RCSTAbits.SPEN = 1;
+[e = . . _TXSTAbits 0 2 -> -> 1 `i `uc ]
+[; ;serial.c: 39: BAUDCONbits.BRG16 = 1;
 "39
-[e = . . _RCSTAbits 0 7 -> -> 1 `i `uc ]
-[; ;serial.c: 41: TXSTAbits.TXEN = 1;
+[e = . . _BAUDCONbits 0 3 -> -> 1 `i `uc ]
+[; ;serial.c: 41: TXSTAbits.SYNC = 0;
 "41
-[e = . . _TXSTAbits 0 5 -> -> 1 `i `uc ]
-[; ;serial.c: 42: RCSTAbits.CREN = 1;
+[e = . . _TXSTAbits 0 4 -> -> 0 `i `uc ]
+[; ;serial.c: 42: RCSTAbits.SPEN = 1;
 "42
-[e = . . _RCSTAbits 0 4 -> -> 1 `i `uc ]
-[; ;serial.c: 44: TRISCbits.RC6 = 1;
+[e = . . _RCSTAbits 0 7 -> -> 1 `i `uc ]
+[; ;serial.c: 44: TXSTAbits.TXEN = 1;
 "44
-[e = . . _TRISCbits 1 6 -> -> 1 `i `uc ]
-[; ;serial.c: 45: TRISCbits.RC7 = 1;
+[e = . . _TXSTAbits 0 5 -> -> 1 `i `uc ]
+[; ;serial.c: 45: RCSTAbits.CREN = 1;
 "45
-[e = . . _TRISCbits 1 7 -> -> 1 `i `uc ]
-[; ;serial.c: 47: PIR1bits.TXIF = 0;
+[e = . . _RCSTAbits 0 4 -> -> 1 `i `uc ]
+[; ;serial.c: 47: TRISCbits.RC6 = 1;
 "47
-[e = . . _PIR1bits 0 4 -> -> 0 `i `uc ]
-[; ;serial.c: 48: PIR1bits.RCIF = 0;
+[e = . . _TRISCbits 1 6 -> -> 1 `i `uc ]
+[; ;serial.c: 48: TRISCbits.RC7 = 1;
 "48
-[e = . . _PIR1bits 0 5 -> -> 0 `i `uc ]
-[; ;serial.c: 50: IPR1bits.RCIP = 0;
+[e = . . _TRISCbits 1 7 -> -> 1 `i `uc ]
+[; ;serial.c: 50: PIR1bits.TXIF = 0;
 "50
-[e = . . _IPR1bits 0 5 -> -> 0 `i `uc ]
-[; ;serial.c: 51: PIE1bits.RCIE = 1;
+[e = . . _PIR1bits 0 4 -> -> 0 `i `uc ]
+[; ;serial.c: 51: PIR1bits.RCIF = 0;
 "51
+[e = . . _PIR1bits 0 5 -> -> 0 `i `uc ]
+[; ;serial.c: 53: IPR1bits.RCIP = 0;
+"53
+[e = . . _IPR1bits 0 5 -> -> 0 `i `uc ]
+[; ;serial.c: 54: PIE1bits.RCIE = 1;
+"54
 [e = . . _PIE1bits 0 5 -> -> 1 `i `uc ]
-[; ;serial.c: 52: }
-"52
+[; ;serial.c: 55: }
+"55
 [e :UE 406 ]
 }
-"54
-[v _putch `(v ~T0 @X0 1 ef1`uc ]
-"55
-{
-[; ;serial.c: 54: void putch(char c)
-[; ;serial.c: 55: {
-[e :U _putch ]
-"54
-[v _c `uc ~T0 @X0 1 r1 ]
-"55
-[f ]
-[; ;serial.c: 56: PIR1bits.TXIF = 0;
-"56
-[e = . . _PIR1bits 0 4 -> -> 0 `i `uc ]
-[; ;serial.c: 57: TXREG = c;
 "57
-[e = _TXREG _c ]
-[; ;serial.c: 58: while(PIR1bits.TXIF == 0);
+[v _putch `(v ~T0 @X0 1 ef1`uc ]
 "58
+{
+[; ;serial.c: 57: void putch(char c)
+[; ;serial.c: 58: {
+[e :U _putch ]
+"57
+[v _c `uc ~T0 @X0 1 r1 ]
+"58
+[f ]
+[; ;serial.c: 59: PIR1bits.TXIF = 0;
+"59
+[e = . . _PIR1bits 0 4 -> -> 0 `i `uc ]
+[; ;serial.c: 60: TXREG = c;
+"60
+[e = _TXREG _c ]
+[; ;serial.c: 61: while(PIR1bits.TXIF == 0);
+"61
 [e $U 408  ]
 [e :U 409 ]
 [e :U 408 ]
 [e $ == -> . . _PIR1bits 0 4 `i -> 0 `i 409  ]
 [e :U 410 ]
-[; ;serial.c: 59: PIR1bits.TXIF = 0;
-"59
+[; ;serial.c: 62: PIR1bits.TXIF = 0;
+"62
 [e = . . _PIR1bits 0 4 -> -> 0 `i `uc ]
-[; ;serial.c: 60: }
-"60
+[; ;serial.c: 63: }
+"63
 [e :UE 407 ]
 }
 [v F4259 `(v ~T0 @X0 1 tf1`uc ]
-"62
-[v _char_received `TF4259 ~T0 @X0 1 e ]
-"63
-{
-[; ;serial.c: 62: inline void char_received(char ch)
-[; ;serial.c: 63: {
-[e :U _char_received ]
-"62
-[v _ch `uc ~T0 @X0 1 r1 ]
-"63
-[f ]
-[; ;serial.c: 64: fifo_push(&serial.fifo, ch);
-"64
-[e ( _fifo_push (2 , &U . _serial 0 _ch ]
-[; ;serial.c: 65: if(ch == '\n' || ch == '\r')
 "65
-[e $ ! || == -> _ch `ui -> 10 `ui == -> _ch `ui -> 13 `ui 412  ]
-[; ;serial.c: 66: {
+[v _char_received `TF4259 ~T0 @X0 1 e ]
 "66
 {
+[; ;serial.c: 65: inline void char_received(char ch)
+[; ;serial.c: 66: {
+[e :U _char_received ]
+"65
+[v _ch `uc ~T0 @X0 1 r1 ]
+"66
+[f ]
+[; ;serial.c: 67: fifo_push(&serial.fifo, ch);
 "67
-[v _i `uc ~T0 @X0 1 a ]
+[e ( _fifo_push (2 , &U . _serial 0 _ch ]
+[; ;serial.c: 68: if(ch == '\n' || ch == '\r')
 "68
-[v _ptr `*uc ~T0 @X0 1 a ]
-[; ;serial.c: 67: char i;
-[; ;serial.c: 68: char* ptr = serial.string;
-[e = _ptr &U . _serial 2 ]
-[; ;serial.c: 69: for(i=fifo_pop(&serial.fifo); i; i=fifo_pop(&serial.fifo))
+[e $ ! || == -> _ch `ui -> 10 `ui == -> _ch `ui -> 13 `ui 412  ]
+[; ;serial.c: 69: {
 "69
+{
+"70
+[v _i `uc ~T0 @X0 1 a ]
+"71
+[v _ptr `*uc ~T0 @X0 1 a ]
+[; ;serial.c: 70: char i;
+[; ;serial.c: 71: char* ptr = serial.string;
+[e = _ptr &U . _serial 2 ]
+[; ;serial.c: 72: for(i=fifo_pop(&serial.fifo); i; i=fifo_pop(&serial.fifo))
+"72
 {
 [e = _i ( _fifo_pop (1 &U . _serial 0 ]
 [e $U 416  ]
-"70
-[e :U 413 ]
-[; ;serial.c: 70: {
-{
-[; ;serial.c: 71: *ptr = i;
-"71
-[e = *U _ptr _i ]
-[; ;serial.c: 72: ptr++;
-"72
-[e ++ _ptr * -> -> 1 `i `x -> -> # *U _ptr `i `x ]
 "73
+[e :U 413 ]
+[; ;serial.c: 73: {
+{
+[; ;serial.c: 74: *ptr = i;
+"74
+[e = *U _ptr _i ]
+[; ;serial.c: 75: ptr++;
+"75
+[e ++ _ptr * -> -> 1 `i `x -> -> # *U _ptr `i `x ]
+"76
 }
-"69
+"72
 [e = _i ( _fifo_pop (1 &U . _serial 0 ]
 [e :U 416 ]
 [e $ != -> _i `i -> -> -> 0 `i `uc `i 413  ]
 [e :U 414 ]
-"73
-}
-[; ;serial.c: 73: }
-[; ;serial.c: 74: *ptr = 0;
-"74
-[e = *U _ptr -> -> 0 `i `uc ]
-[; ;serial.c: 75: on_line_received(serial.string);
-"75
-[e ( _on_line_received (1 &U . _serial 2 ]
 "76
 }
-[e :U 412 ]
 [; ;serial.c: 76: }
-[; ;serial.c: 77: }
+[; ;serial.c: 77: *ptr = 0;
 "77
+[e = *U _ptr -> -> 0 `i `uc ]
+[; ;serial.c: 78: on_line_received(serial.string);
+"78
+[e ( _on_line_received (1 &U . _serial 2 ]
+"79
+}
+[e :U 412 ]
+[; ;serial.c: 79: }
+[; ;serial.c: 80: }
+"80
 [e :UE 411 ]
 }

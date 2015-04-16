@@ -25,6 +25,7 @@
 volatile unsigned short Timer1OfCount = 0;
 volatile unsigned short Timer3OfCount = 0;
 volatile unsigned char Done = 0;
+static volatile unsigned char value = 128;
 
 /******************************************************************************/
 /* User Functions                                                             */
@@ -35,8 +36,9 @@ uint32_t get_freq();
 
 /* <Initialize variables in user.h and insert code for user algorithms.> */
 volatile unsigned long sys_clock=0;
+volatile unsigned char begin = 0;
 
-struct TIME{
+struct TIME{        //Defines time as having seconds and milliseconds as components
     unsigned long seconds;
     unsigned short ms;    
 }time;
@@ -67,22 +69,22 @@ void InitApp(void)
 
     CCP1CONbits.CCP1M = 7;    //Capture every 16th rising edge
     
-    TRISCbits.RC2 = 1;      // set CCP pin as input
+    TRISCbits.RC2 = 1;          // set CCP pin as input
     
-    IPR1bits.CCP1IP = 1;
+    IPR1bits.CCP1IP = 1;        //Set up and enable capture interrupts
     PIR1bits.CCP1IF = 0;
     PIE1bits.CCP1IE = 1;
     
     CCP2CONbits.CCP2M = 0xA;    // Compare mode, software interrupt only
     
     T3CONbits.RD16 = 0;
-    T3CONbits.T3CKPS = 3;
+    T3CONbits.T3CKPS = 3;       // divide by 8: 1MHz
     T3CONbits.TMR3CS = 0;
     
     T3CONbits.T3CCP1 = 1;
     T3CONbits.T3CCP2 = 0;
     
-    CCPR2 = 62500;
+    CCPR2 = 10000;              // 100Hz
     
     IPR2bits.CCP2IP = 0;
     PIR2bits.CCP2IF = 0;
@@ -96,6 +98,7 @@ void InitApp(void)
     
     
     TRISAbits.RA0 = 0;      //Set Pin RA0 to output mode
+    LATAbits.LA0 = 0;
     
     init_serial(on_line_received);
     init_DigPot();
@@ -104,22 +107,36 @@ void InitApp(void)
     uint32_t freq;
     Write_to_Pot(128);
     unsigned long last_sys_clock = sys_clock;
-    if(autotune_pot(32000))
-    {
-        printf("Calibration freq out of range\n\r");
-        Write_to_Pot(128);
-    }
+//    if(autotune_pot(128000))
+//    {
+//        printf("Calibration freq out of range\n\r");
+//        value = 128;
+        Write_to_Pot(109);
+        value = 109;
+    //}
+        
+        TRISAbits.RA0 = 0;
+        
     while(1)
     {
-        if(last_sys_clock != sys_clock)
+        int i;
+        while(!begin);
+        LATAbits.LA0 = 1;
+        begin = 0;
+        sys_clock = 0;
+        for(i = 0; i < 500; i++)
         {
-            last_sys_clock = sys_clock;
-            if((sys_clock % 2) == 0)
+            if(1||last_sys_clock != sys_clock)
             {
-                freq = get_freq();
-                printf("%lu.%03d, %lu\n\r", time.seconds, time.ms, freq);
+                last_sys_clock = sys_clock;
+                if(1 || (last_sys_clock % 10) == 0)
+                {
+                    freq = get_freq();
+                    printf("%d, %d, %lu\n\r", i, value, freq);
+                }
             }
         }
+        LATAbits.LA0 = 0;
     }
 }
 
@@ -128,7 +145,7 @@ volatile uint8_t done;
 //volatile union DWORD_UNION Timer1OfCountStop;
 volatile uint32_t Timer1OfCountStop;
 
-uint32_t get_freq()
+uint32_t get_freq() //Returns frequency as a raw number, before calculations
 {
     uint32_t start, stop;
     TMR1 = 0;
@@ -139,21 +156,29 @@ uint32_t get_freq()
     while(done == 1);
     stop = CCPR1;
     unsigned long now = sys_clock;
-    time.seconds = now >> 2;
-    time.ms = (now&0x3)*250;
-    return Timer1OfCountStop + stop - start;
+    time.seconds = now;// / 100;
+    time.ms = 0;//(now % 100)*10;
+    uint32_t result = ((Timer1OfCountStop-1)<<16);
+    result += stop;
+    result -= start;
+    return result;
 }
 
 
-void on_line_received(char* str)
+void on_line_received(char* str)    //Handles commands
 {
-    unsigned char value = atoi(str);
-    if(value > 0)
+    unsigned char _value = atoi(str);
+    if(_value > 0)
     {
-        printf("Received %d\n\r", value);
-        Write_to_Pot(value);
+        printf("Received %d\n\r", _value);
+        Write_to_Pot(_value);
+        value = _value;
     }
-    else if(str[0] == 'c')
+    else if(str[0] == 'b')      //Begin test command
+    {
+        begin = 1;
+    }
+    else if(str[0] == 'c')      //Calibrate Pot command
     {
         uint32_t sp = atol(str+1);
         if(sp == 0)
@@ -166,7 +191,7 @@ void on_line_received(char* str)
             Write_to_Pot(128);
         }
     }
-    else if(str[0] == 'r')
+    else if(str[0] == 'r')      //Reset to default condition command
     {
 	printf("Reset\n\r");
 	#asm
@@ -175,32 +200,34 @@ void on_line_received(char* str)
     }
     else
     {
-        printf("Invalid string: \"%s\"\n\r",str);
+        printf("Invalid string: \"%s\"\n\r",str);   //Command not found
     }
 }
 
 unsigned char autotune_pot(uint32_t setpoint)
 {
-    static unsigned char value = 128;
-    Write_to_Pot(value);
+    Write_to_Pot(value);    //Set pot to initial value
     uint32_t f;
-    while((f = get_freq()) > setpoint) {
-        //printf("1: %lu, %u\n\r", f, value);
-        value--;
+    int i;
+    for(i=0;i<16;i++){
+    while((f = get_freq()) > setpoint) {    //While frequency is higher than setpoint, step it down
+        printf("1: %lu, %u\n\r", f, value);
+        value++;
         if(value == 0)
         {
             return -1;
         }
         Write_to_Pot(value);
     }
-    while((f = get_freq()) < setpoint) {
-        //printf("1: %lu, %u\n\r", f, value);
-        value ++;
+    while((f = get_freq()) < setpoint) {    //While frequency is lower than setpoint, step it up
+        printf("1: %lu, %u\n\r", f, value);
+        value--;
         if(value == 255)
         {
             return -1;
         }
         Write_to_Pot(value);
+    }
     }
     return 0;
 }

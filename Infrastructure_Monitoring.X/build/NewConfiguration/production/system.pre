@@ -5103,14 +5103,17 @@ unsigned long dword;
 extern volatile unsigned short Timer1OfCount;
 extern volatile unsigned short Timer3OfCount;
 extern volatile unsigned char done;
-extern volatile union DWORD_UNION Timer1OfCountStop;
+
+extern volatile unsigned long Timer1OfCountStop;
 extern volatile unsigned long sys_clock;
 
 # 24 "system.c"
 void ConfigureOscillator(void)
 {
 OSCCONbits.IRCF = 7;
-OSCCONbits.SCS = 3;
+
+OSCCONbits.SCS = 0;
+
 OSCTUNEbits.PLLEN = 1;
 
 while(!OSCCONbits.IOFS);

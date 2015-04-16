@@ -13,11 +13,8 @@ Version 3.2 HI-TECH Software Intermediate Code
 [n S146 . . . . ]
 "2945
 [v _PIR1bits `VS146 ~T0 @X0 0 e@3998 ]
-"22 system.h
-[u S402 `uc -> 4 `i `us -> 2 `i `ul 1 ]
-[n S402 DWORD_UNION byte word dword ]
-"32
-[v _Timer1OfCountStop `VS402 ~T0 @X0 0 e ]
+"33 system.h
+[v _Timer1OfCountStop `Vul ~T0 @X0 0 e ]
 "29
 [v _Timer1OfCount `Vus ~T0 @X0 0 e ]
 "31
@@ -40,7 +37,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _char_received `TF4173 ~T0 @X0 0 e ]
 "3873 /opt/microchip/xc8/v1.34/include/pic18f4520.h
 [v _RCREG `Vuc ~T0 @X0 0 e@4014 ]
-"33 system.h
+"34 system.h
 [v _sys_clock `Vul ~T0 @X0 0 e ]
 [; ;htc.h: 26: extern const char __xc8_OPTIM_SPEED;
 [; ;xc8debug.h: 14: extern void __builtin_software_breakpoint(void);
@@ -3836,120 +3833,120 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;system.h: 29: extern volatile unsigned short Timer1OfCount;
 [; ;system.h: 30: extern volatile unsigned short Timer3OfCount;
 [; ;system.h: 31: extern volatile unsigned char done;
-[; ;system.h: 32: extern volatile union DWORD_UNION Timer1OfCountStop;
-[; ;system.h: 33: extern volatile unsigned long sys_clock;
+[; ;system.h: 33: extern volatile unsigned long Timer1OfCountStop;
+[; ;system.h: 34: extern volatile unsigned long sys_clock;
 [v F4185 `(v ~T0 @X0 1 tf ]
-"31 interrupts.c
+"29 interrupts.c
 [v _high_isr `IF4185 ~T0 @X0 1 e ]
-"39
+"37
 {
-[; ;interrupts.c: 31: void interrupt high_isr(void)
-[; ;interrupts.c: 39: {
+[; ;interrupts.c: 29: void interrupt high_isr(void)
+[; ;interrupts.c: 37: {
 [e :U _high_isr ]
 [f ]
-"46
+"44
 [v _i `Vuc ~T0 @X0 1 a ]
-[; ;interrupts.c: 46: volatile unsigned char i;
-[; ;interrupts.c: 51: if(PIR1bits.CCP1IF){
-"51
+[; ;interrupts.c: 44: volatile unsigned char i;
+[; ;interrupts.c: 49: if(PIR1bits.CCP1IF){
+"49
 [e $ ! != -> . . _PIR1bits 0 2 `i -> -> -> 0 `i `Vuc `i 404  ]
 {
-[; ;interrupts.c: 52: PIR1bits.CCP1IF = 0;
-"52
+[; ;interrupts.c: 50: PIR1bits.CCP1IF = 0;
+"50
 [e = . . _PIR1bits 0 2 -> -> 0 `i `uc ]
-[; ;interrupts.c: 53: Timer1OfCountStop.word[1] = Timer1OfCount;
-"53
-[e = *U + &U . _Timer1OfCountStop 1 * -> -> -> 1 `i `ui `ux -> -> # *U &U . _Timer1OfCountStop 1 `ui `ux _Timer1OfCount ]
-[; ;interrupts.c: 54: done ++;
-"54
+[; ;interrupts.c: 51: Timer1OfCountStop = Timer1OfCount;
+"51
+[e = _Timer1OfCountStop -> _Timer1OfCount `ul ]
+[; ;interrupts.c: 52: done ++;
+"52
 [e ++ _done -> -> 1 `i `uc ]
-"55
+"53
 }
-[; ;interrupts.c: 55: }
+[; ;interrupts.c: 53: }
 [e $U 405  ]
-"56
+"54
 [e :U 404 ]
-[; ;interrupts.c: 56: else if (PIR1bits.TMR1IF) {
+[; ;interrupts.c: 54: else if (PIR1bits.TMR1IF) {
 [e $ ! != -> . . _PIR1bits 0 0 `i -> -> -> 0 `i `Vuc `i 406  ]
 {
-[; ;interrupts.c: 57: PIR1bits.TMR1IF = 0;
-"57
+[; ;interrupts.c: 55: PIR1bits.TMR1IF = 0;
+"55
 [e = . . _PIR1bits 0 0 -> -> 0 `i `uc ]
-[; ;interrupts.c: 58: Timer1OfCount++;
-"58
+[; ;interrupts.c: 56: Timer1OfCount++;
+"56
 [e ++ _Timer1OfCount -> -> 1 `i `us ]
-"69
+"67
 }
-[; ;interrupts.c: 69: } else if (PIR2bits.TMR3IF) {
+[; ;interrupts.c: 67: } else if (PIR2bits.TMR3IF) {
 [e $U 407  ]
 [e :U 406 ]
 [e $ ! != -> . . _PIR2bits 0 1 `i -> -> -> 0 `i `Vuc `i 408  ]
 {
-[; ;interrupts.c: 70: PIR2bits.TMR3IF = 0;
-"70
+[; ;interrupts.c: 68: PIR2bits.TMR3IF = 0;
+"68
 [e = . . _PIR2bits 0 1 -> -> 0 `i `uc ]
-[; ;interrupts.c: 71: Timer3OfCount++;
-"71
+[; ;interrupts.c: 69: Timer3OfCount++;
+"69
 [e ++ _Timer3OfCount -> -> 1 `i `us ]
-"72
+"70
 }
-[; ;interrupts.c: 72: } else {
+[; ;interrupts.c: 70: } else {
 [e $U 409  ]
 [e :U 408 ]
 {
-[; ;interrupts.c: 73: i++;
-"73
+[; ;interrupts.c: 71: i++;
+"71
 [e ++ _i -> -> 1 `i `uc ]
-"75
+"73
 }
 [e :U 409 ]
 [e :U 407 ]
 [e :U 405 ]
-[; ;interrupts.c: 75: }
-[; ;interrupts.c: 79: }
-"79
+[; ;interrupts.c: 73: }
+[; ;interrupts.c: 74: }
+"74
 [e :UE 403 ]
 }
-[v F4190 `(v ~T0 @X0 1 tf ]
-"83
-[v _low_isr `ILF4190 ~T0 @X0 1 e ]
-"91
+[v F4189 `(v ~T0 @X0 1 tf ]
+"78
+[v _low_isr `ILF4189 ~T0 @X0 1 e ]
+"86
 {
-[; ;interrupts.c: 83: void low_priority interrupt low_isr(void)
-[; ;interrupts.c: 91: {
+[; ;interrupts.c: 78: void low_priority interrupt low_isr(void)
+[; ;interrupts.c: 86: {
 [e :U _low_isr ]
 [f ]
-[; ;interrupts.c: 102: if (PIR1bits.RCIF) {
-"102
+[; ;interrupts.c: 97: if (PIR1bits.RCIF) {
+"97
 [e $ ! != -> . . _PIR1bits 0 5 `i -> -> -> 0 `i `Vuc `i 411  ]
 {
-[; ;interrupts.c: 103: PIR1bits.RCIF = 0;
-"103
+[; ;interrupts.c: 98: PIR1bits.RCIF = 0;
+"98
 [e = . . _PIR1bits 0 5 -> -> 0 `i `uc ]
-[; ;interrupts.c: 104: char_received(RCREG);
-"104
+[; ;interrupts.c: 99: char_received(RCREG);
+"99
 [e ( _char_received (1 _RCREG ]
-"105
+"100
 }
-[; ;interrupts.c: 105: }
+[; ;interrupts.c: 100: }
 [e $U 412  ]
-"106
+"101
 [e :U 411 ]
-[; ;interrupts.c: 106: else if (PIR2bits.CCP2IF){
+[; ;interrupts.c: 101: else if (PIR2bits.CCP2IF){
 [e $ ! != -> . . _PIR2bits 0 0 `i -> -> -> 0 `i `Vuc `i 413  ]
 {
-[; ;interrupts.c: 107: PIR2bits.CCP2IF = 0;
-"107
+[; ;interrupts.c: 102: PIR2bits.CCP2IF = 0;
+"102
 [e = . . _PIR2bits 0 0 -> -> 0 `i `uc ]
-[; ;interrupts.c: 108: sys_clock ++;
-"108
+[; ;interrupts.c: 103: sys_clock ++;
+"103
 [e ++ _sys_clock -> -> -> 1 `i `l `ul ]
-"109
+"104
 }
 [e :U 413 ]
-"110
+"105
 [e :U 412 ]
-[; ;interrupts.c: 109: }
-[; ;interrupts.c: 110: }
+[; ;interrupts.c: 104: }
+[; ;interrupts.c: 105: }
 [e :UE 410 ]
 }

@@ -3798,8 +3798,8 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;system.h: 29: extern volatile unsigned short Timer1OfCount;
 [; ;system.h: 30: extern volatile unsigned short Timer3OfCount;
 [; ;system.h: 31: extern volatile unsigned char done;
-[; ;system.h: 32: extern volatile union DWORD_UNION Timer1OfCountStop;
-[; ;system.h: 33: extern volatile unsigned long sys_clock;
+[; ;system.h: 33: extern volatile unsigned long Timer1OfCountStop;
+[; ;system.h: 34: extern volatile unsigned long sys_clock;
 [; ;user.h: 13: void InitApp(void);
 [; ;user.h: 14: void init_serial(void (*line_received)(char* str));
 [; ;user.h: 15: void on_line_received(char* str);

@@ -1,5 +1,5 @@
 Version 3.2 HI-TECH Software Intermediate Code
-"39 user.c
+"41 user.c
 [s S408 `ul 1 `us 1 ]
 [n S408 TIME seconds ms ]
 "5824 /opt/microchip/xc8/v1.34/include/pic18f4520.h
@@ -218,6 +218,38 @@ Version 3.2 HI-TECH Software Intermediate Code
 [n S109 . . . ]
 "1762
 [v _TRISAbits `VS109 ~T0 @X0 0 e@3986 ]
+"1106
+[s S60 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S60 . LATA0 LATA1 LATA2 LATA3 LATA4 LATA5 LATA6 LATA7 ]
+"1116
+[s S61 :1 `uc 1 ]
+[n S61 . LA0 ]
+"1119
+[s S62 :1 `uc 1 :1 `uc 1 ]
+[n S62 . . LA1 ]
+"1123
+[s S63 :2 `uc 1 :1 `uc 1 ]
+[n S63 . . LA2 ]
+"1127
+[s S64 :3 `uc 1 :1 `uc 1 ]
+[n S64 . . LA3 ]
+"1131
+[s S65 :4 `uc 1 :1 `uc 1 ]
+[n S65 . . LA4 ]
+"1135
+[s S66 :5 `uc 1 :1 `uc 1 ]
+[n S66 . . LA5 ]
+"1139
+[s S67 :6 `uc 1 :1 `uc 1 ]
+[n S67 . . LA6 ]
+"1143
+[s S68 :7 `uc 1 :1 `uc 1 ]
+[n S68 . . LA7 ]
+"1105
+[u S59 `S60 1 `S61 1 `S62 1 `S63 1 `S64 1 `S65 1 `S66 1 `S67 1 `S68 1 ]
+[n S59 . . . . . . . . . . ]
+"1148
+[v _LATAbits `VS59 ~T0 @X0 0 e@3977 ]
 [v F4351 `(v ~T0 @X0 0 tf1`*uc ]
 "14 user.h
 [v _init_serial `(v ~T0 @X0 0 ef1`*F4351 ]
@@ -227,15 +259,10 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _init_DigPot `(v ~T0 @X0 0 ef ]
 "16
 [v _Write_to_Pot `(v ~T0 @X0 0 ef1`uc ]
-"33 user.c
-[v _autotune_pot `(uc ~T0 @X0 0 ef1`ul ]
+"35 user.c
+[v _get_freq `(ul ~T0 @X0 0 ef ]
 "207 /opt/microchip/xc8/v1.34/include/stdio.h
 [v _printf `(i ~T0 @X0 0 ev`*Cuc ]
-"34 user.c
-[v _get_freq `(ul ~T0 @X0 0 ef ]
-"22 system.h
-[u S407 `uc -> 4 `i `us -> 2 `i `ul 1 ]
-[n S407 DWORD_UNION byte word dword ]
 "5922 /opt/microchip/xc8/v1.34/include/pic18f4520.h
 [v _TMR1 `Vus ~T0 @X0 0 e@4046 ]
 "4874
@@ -244,6 +271,8 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _atoi `(i ~T0 @X0 0 ef1`*Cuc ]
 "69
 [v _atol `(l ~T0 @X0 0 ef1`*Cuc ]
+"34 user.c
+[v _autotune_pot `(uc ~T0 @X0 0 ef1`ul ]
 [; ;htc.h: 26: extern const char __xc8_OPTIM_SPEED;
 [; ;xc8debug.h: 14: extern void __builtin_software_breakpoint(void);
 [; ;pic18f4520.h: 49: extern volatile unsigned char PORTA @ 0xF80;
@@ -4122,8 +4151,8 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;system.h: 29: extern volatile unsigned short Timer1OfCount;
 [; ;system.h: 30: extern volatile unsigned short Timer3OfCount;
 [; ;system.h: 31: extern volatile unsigned char done;
-[; ;system.h: 32: extern volatile union DWORD_UNION Timer1OfCountStop;
-[; ;system.h: 33: extern volatile unsigned long sys_clock;
+[; ;system.h: 33: extern volatile unsigned long Timer1OfCountStop;
+[; ;system.h: 34: extern volatile unsigned long sys_clock;
 "25 user.c
 [v _Timer1OfCount `Vus ~T0 @X0 1 e ]
 [i _Timer1OfCount
@@ -4142,457 +4171,555 @@ Version 3.2 HI-TECH Software Intermediate Code
 -> -> 0 `i `uc
 ]
 [; ;user.c: 27: volatile unsigned char Done = 0;
-[; ;user.c: 33: unsigned char autotune_pot(uint32_t);
-[; ;user.c: 34: uint32_t get_freq();
-"37
+"28
+[v _value `Vuc ~T0 @X0 1 s ]
+[i _value
+-> -> 128 `i `uc
+]
+[; ;user.c: 28: static volatile unsigned char value = 128;
+[; ;user.c: 34: unsigned char autotune_pot(uint32_t);
+[; ;user.c: 35: uint32_t get_freq();
+"38
 [v _sys_clock `Vul ~T0 @X0 1 e ]
 [i _sys_clock
 -> -> -> 0 `i `l `ul
 ]
-[; ;user.c: 37: volatile unsigned long sys_clock=0;
-"42
-[v _time `S408 ~T0 @X0 1 e ]
-[; ;user.c: 39: struct TIME{
-[; ;user.c: 40: unsigned long seconds;
-[; ;user.c: 41: unsigned short ms;
-[; ;user.c: 42: }time;
+[; ;user.c: 38: volatile unsigned long sys_clock=0;
+"39
+[v _begin `Vuc ~T0 @X0 1 e ]
+[i _begin
+-> -> 0 `i `uc
+]
+[; ;user.c: 39: volatile unsigned char begin = 0;
 "44
+[v _time `S408 ~T0 @X0 1 e ]
+[; ;user.c: 41: struct TIME{
+[; ;user.c: 42: unsigned long seconds;
+[; ;user.c: 43: unsigned short ms;
+[; ;user.c: 44: }time;
+"46
 [v _InitApp `(v ~T0 @X0 1 ef ]
-"45
+"47
 {
-[; ;user.c: 44: void InitApp(void)
-[; ;user.c: 45: {
+[; ;user.c: 46: void InitApp(void)
+[; ;user.c: 47: {
 [e :U _InitApp ]
 [f ]
-[; ;user.c: 47: T1CONbits.RD16 = 1;
-"47
-[e = . . _T1CONbits 1 6 -> -> 1 `i `uc ]
-[; ;user.c: 48: IPR1bits.TMR1IP = 1;
-"48
-[e = . . _IPR1bits 0 0 -> -> 1 `i `uc ]
-[; ;user.c: 49: PIR1bits.TMR1IF = 0;
+[; ;user.c: 49: T1CONbits.RD16 = 1;
 "49
-[e = . . _PIR1bits 0 0 -> -> 0 `i `uc ]
-[; ;user.c: 50: T1CONbits.TMR1ON = 1;
+[e = . . _T1CONbits 1 6 -> -> 1 `i `uc ]
+[; ;user.c: 50: IPR1bits.TMR1IP = 1;
 "50
-[e = . . _T1CONbits 1 0 -> -> 1 `i `uc ]
-[; ;user.c: 51: PIE1bits.TMR1IE = 1;
+[e = . . _IPR1bits 0 0 -> -> 1 `i `uc ]
+[; ;user.c: 51: PIR1bits.TMR1IF = 0;
 "51
+[e = . . _PIR1bits 0 0 -> -> 0 `i `uc ]
+[; ;user.c: 52: T1CONbits.TMR1ON = 1;
+"52
+[e = . . _T1CONbits 1 0 -> -> 1 `i `uc ]
+[; ;user.c: 53: PIE1bits.TMR1IE = 1;
+"53
 [e = . . _PIE1bits 0 0 -> -> 1 `i `uc ]
-[; ;user.c: 68: CCP1CONbits.CCP1M = 7;
-"68
-[e = . . _CCP1CONbits 0 0 -> -> 7 `i `uc ]
-[; ;user.c: 70: TRISCbits.RC2 = 1;
+[; ;user.c: 70: CCP1CONbits.CCP1M = 7;
 "70
-[e = . . _TRISCbits 1 2 -> -> 1 `i `uc ]
-[; ;user.c: 72: IPR1bits.CCP1IP = 1;
+[e = . . _CCP1CONbits 0 0 -> -> 7 `i `uc ]
+[; ;user.c: 72: TRISCbits.RC2 = 1;
 "72
-[e = . . _IPR1bits 0 2 -> -> 1 `i `uc ]
-[; ;user.c: 73: PIR1bits.CCP1IF = 0;
-"73
-[e = . . _PIR1bits 0 2 -> -> 0 `i `uc ]
-[; ;user.c: 74: PIE1bits.CCP1IE = 1;
+[e = . . _TRISCbits 1 2 -> -> 1 `i `uc ]
+[; ;user.c: 74: IPR1bits.CCP1IP = 1;
 "74
+[e = . . _IPR1bits 0 2 -> -> 1 `i `uc ]
+[; ;user.c: 75: PIR1bits.CCP1IF = 0;
+"75
+[e = . . _PIR1bits 0 2 -> -> 0 `i `uc ]
+[; ;user.c: 76: PIE1bits.CCP1IE = 1;
+"76
 [e = . . _PIE1bits 0 2 -> -> 1 `i `uc ]
-[; ;user.c: 77: CCP2CONbits.CCP2M = 0xA;
-"77
+[; ;user.c: 78: CCP2CONbits.CCP2M = 0xA;
+"78
 [e = . . _CCP2CONbits 0 0 -> -> 10 `i `uc ]
-[; ;user.c: 79: T3CONbits.RD16 = 0;
-"79
-[e = . . _T3CONbits 1 6 -> -> 0 `i `uc ]
-[; ;user.c: 80: T3CONbits.T3CKPS = 3;
+[; ;user.c: 80: T3CONbits.RD16 = 0;
 "80
-[e = . . _T3CONbits 1 4 -> -> 3 `i `uc ]
-[; ;user.c: 81: T3CONbits.TMR3CS = 0;
+[e = . . _T3CONbits 1 6 -> -> 0 `i `uc ]
+[; ;user.c: 81: T3CONbits.T3CKPS = 3;
 "81
+[e = . . _T3CONbits 1 4 -> -> 3 `i `uc ]
+[; ;user.c: 82: T3CONbits.TMR3CS = 0;
+"82
 [e = . . _T3CONbits 1 1 -> -> 0 `i `uc ]
-[; ;user.c: 83: T3CONbits.T3CCP1 = 1;
-"83
-[e = . . _T3CONbits 1 3 -> -> 1 `i `uc ]
-[; ;user.c: 84: T3CONbits.T3CCP2 = 0;
+[; ;user.c: 84: T3CONbits.T3CCP1 = 1;
 "84
+[e = . . _T3CONbits 1 3 -> -> 1 `i `uc ]
+[; ;user.c: 85: T3CONbits.T3CCP2 = 0;
+"85
 [e = . . _T3CONbits 1 5 -> -> 0 `i `uc ]
-[; ;user.c: 86: CCPR2 = 62500;
-"86
-[e = _CCPR2 -> -> 62500 `l `us ]
-[; ;user.c: 88: IPR2bits.CCP2IP = 0;
-"88
-[e = . . _IPR2bits 0 0 -> -> 0 `i `uc ]
-[; ;user.c: 89: PIR2bits.CCP2IF = 0;
+[; ;user.c: 87: CCPR2 = 10000;
+"87
+[e = _CCPR2 -> -> 10000 `i `us ]
+[; ;user.c: 89: IPR2bits.CCP2IP = 0;
 "89
-[e = . . _PIR2bits 0 0 -> -> 0 `i `uc ]
-[; ;user.c: 90: PIE2bits.CCP2IE = 1;
+[e = . . _IPR2bits 0 0 -> -> 0 `i `uc ]
+[; ;user.c: 90: PIR2bits.CCP2IF = 0;
 "90
+[e = . . _PIR2bits 0 0 -> -> 0 `i `uc ]
+[; ;user.c: 91: PIE2bits.CCP2IE = 1;
+"91
 [e = . . _PIE2bits 0 0 -> -> 1 `i `uc ]
-[; ;user.c: 92: T3CONbits.TMR3ON = 1;
-"92
+[; ;user.c: 93: T3CONbits.TMR3ON = 1;
+"93
 [e = . . _T3CONbits 1 0 -> -> 1 `i `uc ]
-[; ;user.c: 94: RCONbits.IPEN = 1;
-"94
-[e = . . _RCONbits 5 7 -> -> 1 `i `uc ]
-[; ;user.c: 95: INTCONbits.GIE = 1;
+[; ;user.c: 95: RCONbits.IPEN = 1;
 "95
-[e = . . _INTCONbits 1 7 -> -> 1 `i `uc ]
-[; ;user.c: 96: INTCONbits.PEIE = 1;
+[e = . . _RCONbits 5 7 -> -> 1 `i `uc ]
+[; ;user.c: 96: INTCONbits.GIE = 1;
 "96
+[e = . . _INTCONbits 1 7 -> -> 1 `i `uc ]
+[; ;user.c: 97: INTCONbits.PEIE = 1;
+"97
 [e = . . _INTCONbits 1 6 -> -> 1 `i `uc ]
-[; ;user.c: 99: TRISAbits.RA0 = 0;
-"99
+[; ;user.c: 100: TRISAbits.RA0 = 0;
+"100
 [e = . . _TRISAbits 1 0 -> -> 0 `i `uc ]
-[; ;user.c: 101: init_serial(on_line_received);
+[; ;user.c: 101: LATAbits.LA0 = 0;
 "101
-[e ( _init_serial (1 &U _on_line_received ]
-[; ;user.c: 102: init_DigPot();
-"102
-[e ( _init_DigPot ..  ]
+[e = . . _LATAbits 1 0 -> -> 0 `i `uc ]
+[; ;user.c: 103: init_serial(on_line_received);
 "103
-[v _k `ui ~T0 @X0 1 a ]
-[; ;user.c: 103: unsigned int k = 0;
-[e = _k -> -> 0 `i `ui ]
+[e ( _init_serial (1 &U _on_line_received ]
+[; ;user.c: 104: init_DigPot();
+"104
+[e ( _init_DigPot ..  ]
 "105
-[v _freq `ul ~T0 @X0 1 a ]
-[; ;user.c: 105: uint32_t freq;
-[; ;user.c: 106: Write_to_Pot(128);
-"106
-[e ( _Write_to_Pot (1 -> -> 128 `i `uc ]
+[v _k `ui ~T0 @X0 1 a ]
+[; ;user.c: 105: unsigned int k = 0;
+[e = _k -> -> 0 `i `ui ]
 "107
-[v _last_sys_clock `ul ~T0 @X0 1 a ]
-[; ;user.c: 107: unsigned long last_sys_clock = sys_clock;
-[e = _last_sys_clock _sys_clock ]
-[; ;user.c: 108: if(autotune_pot(32000))
+[v _freq `ul ~T0 @X0 1 a ]
+[; ;user.c: 107: uint32_t freq;
+[; ;user.c: 108: Write_to_Pot(128);
 "108
-[e $ ! != -> ( _autotune_pot (1 -> -> -> 32000 `i `l `ul `i -> -> -> 0 `i `uc `i 410  ]
-[; ;user.c: 109: {
-"109
-{
-[; ;user.c: 110: printf("Calibration freq out of range\n\r");
-"110
-[e ( _printf :s 1C ]
-[; ;user.c: 111: Write_to_Pot(128);
-"111
 [e ( _Write_to_Pot (1 -> -> 128 `i `uc ]
-"112
-}
-[e :U 410 ]
-[; ;user.c: 112: }
-[; ;user.c: 113: while(1)
-"113
-[e :U 412 ]
-[; ;user.c: 114: {
-"114
-{
-[; ;user.c: 115: if(last_sys_clock != sys_clock)
-"115
-[e $ ! != _last_sys_clock _sys_clock 414  ]
-[; ;user.c: 116: {
-"116
-{
-[; ;user.c: 117: last_sys_clock = sys_clock;
-"117
+"109
+[v _last_sys_clock `ul ~T0 @X0 1 a ]
+[; ;user.c: 109: unsigned long last_sys_clock = sys_clock;
 [e = _last_sys_clock _sys_clock ]
-[; ;user.c: 118: if((sys_clock % 2) == 0)
+[; ;user.c: 114: Write_to_Pot(109);
+"114
+[e ( _Write_to_Pot (1 -> -> 109 `i `uc ]
+[; ;user.c: 115: value = 109;
+"115
+[e = _value -> -> 109 `i `uc ]
+[; ;user.c: 118: TRISAbits.RA0 = 0;
 "118
-[e $ ! == % _sys_clock -> -> -> 2 `i `l `ul -> -> -> 0 `i `l `ul 415  ]
-[; ;user.c: 119: {
-"119
-{
-[; ;user.c: 120: freq = get_freq();
+[e = . . _TRISAbits 1 0 -> -> 0 `i `uc ]
+[; ;user.c: 120: while(1)
 "120
-[e = _freq ( _get_freq ..  ]
-[; ;user.c: 121: printf("%lu.%03d, %lu\n\r", time.seconds, time.ms, freq);
-"121
-[e ( _printf , , , (. :s 2C . _time 0 -> . _time 1 `i _freq ]
-"122
-}
-[e :U 415 ]
-"123
-}
-[e :U 414 ]
-"124
-}
 [e :U 411 ]
-"113
-[e $U 412  ]
+[; ;user.c: 121: {
+"121
+{
+"122
+[v _i `i ~T0 @X0 1 a ]
+[; ;user.c: 122: int i;
+[; ;user.c: 123: while(!begin);
+"123
+[e $U 413  ]
+[e :U 414 ]
 [e :U 413 ]
-[; ;user.c: 122: }
-[; ;user.c: 123: }
-[; ;user.c: 124: }
-[; ;user.c: 125: }
+[e $ ! != -> _begin `i -> -> -> 0 `i `Vuc `i 414  ]
+[e :U 415 ]
+[; ;user.c: 124: LATAbits.LA0 = 1;
+"124
+[e = . . _LATAbits 1 0 -> -> 1 `i `uc ]
+[; ;user.c: 125: begin = 0;
 "125
-[e :UE 409 ]
+[e = _begin -> -> 0 `i `uc ]
+[; ;user.c: 126: sys_clock = 0;
+"126
+[e = _sys_clock -> -> -> 0 `i `l `ul ]
+[; ;user.c: 127: for(i = 0; i < 500; i++)
+"127
+{
+[e = _i -> 0 `i ]
+[e $ < _i -> 500 `i 416  ]
+[e $U 417  ]
+"128
+[e :U 416 ]
+[; ;user.c: 128: {
+{
+[; ;user.c: 129: if(1||last_sys_clock != sys_clock)
+"129
+[e $ ! || != -> 1 `i -> 0 `i != _last_sys_clock _sys_clock 419  ]
+[; ;user.c: 130: {
+"130
+{
+[; ;user.c: 131: last_sys_clock = sys_clock;
+"131
+[e = _last_sys_clock _sys_clock ]
+[; ;user.c: 132: if(1 || (last_sys_clock % 10) == 0)
+"132
+[e $ ! || != -> 1 `i -> 0 `i == % _last_sys_clock -> -> -> 10 `i `l `ul -> -> -> 0 `i `l `ul 420  ]
+[; ;user.c: 133: {
+"133
+{
+[; ;user.c: 134: freq = get_freq();
+"134
+[e = _freq ( _get_freq ..  ]
+[; ;user.c: 135: printf("%d, %d, %lu\n\r", i, value, freq);
+"135
+[e ( _printf , , , (. :s 1C _i -> _value `i _freq ]
+"136
+}
+[e :U 420 ]
+"137
+}
+[e :U 419 ]
+"138
 }
 "127
+[e ++ _i -> 1 `i ]
+[e $ < _i -> 500 `i 416  ]
+[e :U 417 ]
+"138
+}
+[; ;user.c: 136: }
+[; ;user.c: 137: }
+[; ;user.c: 138: }
+[; ;user.c: 139: LATAbits.LA0 = 0;
+"139
+[e = . . _LATAbits 1 0 -> -> 0 `i `uc ]
+"140
+}
+[e :U 410 ]
+"120
+[e $U 411  ]
+[e :U 412 ]
+[; ;user.c: 140: }
+[; ;user.c: 141: }
+"141
+[e :UE 409 ]
+}
+"143
 [v _done `Vuc ~T0 @X0 1 e ]
-[; ;user.c: 127: volatile uint8_t done;
-"129
-[v _Timer1OfCountStop `VS407 ~T0 @X0 1 e ]
-[; ;user.c: 129: volatile union DWORD_UNION Timer1OfCountStop;
-"131
+[; ;user.c: 143: volatile uint8_t done;
+"146
+[v _Timer1OfCountStop `Vul ~T0 @X0 1 e ]
+[; ;user.c: 146: volatile uint32_t Timer1OfCountStop;
+"148
 [v _get_freq `(ul ~T0 @X0 1 ef ]
-"132
+"149
 {
-[; ;user.c: 131: uint32_t get_freq()
-[; ;user.c: 132: {
+[; ;user.c: 148: uint32_t get_freq()
+[; ;user.c: 149: {
 [e :U _get_freq ]
 [f ]
-"133
+"150
 [v _start `ul ~T0 @X0 1 a ]
 [v _stop `ul ~T0 @X0 1 a ]
-[; ;user.c: 133: uint32_t start, stop;
-[; ;user.c: 134: TMR1 = 0;
-"134
-[e = _TMR1 -> -> 0 `i `us ]
-[; ;user.c: 135: Timer1OfCount = 0;
-"135
-[e = _Timer1OfCount -> -> 0 `i `us ]
-[; ;user.c: 136: done = 0;
-"136
-[e = _done -> -> 0 `i `uc ]
-[; ;user.c: 137: while(done == 0);
-"137
-[e $U 417  ]
-[e :U 418 ]
-[e :U 417 ]
-[e $ == -> _done `i -> 0 `i 418  ]
-[e :U 419 ]
-[; ;user.c: 138: start = CCPR1;
-"138
-[e = _start -> _CCPR1 `ul ]
-[; ;user.c: 139: while(done == 1);
-"139
-[e $U 420  ]
-[e :U 421 ]
-[e :U 420 ]
-[e $ == -> _done `i -> 1 `i 421  ]
-[e :U 422 ]
-[; ;user.c: 140: stop = CCPR1;
-"140
-[e = _stop -> _CCPR1 `ul ]
-"141
-[v _now `ul ~T0 @X0 1 a ]
-[; ;user.c: 141: unsigned long now = sys_clock;
-[e = _now _sys_clock ]
-[; ;user.c: 142: time.seconds = now >> 2;
-"142
-[e = . _time 0 >> _now -> 2 `i ]
-[; ;user.c: 143: time.ms = (now&0x3)*250;
-"143
-[e = . _time 1 -> * & _now -> -> -> 3 `i `l `ul -> -> -> 250 `i `l `ul `us ]
-[; ;user.c: 144: return stop + (Timer1OfCountStop.dword) - start;
-"144
-[e ) - + _stop . _Timer1OfCountStop 2 _start ]
-[e $UE 416  ]
-[; ;user.c: 145: }
-"145
-[e :UE 416 ]
-}
-"148
-[v _on_line_received `(v ~T0 @X0 1 ef1`*uc ]
-"149
-{
-[; ;user.c: 148: void on_line_received(char* str)
-[; ;user.c: 149: {
-[e :U _on_line_received ]
-"148
-[v _str `*uc ~T0 @X0 1 r1 ]
-"149
-[f ]
-"150
-[v _value `uc ~T0 @X0 1 a ]
-[; ;user.c: 150: unsigned char value = atoi(str);
-[e = _value -> ( _atoi (1 -> _str `*Cuc `uc ]
-[; ;user.c: 151: if(value > 0)
+[; ;user.c: 150: uint32_t start, stop;
+[; ;user.c: 151: TMR1 = 0;
 "151
-[e $ ! > -> _value `i -> 0 `i 424  ]
-[; ;user.c: 152: {
+[e = _TMR1 -> -> 0 `i `us ]
+[; ;user.c: 152: Timer1OfCount = 0;
 "152
-{
-[; ;user.c: 153: printf("Received %d\n\r", value);
+[e = _Timer1OfCount -> -> 0 `i `us ]
+[; ;user.c: 153: done = 0;
 "153
-[e ( _printf , (. :s 3C -> _value `i ]
-[; ;user.c: 154: Write_to_Pot(value);
+[e = _done -> -> 0 `i `uc ]
+[; ;user.c: 154: while(done == 0);
 "154
-[e ( _Write_to_Pot (1 _value ]
-"155
-}
-[; ;user.c: 155: }
-[e $U 425  ]
-"156
+[e $U 422  ]
+[e :U 423 ]
+[e :U 422 ]
+[e $ == -> _done `i -> 0 `i 423  ]
 [e :U 424 ]
-[; ;user.c: 156: else if(str[0] == 'c')
-[e $ ! == -> *U + _str * -> -> 0 `i `x -> -> # *U _str `i `x `ui -> 99 `ui 426  ]
-[; ;user.c: 157: {
-"157
-{
-"158
-[v _sp `ul ~T0 @X0 1 a ]
-[; ;user.c: 158: uint32_t sp = atol(str+1);
-[e = _sp -> ( _atol (1 -> + _str * -> -> 1 `i `x -> -> # *U _str `i `x `*Cuc `ul ]
-[; ;user.c: 159: if(sp == 0)
-"159
-[e $ ! == _sp -> -> -> 0 `i `l `ul 427  ]
-[; ;user.c: 160: sp = 32000;
-"160
-[e = _sp -> -> -> 32000 `i `l `ul ]
-[e :U 427 ]
-[; ;user.c: 162: printf("Calibrate to %ul\n\r", sp);
-"162
-[e ( _printf , (. :s 4C _sp ]
-[; ;user.c: 163: if(autotune_pot(sp))
-"163
-[e $ ! != -> ( _autotune_pot (1 _sp `i -> -> -> 0 `i `uc `i 428  ]
-[; ;user.c: 164: {
-"164
-{
-[; ;user.c: 165: printf("Calibration frequency out of range\n\r");
-"165
-[e ( _printf :s 5C ]
-[; ;user.c: 166: Write_to_Pot(128);
-"166
-[e ( _Write_to_Pot (1 -> -> 128 `i `uc ]
-"167
-}
-[e :U 428 ]
-"168
-}
-[; ;user.c: 167: }
-[; ;user.c: 168: }
-[e $U 429  ]
-"169
+[; ;user.c: 155: start = CCPR1;
+"155
+[e = _start -> _CCPR1 `ul ]
+[; ;user.c: 156: while(done == 1);
+"156
+[e $U 425  ]
 [e :U 426 ]
-[; ;user.c: 169: else if(str[0] == 'r')
-[e $ ! == -> *U + _str * -> -> 0 `i `x -> -> # *U _str `i `x `ui -> 114 `ui 430  ]
-[; ;user.c: 170: {
-"170
-{
-[; ;user.c: 171: printf("Reset\n\r");
-"171
-[e ( _printf :s 6C ]
-"173
-[; <"  reset ;# ">
-"175
-}
-[; ;user.c: 175: }
-[e $U 431  ]
-"176
-[e :U 430 ]
-[; ;user.c: 176: else
-[; ;user.c: 177: {
-"177
-{
-[; ;user.c: 178: printf("Invalid string: \"%s\"\n\r",str);
-"178
-[e ( _printf , (. :s 7C -> _str `*Cuc ]
-"179
-}
-[e :U 431 ]
-[e :U 429 ]
 [e :U 425 ]
-[; ;user.c: 179: }
-[; ;user.c: 180: }
-"180
-[e :UE 423 ]
+[e $ == -> _done `i -> 1 `i 426  ]
+[e :U 427 ]
+[; ;user.c: 157: stop = CCPR1;
+"157
+[e = _stop -> _CCPR1 `ul ]
+"158
+[v _now `ul ~T0 @X0 1 a ]
+[; ;user.c: 158: unsigned long now = sys_clock;
+[e = _now _sys_clock ]
+[; ;user.c: 159: time.seconds = now;
+"159
+[e = . _time 0 _now ]
+[; ;user.c: 160: time.ms = 0;
+"160
+[e = . _time 1 -> -> 0 `i `us ]
+"161
+[v _result `ul ~T0 @X0 1 a ]
+[; ;user.c: 161: uint32_t result = ((Timer1OfCountStop-1)<<16);
+[e = _result << - _Timer1OfCountStop -> -> -> 1 `i `l `ul -> 16 `i ]
+[; ;user.c: 162: result += stop;
+"162
+[e =+ _result _stop ]
+[; ;user.c: 163: result -= start;
+"163
+[e =- _result _start ]
+[; ;user.c: 164: return result;
+"164
+[e ) _result ]
+[e $UE 421  ]
+[; ;user.c: 165: }
+"165
+[e :UE 421 ]
 }
-"182
-[v _autotune_pot `(uc ~T0 @X0 1 ef1`ul ]
-"183
+"168
+[v _on_line_received `(v ~T0 @X0 1 ef1`*uc ]
+"169
 {
-[; ;user.c: 182: unsigned char autotune_pot(uint32_t setpoint)
-[; ;user.c: 183: {
-[e :U _autotune_pot ]
-"182
-[v _setpoint `ul ~T0 @X0 1 r1 ]
-"183
+[; ;user.c: 168: void on_line_received(char* str)
+[; ;user.c: 169: {
+[e :U _on_line_received ]
+"168
+[v _str `*uc ~T0 @X0 1 r1 ]
+"169
 [f ]
+"170
+[v __value `uc ~T0 @X0 1 a ]
+[; ;user.c: 170: unsigned char _value = atoi(str);
+[e = __value -> ( _atoi (1 -> _str `*Cuc `uc ]
+[; ;user.c: 171: if(_value > 0)
+"171
+[e $ ! > -> __value `i -> 0 `i 429  ]
+[; ;user.c: 172: {
+"172
+{
+[; ;user.c: 173: printf("Received %d\n\r", _value);
+"173
+[e ( _printf , (. :s 2C -> __value `i ]
+[; ;user.c: 174: Write_to_Pot(_value);
+"174
+[e ( _Write_to_Pot (1 __value ]
+[; ;user.c: 175: value = _value;
+"175
+[e = _value __value ]
+"176
+}
+[; ;user.c: 176: }
+[e $U 430  ]
+"177
+[e :U 429 ]
+[; ;user.c: 177: else if(str[0] == 'b')
+[e $ ! == -> *U + _str * -> -> 0 `i `x -> -> # *U _str `i `x `ui -> 98 `ui 431  ]
+[; ;user.c: 178: {
+"178
+{
+[; ;user.c: 179: begin = 1;
+"179
+[e = _begin -> -> 1 `i `uc ]
+"180
+}
+[; ;user.c: 180: }
+[e $U 432  ]
+"181
+[e :U 431 ]
+[; ;user.c: 181: else if(str[0] == 'c')
+[e $ ! == -> *U + _str * -> -> 0 `i `x -> -> # *U _str `i `x `ui -> 99 `ui 433  ]
+[; ;user.c: 182: {
+"182
+{
+"183
+[v _sp `ul ~T0 @X0 1 a ]
+[; ;user.c: 183: uint32_t sp = atol(str+1);
+[e = _sp -> ( _atol (1 -> + _str * -> -> 1 `i `x -> -> # *U _str `i `x `*Cuc `ul ]
+[; ;user.c: 184: if(sp == 0)
 "184
-[v F4392 `uc ~T0 @X0 1 s value ]
-[i F4392
--> -> 128 `i `uc
-]
-[; ;user.c: 184: static unsigned char value = 128;
-[; ;user.c: 185: Write_to_Pot(value);
+[e $ ! == _sp -> -> -> 0 `i `l `ul 434  ]
+[; ;user.c: 185: sp = 32000;
 "185
-[e ( _Write_to_Pot (1 F4392 ]
-"186
-[v _f `ul ~T0 @X0 1 a ]
-[; ;user.c: 186: uint32_t f;
-[; ;user.c: 187: while((f = get_freq()) > setpoint) {
-"187
-[e $U 433  ]
+[e = _sp -> -> -> 32000 `i `l `ul ]
 [e :U 434 ]
-{
-[; ;user.c: 189: value--;
+[; ;user.c: 187: printf("Calibrate to %ul\n\r", sp);
+"187
+[e ( _printf , (. :s 3C _sp ]
+[; ;user.c: 188: if(autotune_pot(sp))
+"188
+[e $ ! != -> ( _autotune_pot (1 _sp `i -> -> -> 0 `i `uc `i 435  ]
+[; ;user.c: 189: {
 "189
-[e -- F4392 -> -> 1 `i `uc ]
-[; ;user.c: 190: if(value == 0)
-"190
-[e $ ! == -> F4392 `i -> 0 `i 436  ]
-[; ;user.c: 191: {
-"191
 {
-[; ;user.c: 192: return -1;
+[; ;user.c: 190: printf("Calibration frequency out of range\n\r");
+"190
+[e ( _printf :s 4C ]
+[; ;user.c: 191: Write_to_Pot(128);
+"191
+[e ( _Write_to_Pot (1 -> -> 128 `i `uc ]
 "192
-[e ) -> -U -> 1 `i `uc ]
-[e $UE 432  ]
+}
+[e :U 435 ]
 "193
 }
-[e :U 436 ]
+[; ;user.c: 192: }
 [; ;user.c: 193: }
-[; ;user.c: 194: Write_to_Pot(value);
+[e $U 436  ]
 "194
-[e ( _Write_to_Pot (1 F4392 ]
-"195
-}
 [e :U 433 ]
-"187
-[e $ > = _f ( _get_freq ..  _setpoint 434  ]
-[e :U 435 ]
-[; ;user.c: 195: }
-[; ;user.c: 196: while((f = get_freq()) < setpoint) {
+[; ;user.c: 194: else if(str[0] == 'r')
+[e $ ! == -> *U + _str * -> -> 0 `i `x -> -> # *U _str `i `x `ui -> 114 `ui 437  ]
+[; ;user.c: 195: {
+"195
+{
+[; ;user.c: 196: printf("Reset\n\r");
 "196
-[e $U 437  ]
-[e :U 438 ]
-{
-[; ;user.c: 198: value ++;
+[e ( _printf :s 5C ]
 "198
-[e ++ F4392 -> -> 1 `i `uc ]
-[; ;user.c: 199: if(value == 255)
-"199
-[e $ ! == -> F4392 `i -> 255 `i 440  ]
-[; ;user.c: 200: {
+[; <"  reset ;# ">
 "200
-{
-[; ;user.c: 201: return -1;
-"201
-[e ) -> -U -> 1 `i `uc ]
-[e $UE 432  ]
-"202
 }
-[e :U 440 ]
-[; ;user.c: 202: }
-[; ;user.c: 203: Write_to_Pot(value);
+[; ;user.c: 200: }
+[e $U 438  ]
+"201
+[e :U 437 ]
+[; ;user.c: 201: else
+[; ;user.c: 202: {
+"202
+{
+[; ;user.c: 203: printf("Invalid string: \"%s\"\n\r",str);
 "203
-[e ( _Write_to_Pot (1 F4392 ]
+[e ( _printf , (. :s 6C -> _str `*Cuc ]
 "204
 }
-[e :U 437 ]
-"196
-[e $ < = _f ( _get_freq ..  _setpoint 438  ]
-[e :U 439 ]
+[e :U 438 ]
+[e :U 436 ]
+[e :U 432 ]
+[e :U 430 ]
 [; ;user.c: 204: }
-[; ;user.c: 205: return 0;
+[; ;user.c: 205: }
 "205
-[e ) -> -> 0 `i `uc ]
-[e $UE 432  ]
-[; ;user.c: 206: }
-"206
-[e :UE 432 ]
+[e :UE 428 ]
 }
-[p f _printf 8684692 ]
-[a 2C 37 108 117 46 37 48 51 100 44 32 37 108 117 10 13 0 ]
-[a 6C 82 101 115 101 116 10 13 0 ]
-[a 4C 67 97 108 105 98 114 97 116 101 32 116 111 32 37 117 108 10 13 0 ]
-[a 5C 67 97 108 105 98 114 97 116 105 111 110 32 102 114 101 113 117 101 110 99 121 32 111 117 116 32 111 102 32 114 97 110 103 101 10 13 0 ]
-[a 1C 67 97 108 105 98 114 97 116 105 111 110 32 102 114 101 113 32 111 117 116 32 111 102 32 114 97 110 103 101 10 13 0 ]
-[a 3C 82 101 99 101 105 118 101 100 32 37 100 10 13 0 ]
-[a 7C 73 110 118 97 108 105 100 32 115 116 114 105 110 103 58 32 34 37 115 34 10 13 0 ]
+"207
+[v _autotune_pot `(uc ~T0 @X0 1 ef1`ul ]
+"208
+{
+[; ;user.c: 207: unsigned char autotune_pot(uint32_t setpoint)
+[; ;user.c: 208: {
+[e :U _autotune_pot ]
+"207
+[v _setpoint `ul ~T0 @X0 1 r1 ]
+"208
+[f ]
+[; ;user.c: 209: Write_to_Pot(value);
+"209
+[e ( _Write_to_Pot (1 _value ]
+"210
+[v _f `ul ~T0 @X0 1 a ]
+"211
+[v _i `i ~T0 @X0 1 a ]
+[; ;user.c: 210: uint32_t f;
+[; ;user.c: 211: int i;
+[; ;user.c: 212: for(i=0;i<16;i++){
+"212
+{
+[e = _i -> 0 `i ]
+[e $ < _i -> 16 `i 440  ]
+[e $U 441  ]
+[e :U 440 ]
+{
+[; ;user.c: 213: while((f = get_freq()) > setpoint) {
+"213
+[e $U 443  ]
+[e :U 444 ]
+{
+[; ;user.c: 214: printf("1: %lu, %u\n\r", f, value);
+"214
+[e ( _printf , , (. :s 7C _f -> _value `i ]
+[; ;user.c: 215: value++;
+"215
+[e ++ _value -> -> 1 `i `uc ]
+[; ;user.c: 216: if(value == 0)
+"216
+[e $ ! == -> _value `i -> 0 `i 446  ]
+[; ;user.c: 217: {
+"217
+{
+[; ;user.c: 218: return -1;
+"218
+[e ) -> -U -> 1 `i `uc ]
+[e $UE 439  ]
+"219
+}
+[e :U 446 ]
+[; ;user.c: 219: }
+[; ;user.c: 220: Write_to_Pot(value);
+"220
+[e ( _Write_to_Pot (1 _value ]
+"221
+}
+[e :U 443 ]
+"213
+[e $ > = _f ( _get_freq ..  _setpoint 444  ]
+[e :U 445 ]
+[; ;user.c: 221: }
+[; ;user.c: 222: while((f = get_freq()) < setpoint) {
+"222
+[e $U 447  ]
+[e :U 448 ]
+{
+[; ;user.c: 223: printf("1: %lu, %u\n\r", f, value);
+"223
+[e ( _printf , , (. :s 8C _f -> _value `i ]
+[; ;user.c: 224: value--;
+"224
+[e -- _value -> -> 1 `i `uc ]
+[; ;user.c: 225: if(value == 255)
+"225
+[e $ ! == -> _value `i -> 255 `i 450  ]
+[; ;user.c: 226: {
+"226
+{
+[; ;user.c: 227: return -1;
+"227
+[e ) -> -U -> 1 `i `uc ]
+[e $UE 439  ]
+"228
+}
+[e :U 450 ]
+[; ;user.c: 228: }
+[; ;user.c: 229: Write_to_Pot(value);
+"229
+[e ( _Write_to_Pot (1 _value ]
+"230
+}
+[e :U 447 ]
+"222
+[e $ < = _f ( _get_freq ..  _setpoint 448  ]
+[e :U 449 ]
+"231
+}
+"212
+[e ++ _i -> 1 `i ]
+[e $ < _i -> 16 `i 440  ]
+[e :U 441 ]
+"231
+}
+[; ;user.c: 230: }
+[; ;user.c: 231: }
+[; ;user.c: 232: return 0;
+"232
+[e ) -> -> 0 `i `uc ]
+[e $UE 439  ]
+[; ;user.c: 233: }
+"233
+[e :UE 439 ]
+}
+[p f _printf 8651920 ]
+[a 1C 37 100 44 32 37 100 44 32 37 108 117 10 13 0 ]
+[a 7C 49 58 32 37 108 117 44 32 37 117 10 13 0 ]
+[a 8C 49 58 32 37 108 117 44 32 37 117 10 13 0 ]
+[a 5C 82 101 115 101 116 10 13 0 ]
+[a 3C 67 97 108 105 98 114 97 116 101 32 116 111 32 37 117 108 10 13 0 ]
+[a 4C 67 97 108 105 98 114 97 116 105 111 110 32 102 114 101 113 117 101 110 99 121 32 111 117 116 32 111 102 32 114 97 110 103 101 10 13 0 ]
+[a 2C 82 101 99 101 105 118 101 100 32 37 100 10 13 0 ]
+[a 6C 73 110 118 97 108 105 100 32 115 116 114 105 110 103 58 32 34 37 115 34 10 13 0 ]

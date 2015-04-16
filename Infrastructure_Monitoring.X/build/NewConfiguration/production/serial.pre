@@ -5186,7 +5186,8 @@ unsigned long dword;
 extern volatile unsigned short Timer1OfCount;
 extern volatile unsigned short Timer3OfCount;
 extern volatile unsigned char done;
-extern volatile union DWORD_UNION Timer1OfCountStop;
+
+extern volatile unsigned long Timer1OfCountStop;
 extern volatile unsigned long sys_clock;
 
 # 24 "serial.c"
@@ -5200,9 +5201,12 @@ char string[256];
 void init_serial(void (*line_received)(char* str))
 {
 SPBRGH = 0;
-SPBRG = 12;
-TXSTAbits.BRGH = 0;
-BAUDCONbits.BRG16 = 0;
+
+SPBRG = 138;
+
+
+TXSTAbits.BRGH = 1;
+BAUDCONbits.BRG16 = 1;
 
 TXSTAbits.SYNC = 0;
 RCSTAbits.SPEN = 1;
