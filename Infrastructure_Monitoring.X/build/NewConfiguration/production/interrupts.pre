@@ -5100,12 +5100,14 @@ unsigned short word[2];
 unsigned long dword;
 };
 
-extern volatile unsigned short Timer1OfCount;
-extern volatile unsigned short Timer3OfCount;
+extern volatile unsigned long Timer1OfCount;
+extern volatile unsigned long Timer3OfCount;
 extern volatile unsigned char done;
 
 extern volatile unsigned long Timer1OfCountStop;
 extern volatile unsigned long sys_clock;
+extern volatile unsigned long LastTimer1OfCount;
+extern volatile unsigned short LastTimer1Value;
 
 # 29 "interrupts.c"
 void interrupt high_isr(void)
@@ -5131,6 +5133,8 @@ Timer1OfCount++;
 # 67
 } else if (PIR2bits.TMR3IF) {
 PIR2bits.TMR3IF = 0;
+LastTimer1Value = TMR1;
+LastTimer1OfCount = Timer1OfCount;
 Timer3OfCount++;
 } else {
 i++;
@@ -5142,10 +5146,10 @@ i++;
 
 void low_priority interrupt low_isr(void)
 
-# 86
+# 88
 {
 
-# 97
+# 99
 if (PIR1bits.RCIF) {
 PIR1bits.RCIF = 0;
 char_received(RCREG);

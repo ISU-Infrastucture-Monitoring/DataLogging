@@ -66,6 +66,8 @@ void high_isr(void)
         //}
     } else if (PIR2bits.TMR3IF) {
         PIR2bits.TMR3IF = 0; /* Clear Interrupt Flag 2 */
+        LastTimer1Value = TMR1;
+        LastTimer1OfCount = Timer1OfCount;
         Timer3OfCount++;
     } else {
         i++;

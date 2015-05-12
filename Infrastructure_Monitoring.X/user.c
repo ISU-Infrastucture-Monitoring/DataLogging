@@ -22,8 +22,8 @@
 #include "system.h"
 
 
-volatile unsigned short Timer1OfCount = 0;
-volatile unsigned short Timer3OfCount = 0;
+volatile unsigned long Timer1OfCount = 0;
+volatile unsigned long Timer3OfCount = 0;
 volatile unsigned char Done = 0;
 static volatile unsigned char value = 128;
 
@@ -43,6 +43,10 @@ struct TIME{        //Defines time as having seconds and milliseconds as compone
     unsigned short ms;    
 }time;
 
+#define LOW_FREQ_MODE
+//#define HIGH_FREQ_MODE
+#define NUM_SAMPLES 50000
+
 void InitApp(void)
 {
     //Timer 1
@@ -53,20 +57,17 @@ void InitApp(void)
     PIE1bits.TMR1IE = 1;    //Enable timer1 overflow interrupts
 
     //Timer 3
-//#ifndef DEBUG
-//    T3CONbits.RD16 = 0;     //16Bit mode timer3
-//    T3CONbits.T3SYNC = 1;   //Sync timer3 with external clock source
-//    T3CONbits.TMR3CS = 1;   //Set timer3 source to external signal
-//#else
-//    T3CONbits.RD16 = 0;     //16Bit mode
-//    T3CONbits.T3CKPS = 2;   //Prescaler set to 1:1
-//    T3CONbits.TMR3CS = 0;   //Set clock to external source
-//#endif
-
-//    IPR2bits.TMR3IP = 1;    //Set timer1 overflow interrupt priority high
-//    PIR2bits.TMR3IF = 0;    //Clears timer3 overflow interrupt flag
-//    PIE2bits.TMR3IE = 1;    //Enable timer3 overflow interrupts
-
+#ifdef HIGH_FREQ_MODE
+    T3CONbits.RD16 = 0;     //16Bit mode
+    T3CONbits.T3CKPS = 0;   //Prescaler set to 1:1
+    T3CONbits.TMR3CS = 1;   //Set clock to external source
+    TRISCbits.RC0 = 1;
+    IPR2bits.TMR3IP = 1;    //Set timer1 overflow interrupt priority high
+    PIR2bits.TMR3IF = 0;    //Clears timer3 overflow interrupt flag
+    PIE2bits.TMR3IE = 1;    //Enable timer3 overflow interrupts
+    T3CONbits.TMR3ON = 1;
+#endif
+#ifdef LOW_FREQ_MODE
     CCP1CONbits.CCP1M = 7;    //Capture every 16th rising edge
     
     TRISCbits.RC2 = 1;          // set CCP pin as input
@@ -76,21 +77,21 @@ void InitApp(void)
     PIE1bits.CCP1IE = 1;
     
     CCP2CONbits.CCP2M = 0xA;    // Compare mode, software interrupt only
+#endif
+//    T3CONbits.RD16 = 0;
+//    T3CONbits.T3CKPS = 3;       // divide by 8: 1MHz
+//    T3CONbits.TMR3CS = 0;
+//    
+//    T3CONbits.T3CCP1 = 1;
+//    T3CONbits.T3CCP2 = 0;
+//    
+//    CCPR2 = 10000;              // 100Hz system tick
+//    
+//    IPR2bits.CCP2IP = 0;        //Set up and enable capture interrupts for capture 2
+//    PIR2bits.CCP2IF = 0;
+//    PIE2bits.CCP2IE = 1;
     
-    T3CONbits.RD16 = 0;
-    T3CONbits.T3CKPS = 3;       // divide by 8: 1MHz
-    T3CONbits.TMR3CS = 0;
     
-    T3CONbits.T3CCP1 = 1;
-    T3CONbits.T3CCP2 = 0;
-    
-    CCPR2 = 10000;              // 100Hz system tick
-    
-    IPR2bits.CCP2IP = 0;        //Set up and enable capture interrupts for capture 2
-    PIR2bits.CCP2IF = 0;
-    PIE2bits.CCP2IE = 1;
-    
-    T3CONbits.TMR3ON = 1;
     
     RCONbits.IPEN = 1;
     INTCONbits.GIE = 1;     //Enable all unmasked interrupts
@@ -119,12 +120,12 @@ void InitApp(void)
         
     while(1)
     {
-        int i;
+        unsigned long i;
         while(!begin);
         LATAbits.LA0 = 1;   //Set RA0 high to signal beginning of test
         begin = 0;
         sys_clock = 0;
-        for(i = 0; i < 500; i++)    //Run 500 sample test
+        for(i = 0; i < NUM_SAMPLES; i++)    //Run 500 sample test
         {
             if(1||last_sys_clock != sys_clock)
             {
@@ -144,9 +145,11 @@ volatile uint8_t done;
 
 //volatile union DWORD_UNION Timer1OfCountStop;
 volatile uint32_t Timer1OfCountStop;
-
+volatile unsigned long LastTimer1OfCount;
+volatile unsigned short LastTimer1Value;
 uint32_t get_freq() //Returns frequency as a raw number, before calculations
 {
+#ifdef LOW_FREQ_MODE
     uint32_t start, stop;
     TMR1 = 0;       //Clear Timer1 value
     Timer1OfCount = 0;  //Clear number of overflows
@@ -162,6 +165,17 @@ uint32_t get_freq() //Returns frequency as a raw number, before calculations
     result += stop;
     result -= start;
     return result;
+#endif
+#ifdef HIGH_FREQ_MODE
+    TMR1 = 0;
+    Timer1OfCount = 0;
+    TMR3 = 0;
+    Timer3OfCount = 0;
+    while(Timer3OfCount < 1);
+    uint32_t time = LastTimer1Value;
+    time += (LastTimer1OfCount << 16);
+    return time;
+#endif
 }
 
 

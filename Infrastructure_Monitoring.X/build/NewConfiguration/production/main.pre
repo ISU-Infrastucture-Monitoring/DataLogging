@@ -5100,12 +5100,14 @@ unsigned short word[2];
 unsigned long dword;
 };
 
-extern volatile unsigned short Timer1OfCount;
-extern volatile unsigned short Timer3OfCount;
+extern volatile unsigned long Timer1OfCount;
+extern volatile unsigned long Timer3OfCount;
 extern volatile unsigned char done;
 
 extern volatile unsigned long Timer1OfCountStop;
 extern volatile unsigned long sys_clock;
+extern volatile unsigned long LastTimer1OfCount;
+extern volatile unsigned short LastTimer1Value;
 
 # 13 "user.h"
 void InitApp(void);

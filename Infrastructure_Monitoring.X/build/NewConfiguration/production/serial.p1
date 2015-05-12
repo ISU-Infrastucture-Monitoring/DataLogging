@@ -2,9 +2,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 "15 fifo.h
 [s S403 `uc -> 256 `i `uc 1 `uc 1 `uc 1 ]
 [n S403 FIFO_STRUCT data write_index read_index size ]
-[v F4272 `(v ~T0 @X0 0 tf1`*uc ]
+[v F4274 `(v ~T0 @X0 0 tf1`*uc ]
 "24 serial.c
-[s S405 `S403 1 `*F4272 1 `uc -> 256 `i ]
+[s S405 `S403 1 `*F4274 1 `uc -> 256 `i ]
 [n S405 SERIAL_STRUCT fifo on_line_received string ]
 [v F4233 `(v ~T0 @X0 0 tf1`*uc ]
 "3895 /opt/microchip/xc8/v1.34/include/pic18f4520.h
@@ -3988,11 +3988,13 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;system.h: 25: unsigned short word[2];
 [; ;system.h: 26: unsigned long dword;
 [; ;system.h: 27: };
-[; ;system.h: 29: extern volatile unsigned short Timer1OfCount;
-[; ;system.h: 30: extern volatile unsigned short Timer3OfCount;
+[; ;system.h: 29: extern volatile unsigned long Timer1OfCount;
+[; ;system.h: 30: extern volatile unsigned long Timer3OfCount;
 [; ;system.h: 31: extern volatile unsigned char done;
 [; ;system.h: 33: extern volatile unsigned long Timer1OfCountStop;
 [; ;system.h: 34: extern volatile unsigned long sys_clock;
+[; ;system.h: 35: extern volatile unsigned long LastTimer1OfCount;
+[; ;system.h: 36: extern volatile unsigned short LastTimer1Value;
 "29 serial.c
 [v _serial `S405 ~T0 @X0 1 e ]
 [; ;serial.c: 24: struct SERIAL_STRUCT
@@ -4008,9 +4010,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;serial.c: 31: void init_serial(void (*line_received)(char* str))
 [; ;serial.c: 32: {
 [e :U _init_serial ]
-[v F4277 `(v ~T0 @X0 0 tf1`*uc ]
+[v F4279 `(v ~T0 @X0 0 tf1`*uc ]
 "31
-[v _line_received `*F4277 ~T0 @X0 1 r1 ]
+[v _line_received `*F4279 ~T0 @X0 1 r1 ]
 "32
 [f ]
 [; ;serial.c: 33: SPBRGH = 0;
