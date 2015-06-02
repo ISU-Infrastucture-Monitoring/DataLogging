@@ -41,14 +41,14 @@ void high_isr(void)
     Do not use a seperate if block for each interrupt flag to avoid run
     time errors. */
 
-    volatile unsigned char i;
+    volatile unsigned char i = 0;
 
     /* TODO Add High Priority interrupt routine code here. */
 
     /* Determine which flag generated the interrupt */
     if(PIR1bits.CCP1IF){
         PIR1bits.CCP1IF = 0;
-        Timer1OfCountStop = Timer1OfCount;
+        Timer1OFCountStop = Timer1OfCount;
         done ++;
     }
     else if (PIR1bits.TMR1IF) {

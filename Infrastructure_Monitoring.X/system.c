@@ -19,15 +19,13 @@
 
 #include "system.h"
 
-/* Refer to the device datasheet for information about available
-oscillator configurations. */
 void ConfigureOscillator(void)
 {
     OSCCONbits.IRCF = 7;    //Set Internal oscillator to 8MHz
-    //OSCCONbits.SCS = 3;     //Set System Clock to internal oscillator
-    OSCCONbits.SCS = 0;  //Attempt at a fix for system clock. FIX SUCCESSFUL
+    OSCCONbits.SCS = 0;     //Source clock from primary oscillator
     
-    OSCTUNEbits.PLLEN = 1;  //Enables PLL multiplier of 4x clock
+    OSCTUNEbits.PLLEN = 1;  //Enables PLL multiplier of 4x clock to achieve a 32MHz clock
+    
 #ifndef DEBUG
     while(!OSCCONbits.IOFS);
 #endif

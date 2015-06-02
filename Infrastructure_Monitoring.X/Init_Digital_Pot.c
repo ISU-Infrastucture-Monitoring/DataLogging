@@ -42,7 +42,6 @@ void init_DigPot(void) {
 void Write_to_Pot(unsigned char VAL)
 {
     char i = 0;
-    char rv = 0;
     unsigned char data[3], tmp;
     char status;
     

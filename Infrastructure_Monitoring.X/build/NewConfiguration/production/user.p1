@@ -4093,7 +4093,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;system.h: 29: extern volatile unsigned long Timer1OfCount;
 [; ;system.h: 30: extern volatile unsigned long Timer3OfCount;
 [; ;system.h: 31: extern volatile unsigned char done;
-[; ;system.h: 33: extern volatile unsigned long Timer1OfCountStop;
+[; ;system.h: 33: extern volatile unsigned long Timer1OFCountStop;
 [; ;system.h: 34: extern volatile unsigned long sys_clock;
 [; ;system.h: 35: extern volatile unsigned long LastTimer1OfCount;
 [; ;system.h: 36: extern volatile unsigned short LastTimer1Value;
@@ -4164,474 +4164,474 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;user.c: 57: PIE1bits.TMR1IE = 1;
 "57
 [e = . . _PIE1bits 0 0 -> -> 1 `i `uc ]
-[; ;user.c: 71: CCP1CONbits.CCP1M = 7;
-"71
+[; ;user.c: 70: CCP1CONbits.CCP1M = 7;
+"70
 [e = . . _CCP1CONbits 0 0 -> -> 7 `i `uc ]
-[; ;user.c: 73: TRISCbits.RC2 = 1;
-"73
+[; ;user.c: 72: TRISCbits.RC2 = 1;
+"72
 [e = . . _TRISCbits 1 2 -> -> 1 `i `uc ]
-[; ;user.c: 75: IPR1bits.CCP1IP = 1;
-"75
+[; ;user.c: 74: IPR1bits.CCP1IP = 1;
+"74
 [e = . . _IPR1bits 0 2 -> -> 1 `i `uc ]
-[; ;user.c: 76: PIR1bits.CCP1IF = 0;
-"76
+[; ;user.c: 75: PIR1bits.CCP1IF = 0;
+"75
 [e = . . _PIR1bits 0 2 -> -> 0 `i `uc ]
-[; ;user.c: 77: PIE1bits.CCP1IE = 1;
-"77
+[; ;user.c: 76: PIE1bits.CCP1IE = 1;
+"76
 [e = . . _PIE1bits 0 2 -> -> 1 `i `uc ]
-[; ;user.c: 79: CCP2CONbits.CCP2M = 0xA;
-"79
+[; ;user.c: 78: CCP2CONbits.CCP2M = 0xA;
+"78
 [e = . . _CCP2CONbits 0 0 -> -> 10 `i `uc ]
-[; ;user.c: 96: RCONbits.IPEN = 1;
-"96
-[e = . . _RCONbits 5 7 -> -> 1 `i `uc ]
-[; ;user.c: 97: INTCONbits.GIE = 1;
+[; ;user.c: 97: RCONbits.IPEN = 1;
 "97
-[e = . . _INTCONbits 1 7 -> -> 1 `i `uc ]
-[; ;user.c: 98: INTCONbits.PEIE = 1;
+[e = . . _RCONbits 5 7 -> -> 1 `i `uc ]
+[; ;user.c: 98: INTCONbits.GIE = 1;
 "98
+[e = . . _INTCONbits 1 7 -> -> 1 `i `uc ]
+[; ;user.c: 99: INTCONbits.PEIE = 1;
+"99
 [e = . . _INTCONbits 1 6 -> -> 1 `i `uc ]
-[; ;user.c: 101: TRISAbits.RA0 = 0;
-"101
-[e = . . _TRISAbits 1 0 -> -> 0 `i `uc ]
-[; ;user.c: 102: LATAbits.LA0 = 0;
+[; ;user.c: 102: TRISAbits.RA0 = 0;
 "102
-[e = . . _LATAbits 1 0 -> -> 0 `i `uc ]
-[; ;user.c: 104: init_serial(on_line_received);
-"104
-[e ( _init_serial (1 &U _on_line_received ]
-[; ;user.c: 105: init_DigPot();
-"105
-[e ( _init_DigPot ..  ]
-"106
-[v _k `ui ~T0 @X0 1 a ]
-[; ;user.c: 106: unsigned int k = 0;
-[e = _k -> -> 0 `i `ui ]
-"108
-[v _freq `ul ~T0 @X0 1 a ]
-[; ;user.c: 108: uint32_t freq;
-[; ;user.c: 109: Write_to_Pot(128);
-"109
-[e ( _Write_to_Pot (1 -> -> 128 `i `uc ]
-"110
-[v _last_sys_clock `ul ~T0 @X0 1 a ]
-[; ;user.c: 110: unsigned long last_sys_clock = sys_clock;
-[e = _last_sys_clock _sys_clock ]
-[; ;user.c: 115: Write_to_Pot(109);
-"115
-[e ( _Write_to_Pot (1 -> -> 109 `i `uc ]
-[; ;user.c: 116: value = 109;
-"116
-[e = _value -> -> 109 `i `uc ]
-[; ;user.c: 119: TRISAbits.RA0 = 0;
-"119
 [e = . . _TRISAbits 1 0 -> -> 0 `i `uc ]
-[; ;user.c: 121: while(1)
-"121
+[; ;user.c: 103: LATAbits.LA0 = 0;
+"103
+[e = . . _LATAbits 1 0 -> -> 0 `i `uc ]
+[; ;user.c: 105: init_serial(on_line_received);
+"105
+[e ( _init_serial (1 &U _on_line_received ]
+[; ;user.c: 106: init_DigPot();
+"106
+[e ( _init_DigPot ..  ]
+"107
+[v _k `ui ~T0 @X0 1 a ]
+[; ;user.c: 107: unsigned int k = 0;
+[e = _k -> -> 0 `i `ui ]
+"109
+[v _freq `ul ~T0 @X0 1 a ]
+[; ;user.c: 109: uint32_t freq;
+[; ;user.c: 110: Write_to_Pot(128);
+"110
+[e ( _Write_to_Pot (1 -> -> 128 `i `uc ]
+"111
+[v _last_sys_clock `ul ~T0 @X0 1 a ]
+[; ;user.c: 111: unsigned long last_sys_clock = sys_clock;
+[e = _last_sys_clock _sys_clock ]
+[; ;user.c: 113: Write_to_Pot(109);
+"113
+[e ( _Write_to_Pot (1 -> -> 109 `i `uc ]
+[; ;user.c: 114: value = 109;
+"114
+[e = _value -> -> 109 `i `uc ]
+[; ;user.c: 117: TRISAbits.RA0 = 0;
+"117
+[e = . . _TRISAbits 1 0 -> -> 0 `i `uc ]
+[; ;user.c: 119: while(1)
+"119
 [e :U 411 ]
-[; ;user.c: 122: {
-"122
+[; ;user.c: 120: {
+"120
 {
-"123
+"121
 [v _i `ul ~T0 @X0 1 a ]
-[; ;user.c: 123: unsigned long i;
-[; ;user.c: 124: while(!begin);
-"124
+[; ;user.c: 121: unsigned long i;
+[; ;user.c: 122: while(!begin);
+"122
 [e $U 413  ]
 [e :U 414 ]
 [e :U 413 ]
 [e $ ! != -> _begin `i -> -> -> 0 `i `Vuc `i 414  ]
 [e :U 415 ]
-[; ;user.c: 125: LATAbits.LA0 = 1;
-"125
+[; ;user.c: 123: LATAbits.LA0 = 1;
+"123
 [e = . . _LATAbits 1 0 -> -> 1 `i `uc ]
-[; ;user.c: 126: begin = 0;
-"126
+[; ;user.c: 124: begin = 0;
+"124
 [e = _begin -> -> 0 `i `uc ]
-[; ;user.c: 127: sys_clock = 0;
-"127
+[; ;user.c: 125: sys_clock = 0;
+"125
 [e = _sys_clock -> -> -> 0 `i `l `ul ]
-[; ;user.c: 128: for(i = 0; i < 50000; i++)
-"128
+[; ;user.c: 126: for(i = 0; i < 50000; i++)
+"126
 {
 [e = _i -> -> -> 0 `i `l `ul ]
 [e $ < _i -> -> 50000 `l `ul 416  ]
 [e $U 417  ]
-"129
+"127
 [e :U 416 ]
-[; ;user.c: 129: {
+[; ;user.c: 127: {
 {
-[; ;user.c: 130: if(1||last_sys_clock != sys_clock)
-"130
+[; ;user.c: 128: if(1||last_sys_clock != sys_clock)
+"128
 [e $ ! || != -> 1 `i -> 0 `i != _last_sys_clock _sys_clock 419  ]
-[; ;user.c: 131: {
-"131
+[; ;user.c: 129: {
+"129
 {
-[; ;user.c: 132: last_sys_clock = sys_clock;
-"132
+[; ;user.c: 130: last_sys_clock = sys_clock;
+"130
 [e = _last_sys_clock _sys_clock ]
-[; ;user.c: 133: if(1 || (last_sys_clock % 10) == 0)
-"133
+[; ;user.c: 131: if(1 || (last_sys_clock % 10) == 0)
+"131
 [e $ ! || != -> 1 `i -> 0 `i == % _last_sys_clock -> -> -> 10 `i `l `ul -> -> -> 0 `i `l `ul 420  ]
-[; ;user.c: 134: {
-"134
+[; ;user.c: 132: {
+"132
 {
-[; ;user.c: 135: freq = get_freq();
-"135
+[; ;user.c: 133: freq = get_freq();
+"133
 [e = _freq ( _get_freq ..  ]
-[; ;user.c: 136: printf("%d, %d, %lu\n\r", i, value, freq);
-"136
+[; ;user.c: 134: printf("%d, %d, %lu\n\r", i, value, freq);
+"134
 [e ( _printf , , , (. :s 1C _i -> _value `i _freq ]
-"137
+"135
 }
 [e :U 420 ]
-"138
+"136
 }
 [e :U 419 ]
-"139
+"137
 }
-"128
+"126
 [e ++ _i -> -> -> 1 `i `l `ul ]
 [e $ < _i -> -> 50000 `l `ul 416  ]
 [e :U 417 ]
+"137
+}
+[; ;user.c: 135: }
+[; ;user.c: 136: }
+[; ;user.c: 137: }
+[; ;user.c: 138: LATAbits.LA0 = 0;
+"138
+[e = . . _LATAbits 1 0 -> -> 0 `i `uc ]
 "139
 }
-[; ;user.c: 137: }
-[; ;user.c: 138: }
-[; ;user.c: 139: }
-[; ;user.c: 140: LATAbits.LA0 = 0;
-"140
-[e = . . _LATAbits 1 0 -> -> 0 `i `uc ]
-"141
-}
 [e :U 410 ]
-"121
+"119
 [e $U 411  ]
 [e :U 412 ]
-[; ;user.c: 141: }
-[; ;user.c: 142: }
-"142
+[; ;user.c: 139: }
+[; ;user.c: 140: }
+"140
 [e :UE 409 ]
 }
-"144
+"142
 [v _done `Vuc ~T0 @X0 1 e ]
-[; ;user.c: 144: volatile uint8_t done;
-"147
-[v _Timer1OfCountStop `Vul ~T0 @X0 1 e ]
-[; ;user.c: 147: volatile uint32_t Timer1OfCountStop;
-"148
+[; ;user.c: 142: volatile uint8_t done;
+"145
+[v _Timer1OFCountStop `Vul ~T0 @X0 1 e ]
+[; ;user.c: 145: volatile uint32_t Timer1OFCountStop;
+"146
 [v _LastTimer1OfCount `Vul ~T0 @X0 1 e ]
-[; ;user.c: 148: volatile unsigned long LastTimer1OfCount;
-"149
+[; ;user.c: 146: volatile unsigned long LastTimer1OfCount;
+"147
 [v _LastTimer1Value `Vus ~T0 @X0 1 e ]
-[; ;user.c: 149: volatile unsigned short LastTimer1Value;
-"150
+[; ;user.c: 147: volatile unsigned short LastTimer1Value;
+"148
 [v _get_freq `(ul ~T0 @X0 1 ef ]
-"151
+"149
 {
-[; ;user.c: 150: uint32_t get_freq()
-[; ;user.c: 151: {
+[; ;user.c: 148: uint32_t get_freq()
+[; ;user.c: 149: {
 [e :U _get_freq ]
 [f ]
-"153
+"151
 [v _start `ul ~T0 @X0 1 a ]
 [v _stop `ul ~T0 @X0 1 a ]
-[; ;user.c: 153: uint32_t start, stop;
-[; ;user.c: 154: TMR1 = 0;
-"154
+[; ;user.c: 151: uint32_t start, stop;
+[; ;user.c: 152: TMR1 = 0;
+"152
 [e = _TMR1 -> -> 0 `i `us ]
-[; ;user.c: 155: Timer1OfCount = 0;
-"155
+[; ;user.c: 153: Timer1OfCount = 0;
+"153
 [e = _Timer1OfCount -> -> -> 0 `i `l `ul ]
-[; ;user.c: 156: done = 0;
-"156
+[; ;user.c: 154: done = 0;
+"154
 [e = _done -> -> 0 `i `uc ]
-[; ;user.c: 157: while(done == 0);
-"157
+[; ;user.c: 155: while(done == 0);
+"155
 [e $U 422  ]
 [e :U 423 ]
 [e :U 422 ]
 [e $ == -> _done `i -> 0 `i 423  ]
 [e :U 424 ]
-[; ;user.c: 158: start = CCPR1;
-"158
+[; ;user.c: 156: start = CCPR1;
+"156
 [e = _start -> _CCPR1 `ul ]
-[; ;user.c: 159: while(done == 1);
-"159
+[; ;user.c: 157: while(done == 1);
+"157
 [e $U 425  ]
 [e :U 426 ]
 [e :U 425 ]
 [e $ == -> _done `i -> 1 `i 426  ]
 [e :U 427 ]
-[; ;user.c: 160: stop = CCPR1;
-"160
+[; ;user.c: 158: stop = CCPR1;
+"158
 [e = _stop -> _CCPR1 `ul ]
-"161
+"159
 [v _now `ul ~T0 @X0 1 a ]
-[; ;user.c: 161: unsigned long now = sys_clock;
+[; ;user.c: 159: unsigned long now = sys_clock;
 [e = _now _sys_clock ]
-[; ;user.c: 162: time.seconds = now;
-"162
+[; ;user.c: 160: time.seconds = now;
+"160
 [e = . _time 0 _now ]
-[; ;user.c: 163: time.ms = 0;
-"163
+[; ;user.c: 161: time.ms = 0;
+"161
 [e = . _time 1 -> -> 0 `i `us ]
-"164
+"162
 [v _result `ul ~T0 @X0 1 a ]
-[; ;user.c: 164: uint32_t result = ((Timer1OfCountStop-1)<<16);
-[e = _result << - _Timer1OfCountStop -> -> -> 1 `i `l `ul -> 16 `i ]
-[; ;user.c: 165: result += stop;
-"165
+[; ;user.c: 162: uint32_t result = ((Timer1OFCountStop-1)<<16);
+[e = _result << - _Timer1OFCountStop -> -> -> 1 `i `l `ul -> 16 `i ]
+[; ;user.c: 163: result += stop;
+"163
 [e =+ _result _stop ]
-[; ;user.c: 166: result -= start;
-"166
+[; ;user.c: 164: result -= start;
+"164
 [e =- _result _start ]
-[; ;user.c: 167: return result;
-"167
+[; ;user.c: 165: return result;
+"165
 [e ) _result ]
 [e $UE 421  ]
-[; ;user.c: 179: }
-"179
+[; ;user.c: 177: }
+"177
 [e :UE 421 ]
 }
-"182
+"180
 [v _on_line_received `(v ~T0 @X0 1 ef1`*uc ]
-"183
+"181
 {
-[; ;user.c: 182: void on_line_received(char* str)
-[; ;user.c: 183: {
+[; ;user.c: 180: void on_line_received(char* str)
+[; ;user.c: 181: {
 [e :U _on_line_received ]
-"182
+"180
 [v _str `*uc ~T0 @X0 1 r1 ]
-"183
+"181
 [f ]
-"184
+"182
 [v __value `uc ~T0 @X0 1 a ]
-[; ;user.c: 184: unsigned char _value = atoi(str);
+[; ;user.c: 182: unsigned char _value = atoi(str);
 [e = __value -> ( _atoi (1 -> _str `*Cuc `uc ]
-[; ;user.c: 185: if(_value > 0)
-"185
+[; ;user.c: 183: if(_value > 0)
+"183
 [e $ ! > -> __value `i -> 0 `i 429  ]
-[; ;user.c: 186: {
-"186
+[; ;user.c: 184: {
+"184
 {
-[; ;user.c: 187: printf("Received %d\n\r", _value);
-"187
+[; ;user.c: 185: printf("Received %d\n\r", _value);
+"185
 [e ( _printf , (. :s 2C -> __value `i ]
-[; ;user.c: 188: Write_to_Pot(_value);
-"188
+[; ;user.c: 186: Write_to_Pot(_value);
+"186
 [e ( _Write_to_Pot (1 __value ]
-[; ;user.c: 189: value = _value;
-"189
+[; ;user.c: 187: value = _value;
+"187
 [e = _value __value ]
-"190
+"188
 }
-[; ;user.c: 190: }
+[; ;user.c: 188: }
 [e $U 430  ]
-"191
+"189
 [e :U 429 ]
-[; ;user.c: 191: else if(str[0] == 'b')
+[; ;user.c: 189: else if(str[0] == 'b')
 [e $ ! == -> *U + _str * -> -> 0 `i `x -> -> # *U _str `i `x `ui -> 98 `ui 431  ]
-[; ;user.c: 192: {
-"192
+[; ;user.c: 190: {
+"190
 {
-[; ;user.c: 193: begin = 1;
-"193
+[; ;user.c: 191: begin = 1;
+"191
 [e = _begin -> -> 1 `i `uc ]
-"194
+"192
 }
-[; ;user.c: 194: }
+[; ;user.c: 192: }
 [e $U 432  ]
-"195
+"193
 [e :U 431 ]
-[; ;user.c: 195: else if(str[0] == 'c')
+[; ;user.c: 193: else if(str[0] == 'c')
 [e $ ! == -> *U + _str * -> -> 0 `i `x -> -> # *U _str `i `x `ui -> 99 `ui 433  ]
-[; ;user.c: 196: {
-"196
+[; ;user.c: 194: {
+"194
 {
-"197
+"195
 [v _sp `ul ~T0 @X0 1 a ]
-[; ;user.c: 197: uint32_t sp = atol(str+1);
+[; ;user.c: 195: uint32_t sp = atol(str+1);
 [e = _sp -> ( _atol (1 -> + _str * -> -> 1 `i `x -> -> # *U _str `i `x `*Cuc `ul ]
-[; ;user.c: 198: if(sp == 0)
-"198
+[; ;user.c: 196: if(sp == 0)
+"196
 [e $ ! == _sp -> -> -> 0 `i `l `ul 434  ]
-[; ;user.c: 199: sp = 32000;
-"199
+[; ;user.c: 197: sp = 32000;
+"197
 [e = _sp -> -> -> 32000 `i `l `ul ]
 [e :U 434 ]
-[; ;user.c: 201: printf("Calibrate to %ul\n\r", sp);
-"201
+[; ;user.c: 199: printf("Calibrate to %ul\n\r", sp);
+"199
 [e ( _printf , (. :s 3C _sp ]
-[; ;user.c: 202: if(autotune_pot(sp))
-"202
+[; ;user.c: 200: if(autotune_pot(sp))
+"200
 [e $ ! != -> ( _autotune_pot (1 _sp `i -> -> -> 0 `i `uc `i 435  ]
-[; ;user.c: 203: {
-"203
+[; ;user.c: 201: {
+"201
 {
-[; ;user.c: 204: printf("Calibration frequency out of range\n\r");
-"204
+[; ;user.c: 202: printf("Calibration frequency out of range\n\r");
+"202
 [e ( _printf :s 4C ]
-[; ;user.c: 205: Write_to_Pot(128);
-"205
+[; ;user.c: 203: Write_to_Pot(128);
+"203
 [e ( _Write_to_Pot (1 -> -> 128 `i `uc ]
-"206
+"204
 }
 [e :U 435 ]
-"207
+"205
 }
-[; ;user.c: 206: }
-[; ;user.c: 207: }
+[; ;user.c: 204: }
+[; ;user.c: 205: }
 [e $U 436  ]
-"208
+"206
 [e :U 433 ]
-[; ;user.c: 208: else if(str[0] == 'r')
+[; ;user.c: 206: else if(str[0] == 'r')
 [e $ ! == -> *U + _str * -> -> 0 `i `x -> -> # *U _str `i `x `ui -> 114 `ui 437  ]
-[; ;user.c: 209: {
-"209
+[; ;user.c: 207: {
+"207
 {
-[; ;user.c: 210: printf("Reset\n\r");
-"210
+[; ;user.c: 208: printf("Reset\n\r");
+"208
 [e ( _printf :s 5C ]
+"210
+[; <"         reset ;# ">
 "212
-[; <"  reset ;# ">
-"214
 }
-[; ;user.c: 214: }
+[; ;user.c: 212: }
 [e $U 438  ]
-"215
+"213
 [e :U 437 ]
-[; ;user.c: 215: else
-[; ;user.c: 216: {
-"216
+[; ;user.c: 213: else
+[; ;user.c: 214: {
+"214
 {
-[; ;user.c: 217: printf("Invalid string: \"%s\"\n\r",str);
-"217
+[; ;user.c: 215: printf("Invalid string: \"%s\"\n\r",str);
+"215
 [e ( _printf , (. :s 6C -> _str `*Cuc ]
-"218
+"216
 }
 [e :U 438 ]
 [e :U 436 ]
 [e :U 432 ]
 [e :U 430 ]
-[; ;user.c: 218: }
-[; ;user.c: 219: }
-"219
+[; ;user.c: 216: }
+[; ;user.c: 217: }
+"217
 [e :UE 428 ]
 }
-"221
+"219
 [v _autotune_pot `(uc ~T0 @X0 1 ef1`ul ]
-"222
+"220
 {
-[; ;user.c: 221: unsigned char autotune_pot(uint32_t setpoint)
-[; ;user.c: 222: {
+[; ;user.c: 219: unsigned char autotune_pot(uint32_t setpoint)
+[; ;user.c: 220: {
 [e :U _autotune_pot ]
-"221
+"219
 [v _setpoint `ul ~T0 @X0 1 r1 ]
-"222
+"220
 [f ]
-[; ;user.c: 223: Write_to_Pot(value);
-"223
+[; ;user.c: 221: Write_to_Pot(value);
+"221
 [e ( _Write_to_Pot (1 _value ]
-"224
+"222
 [v _f `ul ~T0 @X0 1 a ]
-"225
+"223
 [v _i `i ~T0 @X0 1 a ]
-[; ;user.c: 224: uint32_t f;
-[; ;user.c: 225: int i;
-[; ;user.c: 226: for(i=0;i<16;i++){
-"226
+[; ;user.c: 222: uint32_t f;
+[; ;user.c: 223: int i;
+[; ;user.c: 224: for(i=0;i<16;i++){
+"224
 {
 [e = _i -> 0 `i ]
 [e $ < _i -> 16 `i 440  ]
 [e $U 441  ]
 [e :U 440 ]
 {
-[; ;user.c: 227: while((f = get_freq()) > setpoint) {
-"227
+[; ;user.c: 225: while((f = get_freq()) > setpoint) {
+"225
 [e $U 443  ]
 [e :U 444 ]
 {
-[; ;user.c: 228: printf("1: %lu, %u\n\r", f, value);
-"228
+[; ;user.c: 226: printf("1: %lu, %u\n\r", f, value);
+"226
 [e ( _printf , , (. :s 7C _f -> _value `i ]
-[; ;user.c: 229: value++;
-"229
+[; ;user.c: 227: value++;
+"227
 [e ++ _value -> -> 1 `i `uc ]
-[; ;user.c: 230: if(value == 0)
-"230
+[; ;user.c: 228: if(value == 0)
+"228
 [e $ ! == -> _value `i -> 0 `i 446  ]
-[; ;user.c: 231: {
-"231
+[; ;user.c: 229: {
+"229
 {
-[; ;user.c: 232: return -1;
-"232
+[; ;user.c: 230: return -1;
+"230
 [e ) -> -U -> 1 `i `uc ]
 [e $UE 439  ]
-"233
+"231
 }
 [e :U 446 ]
-[; ;user.c: 233: }
-[; ;user.c: 234: Write_to_Pot(value);
-"234
+[; ;user.c: 231: }
+[; ;user.c: 232: Write_to_Pot(value);
+"232
 [e ( _Write_to_Pot (1 _value ]
-"235
+"233
 }
 [e :U 443 ]
-"227
+"225
 [e $ > = _f ( _get_freq ..  _setpoint 444  ]
 [e :U 445 ]
-[; ;user.c: 235: }
-[; ;user.c: 236: while((f = get_freq()) < setpoint) {
-"236
+[; ;user.c: 233: }
+[; ;user.c: 234: while((f = get_freq()) < setpoint) {
+"234
 [e $U 447  ]
 [e :U 448 ]
 {
-[; ;user.c: 237: printf("1: %lu, %u\n\r", f, value);
-"237
+[; ;user.c: 235: printf("1: %lu, %u\n\r", f, value);
+"235
 [e ( _printf , , (. :s 8C _f -> _value `i ]
-[; ;user.c: 238: value--;
-"238
+[; ;user.c: 236: value--;
+"236
 [e -- _value -> -> 1 `i `uc ]
-[; ;user.c: 239: if(value == 255)
-"239
+[; ;user.c: 237: if(value == 255)
+"237
 [e $ ! == -> _value `i -> 255 `i 450  ]
-[; ;user.c: 240: {
-"240
+[; ;user.c: 238: {
+"238
 {
-[; ;user.c: 241: return -1;
-"241
+[; ;user.c: 239: return -1;
+"239
 [e ) -> -U -> 1 `i `uc ]
 [e $UE 439  ]
-"242
+"240
 }
 [e :U 450 ]
-[; ;user.c: 242: }
-[; ;user.c: 243: Write_to_Pot(value);
-"243
+[; ;user.c: 240: }
+[; ;user.c: 241: Write_to_Pot(value);
+"241
 [e ( _Write_to_Pot (1 _value ]
-"244
+"242
 }
 [e :U 447 ]
-"236
+"234
 [e $ < = _f ( _get_freq ..  _setpoint 448  ]
 [e :U 449 ]
-"245
+"243
 }
-"226
+"224
 [e ++ _i -> 1 `i ]
 [e $ < _i -> 16 `i 440  ]
 [e :U 441 ]
-"245
+"243
 }
-[; ;user.c: 244: }
-[; ;user.c: 245: }
-[; ;user.c: 246: return 0;
-"246
+[; ;user.c: 242: }
+[; ;user.c: 243: }
+[; ;user.c: 244: return 0;
+"244
 [e ) -> -> 0 `i `uc ]
 [e $UE 439  ]
-[; ;user.c: 247: }
-"247
+[; ;user.c: 245: }
+"245
 [e :UE 439 ]
 }
 [p f _printf 8651920 ]

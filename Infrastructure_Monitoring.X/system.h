@@ -16,7 +16,7 @@
 functions, and other non-peripheral microcontroller initialization functions
 go here. */
 
-void ConfigureOscillator(void); /* Handles clock switching/osc initialization */
+void ConfigureOscillator(void); //Clock configuration, located in system.c
 inline void char_received(char ch);
 
 union DWORD_UNION
@@ -29,8 +29,8 @@ union DWORD_UNION
 extern volatile unsigned long Timer1OfCount;
 extern volatile unsigned long Timer3OfCount;
 extern volatile unsigned char done;
-//extern volatile union DWORD_UNION Timer1OfCountStop;
-extern volatile unsigned long Timer1OfCountStop;
+//extern volatile union DWORD_UNION Timer1OFCountStop;
+extern volatile unsigned long Timer1OFCountStop;
 extern volatile unsigned long sys_clock;
 extern volatile unsigned long LastTimer1OfCount;
 extern volatile unsigned short LastTimer1Value;

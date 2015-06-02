@@ -3798,7 +3798,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;system.h: 29: extern volatile unsigned long Timer1OfCount;
 [; ;system.h: 30: extern volatile unsigned long Timer3OfCount;
 [; ;system.h: 31: extern volatile unsigned char done;
-[; ;system.h: 33: extern volatile unsigned long Timer1OfCountStop;
+[; ;system.h: 33: extern volatile unsigned long Timer1OFCountStop;
 [; ;system.h: 34: extern volatile unsigned long sys_clock;
 [; ;system.h: 35: extern volatile unsigned long LastTimer1OfCount;
 [; ;system.h: 36: extern volatile unsigned short LastTimer1Value;

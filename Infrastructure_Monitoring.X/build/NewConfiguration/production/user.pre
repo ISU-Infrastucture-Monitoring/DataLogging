@@ -5241,7 +5241,7 @@ extern volatile unsigned long Timer1OfCount;
 extern volatile unsigned long Timer3OfCount;
 extern volatile unsigned char done;
 
-extern volatile unsigned long Timer1OfCountStop;
+extern volatile unsigned long Timer1OFCountStop;
 extern volatile unsigned long sys_clock;
 extern volatile unsigned long LastTimer1OfCount;
 extern volatile unsigned short LastTimer1Value;
@@ -5275,7 +5275,7 @@ PIR1bits.TMR1IF = 0;
 T1CONbits.TMR1ON = 1;
 PIE1bits.TMR1IE = 1;
 
-# 71
+# 70
 CCP1CONbits.CCP1M = 7;
 
 TRISCbits.RC2 = 1;
@@ -5286,7 +5286,7 @@ PIE1bits.CCP1IE = 1;
 
 CCP2CONbits.CCP2M = 0xA;
 
-# 96
+# 97
 RCONbits.IPEN = 1;
 INTCONbits.GIE = 1;
 INTCONbits.PEIE = 1;
@@ -5302,9 +5302,6 @@ unsigned int k = 0;
 uint32_t freq;
 Write_to_Pot(128);
 unsigned long last_sys_clock = sys_clock;
-
-
-
 
 Write_to_Pot(109);
 value = 109;
@@ -5338,7 +5335,7 @@ LATAbits.LA0 = 0;
 volatile uint8_t done;
 
 
-volatile uint32_t Timer1OfCountStop;
+volatile uint32_t Timer1OFCountStop;
 volatile unsigned long LastTimer1OfCount;
 volatile unsigned short LastTimer1Value;
 uint32_t get_freq()
@@ -5355,12 +5352,12 @@ stop = CCPR1;
 unsigned long now = sys_clock;
 time.seconds = now;
 time.ms = 0;
-uint32_t result = ((Timer1OfCountStop-1)<<16);
+uint32_t result = ((Timer1OFCountStop-1)<<16);
 result += stop;
 result -= start;
 return result;
 
-# 179
+# 177
 }
 
 
@@ -5394,11 +5391,11 @@ else if(str[0] == 'r')
 {
 printf("Reset\n\r");
 
-# 211
+# 209
 #asm
- reset
+        reset
 #endasm 
- }
+        }
 else
 {
 printf("Invalid string: \"%s\"\n\r",str);

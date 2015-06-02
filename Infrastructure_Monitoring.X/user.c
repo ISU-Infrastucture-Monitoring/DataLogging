@@ -55,8 +55,7 @@ void InitApp(void)
     PIR1bits.TMR1IF = 0;    //Clears timer1 overflow interrupt flag
     T1CONbits.TMR1ON = 1;   //Turn on timer1
     PIE1bits.TMR1IE = 1;    //Enable timer1 overflow interrupts
-
-    //Timer 3
+    
 #ifdef HIGH_FREQ_MODE
     T3CONbits.RD16 = 0;     //16Bit mode
     T3CONbits.T3CKPS = 0;   //Prescaler set to 1:1
@@ -72,24 +71,26 @@ void InitApp(void)
     
     TRISCbits.RC2 = 1;          // set CCP pin as input
     
-    IPR1bits.CCP1IP = 1;        //Set up and enable capture interrupts
-    PIR1bits.CCP1IF = 0;
-    PIE1bits.CCP1IE = 1;
+    IPR1bits.CCP1IP = 1;        //Set up capture mode interrupt as high priority
+    PIR1bits.CCP1IF = 0;        //Clear capture mode interrupt flag
+    PIE1bits.CCP1IE = 1;        //Enable capture mode interrupts
     
     CCP2CONbits.CCP2M = 0xA;    // Compare mode, software interrupt only
 #endif
-//    T3CONbits.RD16 = 0;
-//    T3CONbits.T3CKPS = 3;       // divide by 8: 1MHz
-//    T3CONbits.TMR3CS = 0;
-//    
-//    T3CONbits.T3CCP1 = 1;
-//    T3CONbits.T3CCP2 = 0;
-//    
-//    CCPR2 = 10000;              // 100Hz system tick
-//    
-//    IPR2bits.CCP2IP = 0;        //Set up and enable capture interrupts for capture 2
-//    PIR2bits.CCP2IF = 0;
-//    PIE2bits.CCP2IE = 1;
+    
+    //Timer 3
+    //    T3CONbits.RD16 = 0;
+    //    T3CONbits.T3CKPS = 3;       // divide by 8: 1MHz
+    //    T3CONbits.TMR3CS = 0;
+    //    
+    //    T3CONbits.T3CCP1 = 1;
+    //    T3CONbits.T3CCP2 = 0;
+    //    
+    //    CCPR2 = 10000;              // 100Hz system tick
+    //    
+    //    IPR2bits.CCP2IP = 0;        //Set up and enable capture interrupts for capture 2
+    //    PIR2bits.CCP2IF = 0;
+    //    PIE2bits.CCP2IE = 1;
     
     
     
@@ -108,13 +109,10 @@ void InitApp(void)
     uint32_t freq;
     Write_to_Pot(128);
     unsigned long last_sys_clock = sys_clock;
-//    if(autotune_pot(128000))
-//    {
-//        printf("Calibration freq out of range\n\r");
-//        value = 128;
+
         Write_to_Pot(109);
         value = 109;
-    //}
+
         
         TRISAbits.RA0 = 0;
         
@@ -143,8 +141,8 @@ void InitApp(void)
 
 volatile uint8_t done;
 
-//volatile union DWORD_UNION Timer1OfCountStop;
-volatile uint32_t Timer1OfCountStop;
+//volatile union DWORD_UNION Timer1OFCountStop;
+volatile uint32_t Timer1OFCountStop;
 volatile unsigned long LastTimer1OfCount;
 volatile unsigned short LastTimer1Value;
 uint32_t get_freq() //Returns frequency as a raw number, before calculations
@@ -161,7 +159,7 @@ uint32_t get_freq() //Returns frequency as a raw number, before calculations
     unsigned long now = sys_clock;
     time.seconds = now;// / 100;
     time.ms = 0;//(now % 100)*10;
-    uint32_t result = ((Timer1OfCountStop-1)<<16);  //Return resultant raw data
+    uint32_t result = ((Timer1OFCountStop-1)<<16);  //Return resultant raw data
     result += stop;
     result -= start;
     return result;
@@ -207,10 +205,10 @@ void on_line_received(char* str)    //Handles commands
     }
     else if(str[0] == 'r')      //Reset to default condition command
     {
-	printf("Reset\n\r");
-	#asm
-	reset
-	#endasm
+        printf("Reset\n\r");
+        #asm
+        reset
+        #endasm
     }
     else
     {

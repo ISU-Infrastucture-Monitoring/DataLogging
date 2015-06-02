@@ -5104,7 +5104,7 @@ extern volatile unsigned long Timer1OfCount;
 extern volatile unsigned long Timer3OfCount;
 extern volatile unsigned char done;
 
-extern volatile unsigned long Timer1OfCountStop;
+extern volatile unsigned long Timer1OFCountStop;
 extern volatile unsigned long sys_clock;
 extern volatile unsigned long LastTimer1OfCount;
 extern volatile unsigned short LastTimer1Value;
@@ -5116,14 +5116,14 @@ void interrupt high_isr(void)
 {
 
 # 44
-volatile unsigned char i;
+volatile unsigned char i = 0;
 
 
 
 
 if(PIR1bits.CCP1IF){
 PIR1bits.CCP1IF = 0;
-Timer1OfCountStop = Timer1OfCount;
+Timer1OFCountStop = Timer1OfCount;
 done ++;
 }
 else if (PIR1bits.TMR1IF) {

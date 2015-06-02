@@ -5104,19 +5104,19 @@ extern volatile unsigned long Timer1OfCount;
 extern volatile unsigned long Timer3OfCount;
 extern volatile unsigned char done;
 
-extern volatile unsigned long Timer1OfCountStop;
+extern volatile unsigned long Timer1OFCountStop;
 extern volatile unsigned long sys_clock;
 extern volatile unsigned long LastTimer1OfCount;
 extern volatile unsigned short LastTimer1Value;
 
-# 24 "system.c"
+# 22 "system.c"
 void ConfigureOscillator(void)
 {
 OSCCONbits.IRCF = 7;
-
 OSCCONbits.SCS = 0;
 
 OSCTUNEbits.PLLEN = 1;
+
 
 while(!OSCCONbits.IOFS);
 

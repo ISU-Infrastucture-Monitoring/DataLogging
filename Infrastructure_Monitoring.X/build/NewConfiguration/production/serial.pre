@@ -5187,7 +5187,7 @@ extern volatile unsigned long Timer1OfCount;
 extern volatile unsigned long Timer3OfCount;
 extern volatile unsigned char done;
 
-extern volatile unsigned long Timer1OfCountStop;
+extern volatile unsigned long Timer1OFCountStop;
 extern volatile unsigned long sys_clock;
 extern volatile unsigned long LastTimer1OfCount;
 extern volatile unsigned short LastTimer1Value;
@@ -5203,7 +5203,6 @@ char string[256];
 void init_serial(void (*line_received)(char* str))
 {
 SPBRGH = 0;
-
 SPBRG = 138;
 
 
@@ -5234,6 +5233,7 @@ while(PIR1bits.TXIF == 0);
 PIR1bits.TXIF = 0;
 }
 
+# 68
 inline void char_received(char ch)
 {
 fifo_push(&serial.fifo, ch);

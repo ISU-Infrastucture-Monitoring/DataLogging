@@ -14,7 +14,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 "2945
 [v _PIR1bits `VS146 ~T0 @X0 0 e@3998 ]
 "33 system.h
-[v _Timer1OfCountStop `Vul ~T0 @X0 0 e ]
+[v _Timer1OFCountStop `Vul ~T0 @X0 0 e ]
 "29
 [v _Timer1OfCount `Vul ~T0 @X0 0 e ]
 "31
@@ -3839,7 +3839,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;system.h: 29: extern volatile unsigned long Timer1OfCount;
 [; ;system.h: 30: extern volatile unsigned long Timer3OfCount;
 [; ;system.h: 31: extern volatile unsigned char done;
-[; ;system.h: 33: extern volatile unsigned long Timer1OfCountStop;
+[; ;system.h: 33: extern volatile unsigned long Timer1OFCountStop;
 [; ;system.h: 34: extern volatile unsigned long sys_clock;
 [; ;system.h: 35: extern volatile unsigned long LastTimer1OfCount;
 [; ;system.h: 36: extern volatile unsigned short LastTimer1Value;
@@ -3854,7 +3854,8 @@ Version 3.2 HI-TECH Software Intermediate Code
 [f ]
 "44
 [v _i `Vuc ~T0 @X0 1 a ]
-[; ;interrupts.c: 44: volatile unsigned char i;
+[; ;interrupts.c: 44: volatile unsigned char i = 0;
+[e = _i -> -> 0 `i `uc ]
 [; ;interrupts.c: 49: if(PIR1bits.CCP1IF){
 "49
 [e $ ! != -> . . _PIR1bits 0 2 `i -> -> -> 0 `i `Vuc `i 404  ]
@@ -3862,9 +3863,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;interrupts.c: 50: PIR1bits.CCP1IF = 0;
 "50
 [e = . . _PIR1bits 0 2 -> -> 0 `i `uc ]
-[; ;interrupts.c: 51: Timer1OfCountStop = Timer1OfCount;
+[; ;interrupts.c: 51: Timer1OFCountStop = Timer1OfCount;
 "51
-[e = _Timer1OfCountStop _Timer1OfCount ]
+[e = _Timer1OFCountStop _Timer1OfCount ]
 [; ;interrupts.c: 52: done ++;
 "52
 [e ++ _done -> -> 1 `i `uc ]

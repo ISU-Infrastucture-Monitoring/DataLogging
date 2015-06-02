@@ -3815,35 +3815,35 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;system.h: 29: extern volatile unsigned long Timer1OfCount;
 [; ;system.h: 30: extern volatile unsigned long Timer3OfCount;
 [; ;system.h: 31: extern volatile unsigned char done;
-[; ;system.h: 33: extern volatile unsigned long Timer1OfCountStop;
+[; ;system.h: 33: extern volatile unsigned long Timer1OFCountStop;
 [; ;system.h: 34: extern volatile unsigned long sys_clock;
 [; ;system.h: 35: extern volatile unsigned long LastTimer1OfCount;
 [; ;system.h: 36: extern volatile unsigned short LastTimer1Value;
-"24 system.c
+"22 system.c
 [v _ConfigureOscillator `(v ~T0 @X0 1 ef ]
-"25
+"23
 {
-[; ;system.c: 24: void ConfigureOscillator(void)
-[; ;system.c: 25: {
+[; ;system.c: 22: void ConfigureOscillator(void)
+[; ;system.c: 23: {
 [e :U _ConfigureOscillator ]
 [f ]
-[; ;system.c: 26: OSCCONbits.IRCF = 7;
-"26
+[; ;system.c: 24: OSCCONbits.IRCF = 7;
+"24
 [e = . . _OSCCONbits 0 3 -> -> 7 `i `uc ]
-[; ;system.c: 28: OSCCONbits.SCS = 0;
-"28
+[; ;system.c: 25: OSCCONbits.SCS = 0;
+"25
 [e = . . _OSCCONbits 0 0 -> -> 0 `i `uc ]
-[; ;system.c: 30: OSCTUNEbits.PLLEN = 1;
-"30
+[; ;system.c: 27: OSCTUNEbits.PLLEN = 1;
+"27
 [e = . . _OSCTUNEbits 0 2 -> -> 1 `i `uc ]
-[; ;system.c: 32: while(!OSCCONbits.IOFS);
-"32
+[; ;system.c: 30: while(!OSCCONbits.IOFS);
+"30
 [e $U 404  ]
 [e :U 405 ]
 [e :U 404 ]
 [e $ ! != -> . . _OSCCONbits 0 1 `i -> -> -> 0 `i `Vuc `i 405  ]
 [e :U 406 ]
-[; ;system.c: 34: }
-"34
+[; ;system.c: 32: }
+"32
 [e :UE 403 ]
 }

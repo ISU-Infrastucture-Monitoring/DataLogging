@@ -31,8 +31,7 @@ struct SERIAL_STRUCT
 void init_serial(void (*line_received)(char* str))  //Initialize all serial communications, I2C & UART
 {
     SPBRGH = 0;
-    //SPBRG = 12;             //Sets Baud Rate to 9600
-    SPBRG = 138;     //Attempt to fix Baud Rate, set as close to 57600 as possible FIX SUCCESSFUL
+    SPBRG = 138;            //Baud Rate Set to 57600
     
     //Configure Baud rate to 16bit Asynchronous
     TXSTAbits.BRGH = 1;     //Sets Baud Rate to High Speed mode
@@ -42,10 +41,10 @@ void init_serial(void (*line_received)(char* str))  //Initialize all serial comm
     RCSTAbits.SPEN = 1;     //Enable Serial port
 
     TXSTAbits.TXEN = 1;     //Enable transmission
-    RCSTAbits.CREN = 1;
+    RCSTAbits.CREN = 1;     //Enables continuous reception
     
-    TRISCbits.RC6 = 1;      //Set Pin RC6 to TX
-    TRISCbits.RC7 = 1;      //Set Pin RC7 to RX
+    TRISCbits.RC6 = 1;      //Set Pin RC6 to TX, for UART communication
+    TRISCbits.RC7 = 1;      //Set Pin RC7 to RX, for UART communication
 
     PIR1bits.TXIF = 0;      //Clear transmit interrupt bit
     PIR1bits.RCIF = 0;      //Clear receive interrupt bit
@@ -54,7 +53,7 @@ void init_serial(void (*line_received)(char* str))  //Initialize all serial comm
     PIE1bits.RCIE = 1;      //Enable receive interrupt bit
 }
 
-void putch(char c)          //Used for output using printf()
+void putch(char c)          //Used for output using printf() function call
 {
     PIR1bits.TXIF = 0;
     TXREG = c;
@@ -62,6 +61,10 @@ void putch(char c)          //Used for output using printf()
     PIR1bits.TXIF = 0;
 }
 
+/*
+ * char_received deals with incoming commands, in order to callibrate, and record 
+ * data.
+ */
 inline void char_received(char ch)
 {
     fifo_push(&serial.fifo, ch);
